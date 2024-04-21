@@ -1,7 +1,7 @@
 ::[Bat To Exe Converter]
 ::
 ::YAwzoRdxOk+EWAjk
-::fBw5plQjdCyDJGyX8VAjFBxBVBGDAE+/Fb4I5/jH4P6Pp18hWO04d8HS2bvu
+::fBw5plQjdCuDJFaQ/EciFBdbSwu+MGS9CfsV6+eb
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF+5
@@ -11,21 +11,21 @@
 ::eBoioBt6dFKZSTk=
 ::cRo6pxp7LAbNWATEpCI=
 ::egkzugNsPRvcWATEpCI=
-::dAsiuh18IRvcCxnZtBJQ
-::cRYluBh/LU+EWAnk
-::YxY4rhs+aU+JeA==
-::cxY6rQJ7JhzQF1fEqQJQ
-::ZQ05rAF9IBncCkqN+0xwdVs0
-::ZQ05rAF9IAHYFVzEqQJQ
-::eg0/rx1wNQPfEVWB+kM9LVsJDGQ=
-::fBEirQZwNQPfEVWB+kM9LVsJDGQ=
-::cRolqwZ3JBvQF1fEqQJQ
-::dhA7uBVwLU+EWDk=
-::YQ03rBFzNR3SWATElA==
-::dhAmsQZ3MwfNWATElA==
-::ZQ0/vhVqMQ3MEVWAtB9wSA==
-::Zg8zqx1/OA3MEVWAtB9wSA==
-::dhA7pRFwIByZRRnk
+::dAsiuh18IRvcCxnZtBNQ
+::cRYluBh/LU+EWAjk
+::YxY4rhs+aU+IeA==
+::cxY6rQJ7JhzQF1fEqQJiZkMaH2Q=
+::ZQ05rAF9IBncCkqN+0xwdVsGAlzMbws=
+::ZQ05rAF9IAHYFVzEqQK3ydDTgskK3Z89/UqZEzVyFg8BXqCYhA26r0peP2MLzQeUMIJjvX2oDJU6
+::eg0/rx1wNQPfEVWB+kM9LVsJDINj9+x0yz39HG8AEG98f8TksWTDlQoLNTFZ5WX2PcAJkhH3Ef2Sc07W43s=
+::fBEirQZwNQPfEVWB+kM9LVsJDINj9+x0yz39HG8AEG98f8TksWTDlQoLNTFZ5WX2PcAJkhH3Ef2Sc07W43s=
+::cRolqwZ3JBvQF1fEqQK3ydDTgskK3Z89/UqZEzVyFg8BXqCYhA26r0peP2MLzQeUMIJjvX2oDJU6
+::dhA7uBVwLU+EWNBFKsXB/ns=
+::YQ03rBFzNR3SWATEfYPur+qCLA==
+::dhAmsQZ3MwfNWATEfYPur+qCLA==
+::ZQ0/vhVqMQ3MEVWAtB9wodqKy/VUXA==
+::Zg8zqx1/OA3MEVWAtB9wodqKy/VUXA==
+::dhA7pRFwIByZRRkNNZy32c00
 ::Zh4grVQjdCyDJGyX8VAjFBxBVBGDAE+/Fb4I5/jH+vqDo1kYGucnfe8=
 ::YB416Ek+ZW8=
 ::
@@ -34,7 +34,7 @@
 @echo off
 title 新版本更新
 color 0e
-set ver=2.6.0
+set ver=2.8.3
 set f12=7z.exe
 set f13=7z.dll
 set f15=aria2c.exe
@@ -118,6 +118,7 @@ cd "%~dp0"
 del tools.7z
 echo.
 del newverinfo
+rd logs
 set /p xz= 更新完成，请输入yes进入新版工具
 if %xz%==yes goto starttools
 

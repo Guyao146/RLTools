@@ -1,7 +1,7 @@
 ::[Bat To Exe Converter]
 ::
 ::YAwzoRdxOk+EWAjk
-::fBw5plQjdCyDJGyX8VAjFBxBVBGDAE+/Fb4I5/jH4P6Pp18hWO04d8HS2bvu
+::fBw5plQjdCuDJFaQ/EciFBdbSwu+MGS9CfsV6+eb
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF+5
@@ -13,18 +13,18 @@
 ::egkzugNsPRvcWATEpCI=
 ::dAsiuh18IRvcCxnZtBNQ
 ::cRYluBh/LU+EWAjk
-::YxY4rhs+aU+JeA==
-::cxY6rQJ7JhzQF1fEqQJiZk8aHWQ=
-::ZQ05rAF9IBncCkqN+0xwdVsGAlDMbQs=
+::YxY4rhs+aU+IeA==
+::cxY6rQJ7JhzQF1fEqQJiZkMaH2Q=
+::ZQ05rAF9IBncCkqN+0xwdVsGAlzMbws=
 ::ZQ05rAF9IAHYFVzEqQK3ydDTgskK3Z89/UqZEzVyFg8BXqCYhA26r0peP2Pu
-::eg0/rx1wNQPfEVWB+kM9LVsJDGQ=
+::eg0/rx1wNQPfEVWB+kM9LVsJDINj9+x0yz39HG8AEG98f8TksWTDlQoLNTFZ5WX2PSU=
 ::fBEirQZwNQPfEVWB+kM9LVsJDGQ=
 ::cRolqwZ3JBvQF1fEqQJQ
 ::dhA7uBVwLU+EWNBFKsXB/ns=
 ::YQ03rBFzNR3SWATElA==
-::dhAmsQZ3MwfNWATElA==
-::ZQ0/vhVqMQ3MEVWAtB9wSA==
-::Zg8zqx1/OA3MEVWAtB9wSA==
+::dhAmsQZ3MwfNWATEfYPur+qCLA==
+::ZQ0/vhVqMQ3MEVWAtB9wodqKy/VUXA==
+::Zg8zqx1/OA3MEVWAtB9wodqKy/VUXA==
 ::dhA7pRFwIByZRRnk
 ::Zh4grVQjdCyDJGyX8VAjFBxBVBGDAE+/Fb4I5/jH3caTrUIRR6w6YIq7
 ::YB416Ek+ZW8=
@@ -33,7 +33,7 @@
 ::978f952a14a936cc963da21a135fa983
 @echo off
 color 0e
-set ver=2.6.0
+set ver=2.8.3
 set rltools=%rltools%
 set uamd=2021.12.20
 set auth=¹ËÑş
@@ -56,7 +56,8 @@ set f12=7z.exe
 set f13=7z.dll
 set f14=version.txt
 set f15=aria2c.exe
-title %appname% %eng% %ver% - %auth% %admin%
+set f16=Bakkesmod.7z
+title %appname% %ver% - %auth% %admin%
 md logs
 md bin
 cd bin
@@ -83,6 +84,15 @@ echo   1.ÊÇ£¬Ìø×ªµ½¹ÙÍøÏÂÔØ
 echo.
 echo   2.·ñ£¬ÍË³ö
 echo.
+echo.
+echo   Çë×ÔĞĞÅÅ²éÒÔÏÂÎÊÌâ
+echo.
+echo  ĞèÒª½«Ñ¹Ëõ°üÄÚËùÓĞÎÄ¼şÍêÕû½âÑ¹ÖÁÍ¬Ò»ÎÄ¼ş¼ĞÏÂ
+echo.
+echo   ÎÄ¼ş¼ĞÖĞ°üº¬RLtools.exe update.exe aria2c.exeÈı¸ö±ØÒªÎÄ¼ş
+echo.
+echo   Èç¹ûÒÔÉÏÌõ¼ş¾ùÒÑÂú×ãÈ´»¹³öÏÖÁËÕâÌõÌáÊ¾£¬ÇëÁªÏµ¹ËÑş
+echo.
 set /p xz=ÇëÊäÈëĞòºÅºó»Ø³µ :
 if %xz%==1 start http://rl.mcylyr.cn
 if %xz%==2 exit
@@ -104,6 +114,7 @@ goto uacfalse
 cd /d %~dp0
 cd bin\Special
 RL¹¤¾ßÏäÌáÊ¾Äú.exe logo.ico RL¹ú¼Ê·şĞ¡¹¤¾ßÌáÊ¾Äú ¹¤¾ßÏä»ñÈ¡¹ÜÀíÔ±È¨ÏŞ³É¹¦£¬¸ĞĞ»Ê¹ÓÃ»ğ¼ıÁªÃË¹ú¼Ê·şĞ¡¹¤¾ß£¬°æ±¾%ver% 2
+RL¹¤¾ßÏäÌáÊ¾Äú.exe logo.ico RL¹ú¼Ê·şĞ¡¹¤¾ßÌáÊ¾Äú ÇëÔŞÖú¹ËÑşÎ¬³Ö·şÎñÆ÷µÄÉú¼Æ°É£¬º¢×ÓÒªÎŞÁË 2
 cd /d %~dp0
 echo. UACÍ¨¹ı>>logs\softlogs
 goto new1
@@ -157,12 +168,6 @@ timeout /t 5
 exit
 
 :usertrue
-##aria2c http://down.mcylyr.cn/rl/nuamd
-##copy  "%~dp0"\nuamd "%~dp0"\logs\nuamd
-##del "%~dp0"\nuamd
-##for /f "tokens=1* delims= " %%i in ("%~dp0logs\uamd") do (set uamd=%%i)
-##for /f "tokens=1* delims= " %%i in ("%~dp0logs\nuamd") do (set nuamd=%%i)
-##if %uamd% LSS %nuamd% goto usertrue
 aria2c http://down.mcylyr.cn/rl/uam
 copy  "%~dp0"\uam "%~dp0"\logs\uam
 del "%~dp0"\uam
@@ -226,7 +231,6 @@ exit
 :open2
 echo. ³õÊ¼»¯>>logs\softlogs
 cd /d %~dp0
-mshta vbscript:createobject("wscript.shell").run("""iexplore""http://rl.mcylyr.cn/num.html","2",ture)(window.close)
 CLS
 echo.
 echo ÕıÔÚ³õÊ¼»¯ÖĞ²¢¼ì²éĞÂ°æ±¾ÖĞ
@@ -258,9 +262,10 @@ CLS
 set path_=%Path%
 setx "PATH" "%path_%;%~dp0;%rltools%" /m
 echo. %errorlevel% >>logs\softlogs
+mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShortcut(a.SpecialFolders(""Desktop"") & ""\»ğ¼ıÁªÃË¹ú¼Ê·ş¹¤¾ßÏä.lnk""):b.TargetPath=""%~dp0RLtools.exe"":b.WorkingDirectory=""%~dp0"":b.Save:close")
 title ĞÂÊÖÖ¸ÒıÓëÈí¼ş½éÉÜ
 echo.
-echo   ¼ì²âµ½ÄãÊÇµÚÒ»´Î´ò¿ª±¾Èí¼ş£¬ÊÇ·ñĞèÒªÈí¼ş½éÉÜ
+echo   ¼ì²âµ½ÄãÊÇµÚÒ»´Î´ò¿ª/¸üĞÂ±¾Èí¼ş£¬ÊÇ·ñĞèÒªÈí¼ş½éÉÜ
 echo.
 echo   1.ĞèÒª
 echo.
@@ -276,6 +281,7 @@ pause>nul
 goto new
 
 :chinese
+TIMEOUT /T 1 /NOBREAK
 title %appname% %eng% %ver% - %auth% %admin%
 aria2c http://down.mcylyr.cn/rl/ad
 copy  "%~dp0"\ad "%~dp0"\logs\ad
@@ -285,17 +291,19 @@ CLS
 color 0e
 echo.
 echo.
-echo   %appname% %ver%
+echo     %appname% %ver%
 echo.
-echo   1.Ò»¼üÆô¶¯»ğ¼ıÁªÃË¹ú¼Ê·ş
+echo     1.Ò»¼üÆô¶¯»ğ¼ıÁªÃË¹ú¼Ê·ş
 echo.
-echo   2.ĞŞ¸Ähosts²¢¼ÓËÙepicÓëRL
+echo     2.ĞŞ¸Ähosts²¢¼ÓËÙepicÓëRL
 echo.
-echo   3.ÆäËû¹¦ÄÜ
+echo     3.ÆäËû¹¦ÄÜ
 echo.
-echo   4.¹ØÓÚÎÒÃÇÓë¹¤¾ßÏä
+echo     4.¹ØÓÚÎÒÃÇÓë¹¤¾ßÏä¸ß¼¶ÉèÖÃ
 echo.
-echo   0.ÍË³ö
+echo     5.ÔŞÖú¹ËÑş
+echo.
+echo     0.ÍË³ö
 echo.
 type "%~dp0"logs\ad
 echo.
@@ -305,29 +313,25 @@ if %xz%==1 goto rlstart
 if %xz%==2 goto 3
 if %xz%==3 goto other
 if %xz%==4 goto toolsinfo
+if %xz%==5 start http://rl.mcylyr.cn/donate.html&goto chinese
 if %xz%==time goto ad
 if %xz%==test goto test
-if %xz%==0 goto exit
+if %xz%==0 exit
+TIMEOUT /T 1 /NOBREAK
 goto chinese
 
 :toolsinfo
-title ¹ØÓÚÎÒÃÇ
+title ¹ØÓÚÎÒÃÇÓë¸ß¼¶ÉèÖÃ
 CLS
 echo.
 echo.
-echo   ¹ØÓÚÎÒÃÇ
+echo   ¹ØÓÚÎÒÃÇÓë¸ß¼¶ÉèÖÃ
 echo.
 echo   µ±Ç°Èí¼şÔËĞĞÂ·¾¶ %cd%
 echo.
 echo   Èí¼ş×¢²á±äÁ¿Â·¾¶ %rltools%
 echo.
 echo   »ğ¼ıÁªÃË¹ú¼Ê·ş¹¤¾ßÏäÓÉ¹ËÑş¹¤×÷ÊÒ±àĞ´²¢ÔËÓª
-echo.
-echo   Ê®·Ö¸ĞĞ»Ã¢¹ûÌá¹©µÄ½ô¼±·½°¸·şÎñÆ÷
-echo.
-echo   Èí¼ş¼±ĞèÔŞÖú¹ºÂò¸ß´ø¿í·şÎñÆ÷£¬ºóĞøÉÏµÄ¹¦ÄÜ»á·Ç³£ºÄ·Ñ·şÎñÆ÷µÄ´ø¿í
-echo.
-echo   ÓĞÓàÁ¦µÄ»°ÄÜÔŞÖúµãÂï
 echo.
 echo   1.²éÑ¯ÔŞÖúÃûµ¥ÓëÌØ±ğÃùĞ»
 echo.
@@ -341,6 +345,8 @@ echo   5.´ò¿ª¹¤¾ßÏä¹ÙÍø
 echo.
 echo   6.³·Ïú¹¤¾ßÏäÒşË½Ğ­ÒéÍ¬Òâ
 echo.
+echo   7.×ÀÃæÉú³É¹¤¾ßÏä¿ì½İ·½Ê½
+echo.
 echo   0.·µ»ØÖ÷Ò³
 echo.
 set /p xz=   ÇëÊäÈëĞòºÅ²¢»Ø³µ : 
@@ -350,9 +356,15 @@ if %xz%==3 del logs\*.* /q /s&goto exit
 if %xz%==4 start http://mcylyr.cn
 if %xz%==5 start http://rl.mcylyr.cn
 if %xz%==6 goto usererrortrue
+if %xz%==7 goto fastway
+if %xz%==tools goto toolsmode
 if %xz%==0 goto chinese
 pause>nul
 goto chinese
+
+:fastway
+mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShortcut(a.SpecialFolders(""Desktop"") & ""\»ğ¼ıÁªÃË¹ú¼Ê·ş¹¤¾ßÏä.lnk""):b.TargetPath=""%~dp0RLtools.exe"":b.WorkingDirectory=""%~dp0"":b.Save:close")
+goto toolsinfo
 
 :usererrortrue
 title ³·Ïú¹¤¾ßÏäÒşË½Ğ­ÒéÍ¬Òâ
@@ -456,7 +468,7 @@ CLS
 echo.
 echo.
 echo ÕıÔÚÏÂÔØepic¿Í»§¶Ë
-aria2c http://down.rlzhp.cn:1000/rl/tool/EpicInstaller.msi
+aria2c http://down.mcylyr.cn/rl/packet/EpicInstaller.msi
 copy  "%~dp0"\EpicInstaller.msi "%~dp0"\bin\EpicInstaller.msi
 del "%~dp0"\EpicInstaller.msi
 CLS
@@ -475,32 +487,29 @@ echo.
 echo.
 echo   1.²é¿´»ğ¼ıÁªÃË¹ú¼Ê·şÂ¼ÆÁÎÄ¼ş
 echo.
-echo   2.ĞŞ¸ÄÓÎÏ·½çÃæÓïÑÔÎªÖĞÎÄ
+echo   2.Õï¶ÏµçÄÔ²¢Éú³ÉÈÕÖ¾
 echo.
-echo   3.Õï¶ÏµçÄÔ²¢Éú³ÉÈÕÖ¾
+echo   3.³¢ÊÔĞŞ¸´»ğ¼ıÁªÃËÓëEpic¿Í»§¶ËÔËĞĞ»·¾³
 echo.
-echo   4.³¢ÊÔĞŞ¸´»ğ¼ıÁªÃËÓëEpic¿Í»§¶ËÔËĞĞ»·¾³
+echo   4.²éÑ¯°Ù¿Æ(ÕıÔÚÍêÉÆÖĞ)
 echo.
-echo   5.²éÑ¯°Ù¿Æ(ÕıÔÚÍêÉÆÖĞ)
+echo   5.Ò»¼ü¹Ø±Õ»ğ¼ıÁªÃË¹ú¼Ê·şĞŞ¸´SteamÓëEpicÕıÔÚÔËĞĞÖĞµÄ´íÎó
 echo.
-echo   6.Ò»¼ü¹Ø±Õ»ğ¼ıÁªÃË¹ú¼Ê·şĞŞ¸´SteamÓëEpicÕıÔÚÔËĞĞÖĞµÄ´íÎó
+echo   6.ÏÂÔØ °ïÖú ĞŞ¸´ °²×°²å¼ş BakkesMod
 echo.
-echo   7.ÏÂÔØ °ïÖú ĞŞ¸´ °²×°²å¼ş BakkesMod
-echo.
-echo   8.ÏÂÔØ °²×° epic¿Í»§¶Ë
+echo   7.ÏÂÔØ °²×° epic¿Í»§¶Ë
 echo.
 echo   0.·µ»ØÖ÷²Ëµ¥
 echo.
 echo.
 set /p xz=ÇëÊäÈëĞòºÅ²¢»Ø³µ :
 if %xz%==1 explorer "%Userprofile%\Documents\My Games\Rocket League\TAGame\Demos"
-if %xz%==2 goto CHN
-if %xz%==3 goto log
-if %xz%==4 goto repair
-if %xz%==5 start http://wiki.mcylyr.cn
-if %xz%==6 goto closerl
-if %xz%==7 goto mod
-if %xz%==8 goto epicinstall
+if %xz%==2 goto log
+if %xz%==3 goto repair
+if %xz%==4 start http://wiki.mcylyr.cn
+if %xz%==5 goto closerl
+if %xz%==6 goto mod
+if %xz%==7 goto epicinstall
 if %xz%==0 goto chinese
 pause>nul
 goto chinese
@@ -596,11 +605,10 @@ echo     6.ĞŞ¸´Bakkesmod³£¼ûÎÊÌâ
 echo.
 echo     7.°²×°Bakkesmod²å¼ş
 echo.
+echo     8.×Ô¶¯¸üĞÂBakkesmod×îĞÂ°æ±¾
+echo.
 echo     0.·µ»ØÖ÷²Ëµ¥
 echo.
-echo     ×¢:Bakkesmod¸üĞÂÒÑÕûºÏÖÁĞŞ¸Ähost£¬ÇëÔÚĞŞ¸ÄhostºóÖØĞÂ´ò¿ªBakkesmod½øĞĞ¸üĞÂ
-echo.
-echo     Bakkesmod±¾ÌåÄÚ¸üĞÂ½öÖ§³Ö¹ËÑşhostÈÕ±¾´óÚæ·ş
 echo.
 set /p xz=ÇëÊäÈëĞòºÅ²¢»Ø³µ : 
 if %xz%==1 goto bminstall
@@ -610,6 +618,7 @@ if %xz%==4 start https://bakkesmod.fandom.com/wiki/Troubleshooting
 if %xz%==5 goto readme
 if %xz%==6 goto bmrepair
 if %xz%==7 start http://rl.mcylyr.cn/plugins.html
+if %xz%==8 goto bmupdate
 if %xz%==0 goto chinese
 goto chinese
 
@@ -659,7 +668,28 @@ cd /d %~dp0
 bin\Expand\net.exe
 echo.
 echo VCÓëNetÔËĞĞ¿âÒÑĞŞ¸´Íê³É£¬ÏÖÔÚ×¼±¸ĞŞ¸´Bakkesmod±¾ÌåÎÄ¼ş
-goto updatebm
+goto bmupdate
+
+:bmupdate
+cd /d %~dp0
+echo  ÕıÔÚ¼ì²éBakkesmodĞŞ¸´/¸üĞÂ°üÊÇ·ñ´æÔÚ
+if exist "bin\Expand\%f16%" (goto bmupdate2) else (goto repairerror5)
+:bmupdate2
+cd /d %~dp0
+echo ¼ì²âÍê±Ï£¬ÕıÔÚĞŞ¸´/¸üĞÂ
+echo.
+cd %Appdata%\bakkesmod
+md bakkesmod
+cd /d %~dp0
+copy  "%~dp0"bin\Expand\bakkesmod.7z %Appdata%\bakkesmod\bakkesmod\bakkesmod.7z
+cd %Appdata%\bakkesmod\bakkesmod
+7z x bakkesmod.7z -aoa -y
+timeout /t 3
+echo.
+echo.
+echo ĞŞ¸´/¸üĞÂÍê±Ï£¬ÇëÖØĞÂ´ò¿ªBakkesmod¼ì²éÊÇ·ñĞŞ¸´/¸üĞÂ³É¹¦
+pause>nul
+goto mod
 
 :repairerror3
 CLS
@@ -670,7 +700,7 @@ timeout /t 5
 cd bin
 md Bin1
 cd /d %~dp0
-aria2c http://down.rlzhp.cn:1000/rl/tool/vc.exe
+aria2c.exe http://193.221.95.192/vc.exe
 copy  "%~dp0"\vc.exe "%~dp0"\bin\Expand
 del "%~dp0"\vc.exe
 goto bmrepair
@@ -684,10 +714,24 @@ timeout /t 5
 cd bin
 md Bin1
 cd /d %~dp0
-aria2c http://down.rlzhp.cn:1000/rl/tool/net.exe
+aria2c.exe http://193.221.95.192/net.exe
 copy  "%~dp0"\net.exe "%~dp0"\bin\Expand\net.exe
 del "%~dp0"\net.exe
 goto bminstall
+
+:repairerror5
+CLS
+echo.
+echo ±§Ç¸£¬Î´¼ì²âµ½BakkesmodĞŞ¸´ÎÄ¼ş£¬5Ãëºó×Ô¶¯¿ªÊ¼ÏÂÔØ
+echo.
+timeout /t 5
+cd bin
+md Bin1
+cd /d %~dp0
+aria2c.exe http://down.mcylyr.cn/rl/packet/BakkesModSetup.7z
+copy  "%~dp0"\bakkesmod.7z "%~dp0"\bin\Expand\bakkesmod.7z
+del "%~dp0"\bakkesmod.7z
+goto bmupdate
 
 :readme
 CLS
@@ -722,7 +766,7 @@ echo If you don't agree, please send me an email to remove the download source
 echo.
 echo We will delete works as soon as possible
 pause>nul
-goto leimu
+goto chinese
 
 :repair
 title ³¢ÊÔĞŞ¸´»ğ¼ıÁªÃËÓëEpic¿Í»§¶ËÔËĞĞ»·¾³
@@ -801,9 +845,10 @@ echo.
 echo.
 echo ĞŞ¸´Íê±Ï£¬Èç¹ûÈÔÈ»Æô¶¯Ê§°ÜÇë¹Ø±ÕÉ±¶¾Èí¼şÊÔÊÔ
 echo.
-echo °´ÈÎÒâ¼üÁ¢¿ÌÖØÆôµçÄÔ£¬Çë±£´æºÃµ±Ç°Èí¼şÊı¾İ
+echo °´ÈÎÒâ¼üÈ·¶¨£¬3ÃëºóÖØÆôµçÄÔ£¬Çë±£´æºÃµ±Ç°Èí¼şÊı¾İ
 echo.
 pause>nul
+TIMEOUT /T 3 /NOBREAK
 shutdown /s -t 0
 
 :repairerror1
@@ -813,22 +858,10 @@ echo ±§Ç¸£¬Î´¼ì²âµ½VCÔËĞĞ¿âĞŞ¸´³ÌĞò£¬5Ãëºó×Ô¶¯¿ªÊ¼ÏÂÔØvc.exeÔËĞĞ¿â
 echo.
 timeout /t 5
 cd /d %~dp0
-aria2c http://down.rlzhp.cn:1000/rl/tool/vc.exe
+aria2c http://193.221.95.192/vc.exe
 copy  "%~dp0"\vc.exe "%~dp0"\bin\Expand
 del "%~dp0"\vc.exe
 goto repair
-
-:repairerror1eng
-CLS
-echo.
-echo Sorry, no vc runtime fix detected. Download of vc.exe runtime will start automatically in 5 seconds
-echo.
-timeout /t 5
-cd /d %~dp0
-aria2c http://down.rlzhp.cn:1000/rl/tool/vc.exe
-copy  "%~dp0"\vc.exe "%~dp0"\bin\Expand\vc.exe
-del "%~dp0"\vc.exe
-goto repaireng
 
 :repairerror2
 CLS
@@ -837,7 +870,7 @@ echo ±§Ç¸£¬Î´¼ì²âµ½NetÔËĞĞ¿âĞŞ¸´³ÌĞò£¬5Ãëºó×Ô¶¯¿ªÊ¼ÏÂÔØnet.exeÔËĞĞ¿â
 echo.
 timeout /t 5
 cd /d %~dp0
-aria2c http://down.rlzhp.cn:1000/rl/tool/net.exe
+aria2c http://193.221.95.192/net.exe
 copy  "%~dp0"\net.exe "%~dp0"\bin\Expand\net.exe
 del "%~dp0"\net.exe
 goto repair
@@ -853,10 +886,10 @@ echo ÈçÓö¸ü¶àÎÊÌâ¿ÉÏòÎÒ·¢ËÍ µç×ÓÓÊ¼ş/QQ/Discord µÈ·½Ê½ÁªÏµÎÒ ÓÃÁË¼ÓËÙÆ÷»¹Á¬²»ÉÏµ
 echo.
 echo ÈçÉÏÃæÎ´³öÏÖ¾Ü¾ø·ÃÎÊ¼´ÎªĞŞ¸Ä³É¹¦
 echo.
-echo %auth%¸ĞĞ»ÄãµÄÊ¹ÓÃ
+echo %auth%¸ĞĞ»ÄãµÄÊ¹ÓÃ£¬10Ãëºó·µ»ØÖ÷Ò³
 echo.
-timeout /t 15
-exit
+timeout /t 10
+goto chinese
 
 :3
 title È·ÈÏÊÂÏî
@@ -879,23 +912,19 @@ title ĞŞ¸Ähosts²¢¼ÓËÙepicÓëRL
 CLS
 echo.
 echo.
-echo.
+echo   ĞŞ¸Ähosts²¢¼ÓËÙepicÓëRL
 echo.
 echo   1.ÍÆ¼ö·şÎñÆ÷²âÊÔPing²¢ĞŞ¸Ähosts
 echo.
 echo   2.ÆäËû·şÎñÆ÷²âÊÔPing²¢ĞŞ¸Ähosts
 echo.
-echo   3.´ò¿ªhostsÎÄ¼ş¼Ğ (½öÊÊºÏ¼«¿ÍÓÃ»§Ê¹ÓÃ£¬Ğ¡°×²»ÒªÂÒ´ò¿ª)
+echo   3.´ò¿ªhostsÎÄ¼ş¼Ğ
 echo.
 echo   4.»Ö¸´±¸·İµÄhosts
 echo.
-echo   5.´ò¿ª±¸·İhostsÎÄ¼ş¼Ğ (½öÊÊºÏ¼«¿ÍÓÃ»§Ê¹ÓÃ£¬Ğ¡°×²»ÒªÂÒ´ò¿ª)
+echo   5.´ò¿ª±¸·İhostsÎÄ¼ş¼Ğ
 echo.
-echo   6.Ë¢ĞÂÍøÂç»º´æ (½öÊÊºÏ¼«¿ÍÓÃ»§Ê¹ÓÃ£¬Ğ¡°×²»ÒªÂÒ´ò¿ª)
-echo.
-echo   7.Ãâ²âpingĞŞ¸Ähosts(²»ÍÆ¼ö£¬³ı·ÇÄãºÜÁË½âÕâĞ©·şÎñÆ÷)
-echo.
-echo   8.Ë¢ĞÂÍøÂçÉèÖÃÓë»º´æ (½öÊÊºÏ¼«¿ÍÓÃ»§Ê¹ÓÃ£¬Ğ¡°×²»ÒªÂÒ´ò¿ª£¬¿ÉÄÜ»á¶ÏÍø1-3·ÖÖÓ£¬Ë¢ĞÂÍê³ÉÇ°²»Òª¹Ø±Õ)
+echo   6.Ë¢ĞÂÍøÂç»º´æ
 echo.
 echo   0.·µ»ØÖ÷²Ëµ¥
 echo.
@@ -906,8 +935,6 @@ if %xz%==3 start %systemroot%/system32/drivers/etc
 if %xz%==4 goto rec
 if %xz%==5 start %systemroot%/system32/drivers/etc/hostsback
 if %xz%==6 ipconfig /flushdns&goto chinese
-if %xz%==7 goto noping
-if %xz%==8 goto reloadnet
 if %xz%==0 goto chinese
 pause>nul
 goto lau
@@ -942,13 +969,60 @@ echo °´ÈÎÒâ¼ü·µ»ØÖ÷²Ëµ¥
 pause>nul
 goto leimu
 
+:toolsmode
+CLS
+title ¸ß¼¶Ä£Ê½
+echo.
+echo.
+echo    ¹¤¾ßÏä¸ß¼¶Ä£Ê½
+echo.
+echo    1. Êä³öÈ«²¿ÈÕÖ¾
+echo.
+echo    2. ´ò¿ªÓÎÏ·ÈÕÖ¾ÎÄ¼ş¼Ğ
+echo.
+echo    3. Êä³öÂ·ÓÉ×·×ÙÈÕÖ¾
+echo.
+echo    4.Ãâ²âpingĞŞ¸Ähosts(²»ÍÆ¼ö£¬³ı·ÇÄãºÜÁË½âÕâĞ©·şÎñÆ÷)
+echo.
+echo    5.Ë¢ĞÂÍøÂçÉèÖÃÓë»º´æ (½öÊÊºÏ¼«¿ÍÓÃ»§Ê¹ÓÃ£¬Ğ¡°×²»ÒªÂÒ´ò¿ª£¬¿ÉÄÜ»á¶ÏÍø1-3·ÖÖÓ£¬Ë¢ĞÂÍê³ÉÇ°²»Òª¹Ø±Õ)
+echo.
+echo    0. ·µ»ØÖ÷²Ëµ¥
+echo.
+set /p xz=ÇëÊäÈëĞòºÅ²¢»Ø³µ : 
+if %xz%==1 goto log
+if %xz%==2 explorer "%USERPROFILE%/Documents/My Games/Rocket League/TAGame/Logs"
+if %xz%==3 goto luyou
+if %xz%==4 goto noping
+if %xz%==5 goto reloadnet
+if %xz%==0 goto chinese
+goto toolsmode
+
+:luyou
+echo ÕıÔÚÉú³É±¾µØÖÁhostÍøÂçĞÅÏ¢
+echo.>logs\luyou
+echo.±¾µØÖÁhostÍøÂçĞÅÏ¢>>logs\luyou
+echo.>>logs\luyou
+echo 1.¹ÙÍø·ş>>logs\systeminfo
+tracert 45.82.78.113>>logs\luyou
+echo.>>logs\luyou
+echo 2.ÈÕ±¾¶«¾©·ş>>logs\systeminfo
+tracert 124.108.22.138 >>logs\luyou
+echo.>>logs\luyou
+echo.
+echo ok
+echo.
+pause>nul
+goto toolsmode
+
 :log
 CLS
 title ÏµÍ³Õï¶ÏÖĞ
 cd /d %~dp0
 echo.
 
-echo ½ø¶È  [#---------] 10%
+echo Ô¤¼ÆÈ«³ÌĞèÒª1-10·ÖÖÓ£¬ÇëÄÍĞÄµÈ´ı
+echo.
+echo ½ø¶È  [#---------] 5%
 echo ÕıÔÚÉú³ÉÊ±¼äĞÅÏ¢
 echo.µ±Ç°µØÇøÈÕÆÚÓëÊ±¼ä>logs\systeminfo
 date /t>>logs\systeminfo
@@ -957,7 +1031,7 @@ echo.
 echo ok
 echo.
 
-echo ½ø¶È  [##--------] 20%
+echo ½ø¶È  [##--------] 10%
 echo ÕıÔÚÉú³ÉÈí¼şĞÅÏ¢
 echo.>>logs\systeminfo
 echo.ÈÕÖ¾ÓÉRL¹ú¼Ê·ş¹¤¾ßÏäÉú³É °æ±¾ %ver%>>logs\systeminfo
@@ -967,13 +1041,16 @@ echo.
 echo ok
 echo.
 
-echo ½ø¶È  [###-------] 30%
+echo ½ø¶È  [###-------] 20%
 echo ÕıÔÚÉú³ÉÏµÍ³ĞÅÏ¢
 echo.>>logs\systeminfo
 echo.ÏµÍ³ĞÅÏ¢>>logs\systeminfo
 echo.>>logs\systeminfo
 systeminfo>>logs\systeminfo
 echo.>>logs\systeminfo
+echo ÕıÔÚÊä³öRLÓÎÏ·ÈÕÖ¾
+md %CD%/logs/rllogs
+xcopy -y "%USERPROFILE%/Documents/My Games/Rocket League/TAGame/Logs" "%CD%/logs/rllogs"
 echo.
 echo ok
 echo.
@@ -981,31 +1058,31 @@ echo.
 echo ÕıÔÚÉú³É´æ´¢ĞÅÏ¢
 echo.>>logs\systeminfo
 echo.Ó²ÅÌĞÅÏ¢>>logs\systeminfo
-echo ½ø¶È  [####------] 35%
+echo ½ø¶È  [####------] 30%
 echo.>>logs\systeminfo
 wmic diskdrive>>logs\systeminfo
 echo.>>logs\systeminfo
 echo.´æ´¢¿Õ¼äĞÅÏ¢>>logs\systeminfo
-echo ½ø¶È  [####------] 40%
+echo ½ø¶È  [####------] 35%
 echo.>>logs\systeminfo
 Wmic logicaldisk>>logs\systeminfo
 echo.>>logs\systeminfo
 echo.ÔËĞĞÄÚ´æĞÅÏ¢>>logs\systeminfo
-echo ½ø¶È  [####------] 45%
+echo ½ø¶È  [####------] 40%
 echo.>>logs\systeminfo
 wmic memorychip>>logs\systeminfo
 echo.>>logs\systeminfo
-echo ½ø¶È  [#####-----] 50%
+echo ½ø¶È  [#####-----] 45%
 wmic volume>>logs\systeminfo
 echo.>>logs\systeminfo
 echo.
 echo ok
 echo.
 
-echo ½ø¶È  [######----] 60%
-echo ÕıÔÚÉú³ÉÍøÂçĞÅÏ¢
+echo ½ø¶È  [######----] 50%
+echo ÕıÔÚÉú³É±¾µØÍøÂçĞÅÏ¢
 echo.>>logs\systeminfo
-echo.ÍøÂçĞÅÏ¢>>logs\systeminfo
+echo.±¾µØÍøÂçĞÅÏ¢>>logs\systeminfo
 echo.>>logs\systeminfo
 ipconfig/all>>logs\systeminfo
 echo.>>logs\systeminfo
@@ -1088,6 +1165,8 @@ echo.
 
 :logok
 CLS
+7z a -t7z logs.7z logs
+rename logs.7z rltools-%date%-%time%.7z
 findstr /i /g:"logs\systeminfo" /c:"api.epicgames.dev" && goto neterror && goto logping
 :logping
 type "%~dp0"logs\systeminfo|findstr /i ÕÒ²»µ½Ö÷»ú && goto pingerror
@@ -1142,7 +1221,7 @@ CLS
 echo.
 echo AIÎ´ÅĞ¶Ï³öÎÊÌâ£¬ÇëÁªÏµ¹ËÑş
 echo.
-echo ÒÑÉú³ÉÈÕÖ¾ÎÄ¼şÔÚlogsÎÄ¼ş¼ĞÖĞ£¬ĞèÒªÕï¶ÏÇëÁªÏµ¹ËÑş£¬Ö÷Ò³¼´¿ÉÁªÏµµ½ÎÒ
+echo ÒÑÉú³ÉÈÕÖ¾ÎÄ¼şÔÚlogsÎÄ¼ş¼ĞÖĞ£¬ĞèÒªÕï¶ÏÇëÁªÏµ¹ËÑş£¬Ö÷Ò³¼´¿ÉÁªÏµ
 echo.
 pause
 goto Chinese
@@ -1159,9 +1238,9 @@ ipconfig /flushdns
 echo.
 echo ÈçÃ»ÓĞ³öÏÖ¾Ü¾ø·ÃÎÊÔòÎª»Ö¸´³É¹¦
 echo.
-echo %auth% %autheng%¸ĞĞ»ÄãµÄÊ¹ÓÃ£¬°´ÈÎÒâ¼üÍË³ö
-pause>nul
-exit
+echo %auth% %autheng%¸ĞĞ»ÄãµÄÊ¹ÓÃ£¬5Ãëºó·µ»ØÖ÷Ò³
+timeout /t 5
+goto chinese
 
 :noping
 CLS
@@ -1170,48 +1249,37 @@ echo.
 echo.
 echo   Ãâ²âpingĞŞ¸Ähosts
 echo.
-echo   1.ÔÓ»õÆÌ×¨Ïß-Ã¢¹ûÈÕ±¾¶«¾©·şÎñÆ÷
 echo.
-echo   2.ÔÓ»õÆÌ×¨Ïß-¹ËÑşÈÕ±¾2·ş-BBTECÈíÒø´óÚæ»ú·¿
+echo   1.ÈÕ±¾¶«¾©·şÎñÆ÷
 echo.
-echo   3.ÈÕ±¾¶«¾©·şÎñÆ÷
+echo   2.ÃÀ¹úÂåÉ¼í¶2·ş
 echo.
-echo   4.ÃÀ¹úÂåÉ¼í¶2·ş
+echo   3.ÃÀ¹úÂåÉ¼í¶3·ş
 echo.
-echo   5.ÃÀ¹úÂåÉ¼í¶3·ş
+echo   4.ÃÀ¹úÂåÉ¼í¶4·ş
 echo.
-echo   6.ÃÀ¹úÂåÉ¼í¶4·ş
+echo   5.ÃÀ¹úÂõ°¢ÃÜ·şÎñÆ÷
 echo.
-echo   7.ÃÀ¹úÂõ°¢ÃÜ·şÎñÆ÷
+echo   6.°ÍÁÖ·şÎñÆ÷
 echo.
-echo   8.°ÍÁÖ·şÎñÆ÷
+echo   7.Ì©¹úÂü¹È·şÎñÆ÷
 echo.
-echo   9.Ì©¹úÂü¹È·şÎñÆ÷
+echo   8.ÃÀ¹úÅ¦Ô¼·şÎñÆ÷
 echo.
-echo   10.ÃÀ¹úÅ¦Ô¼·şÎñÆ÷
-echo.
-echo   11.ÃÀ¹úÂåÉ¼í¶·şÎñÆ÷
-echo.
-echo   12.ÔÓ»õÆÌ×¨Ïß-¹ËÑş¶íÂŞË¹·ş-ĞÂÎ÷²®ÀûÑÇ»ú·¿
-echo.
-echo   13ÔÓ»õÆÌ×¨Ïß-¹ËÑşÃÀ¹úÂåÉ¼í¶·şÎñÆ÷
+echo   9.ÃÀ¹úÂåÉ¼í¶·şÎñÆ÷
 echo.
 echo   0.·µ»ØÖ÷²Ëµ¥
 echo.
 set /p xz=ÊäÈëÊı×Ö²¢»Ø³µºó¿ªÊ¼ĞŞ¸Ä :
-if %xz%==1 goto mg1
-if %xz%==2 goto gy3
-if %xz%==3 goto us
-if %xz%==4 goto us3
-if %xz%==5 goto us4
-if %xz%==6 goto us5
-if %xz%==7 goto us6
-if %xz%==8 goto bl
-if %xz%==9 goto tg
-if %xz%==10 goto us7
-if %xz%==11 goto us2
-if %xz%==12 goto gy4
-if %xz%==12 goto gy5
+if %xz%==1 goto us
+if %xz%==2 goto us3
+if %xz%==3 goto us4
+if %xz%==4 goto us5
+if %xz%==5 goto us6
+if %xz%==6 goto bl
+if %xz%==7 goto tg
+if %xz%==8 goto us7
+if %xz%==9 goto us2
 if %xz%==0 goto chinese
 pause>nul
 goto exit
@@ -1229,31 +1297,28 @@ date /t>>logs/ping.txt
 time /t>>logs/ping.txt
 echo.
 echo.
-echo ÕıÔÚ²âÊÔ ÔÓ»õÆÌ×¨Ïß-Ã¢¹ûÈÕ±¾¶«¾©·şÎñÆ÷
-echo 1.ÔÓ»õÆÌ×¨Ïß-Ã¢¹ûÈÕ±¾¶«¾©·şÎñÆ÷>>logs/ping.txt
-ping 8.210.120.68|findstr /I "×î¶Ì 100% ¶ªÊ§ less lost sent">>logs/ping.txt
-echo.>>logs/ping.txt
-echo.
-echo ÕıÔÚ²âÊÔ ÔÓ»õÆÌ×¨Ïß-¹ËÑşÈÕ±¾2·ş-BBTECÈíÒø´óÚæ»ú·¿
-echo 2.ÔÓ»õÆÌ×¨Ïß-¹ËÑşÈÕ±¾·ş-BBTECÈíÒø´óÚæ»ú·¿>>logs/ping.txt
-ping 140.238.35.210|findstr /I "×î¶Ì 100% ¶ªÊ§ less lost sent">>logs/ping.txt
-echo.>>logs/ping.txt
+REM echo ÕıÔÚ²âÊÔ ÔÓ»õÆÌ×¨Ïß-Ã¢¹ûÈÕ±¾¶«¾©·şÎñÆ÷
+REM echo 1.ÔÓ»õÆÌ×¨Ïß-Ã¢¹ûÈÕ±¾¶«¾©·şÎñÆ÷>>logs/ping.txt
+REM ping 8.210.120.68|findstr /I "×î¶Ì 100% ¶ªÊ§ less lost sent">>logs/ping.txt
+REM echo.>>logs/ping.txt
+REM echo.
+REM echo ÕıÔÚ²âÊÔ ÔÓ»õÆÌ×¨Ïß-¹ËÑşÏã¸Û·ş-xTom CMIÈıÍøÖ±Á¬»ú·¿
+REM echo 2.ÔÓ»õÆÌ×¨Ïß-¹ËÑşÏã¸Û·ş-xTom CMIÈıÍøÖ±Á¬»ú·¿>>logs/ping.txt
+ping 45.128.210.230|findstr /I "×î¶Ì 100% ¶ªÊ§ less lost sent">>logs/ping.txt
+REM echo.>>logs/ping.txt
+REM echo.
+echo ÓÉÓÚ×Ê½ğ²»×ã£¬ÆäËû·şÎñÆ÷ÒÑÂ½Ğø¹Ø±Õ£¬ÓĞÓàÁ¦µÄÀÏ¸ç¿ÉÒÔ¸ø¹ËÑşÔŞÖúµã
 echo.
 echo ÕıÔÚ²âÊÔ ÈÕ±¾¶«¾©·şÎñÆ÷
-echo 3.ÈÕ±¾¶«¾©·şÎñÆ÷>>logs/ping.txt
-ping 140.238.35.210|findstr /I "×î¶Ì 100% ¶ªÊ§ less lost sent">>logs/ping.txt
+echo 1.ÈÕ±¾¶«¾©·şÎñÆ÷>>logs/ping.txt
+ping 124.108.22.138|findstr /I "×î¶Ì 100% ¶ªÊ§ less lost sent">>logs/ping.txt
 echo.>>logs/ping.txt
 echo.
-echo ÕıÔÚ²âÊÔ  ÔÓ»õÆÌ×¨Ïß-¹ËÑş¶íÂŞË¹·ş-ĞÂÎ÷²®ÀûÑÇ»ú·¿
-echo 4.ÔÓ»õÆÌ×¨Ïß-¹ËÑş¶íÂŞË¹·ş-ĞÂÎ÷²®ÀûÑÇ»ú·¿>>logs/ping.txt
-ping 45.144.176.220|findstr /I "×î¶Ì 100% ¶ªÊ§ less lost sent">>logs/ping.txt
-echo.>>logs/ping.txt
-echo.
-echo ÕıÔÚ²âÊÔ  ÔÓ»õÆÌ×¨Ïß-¹ËÑşÃÀ¹úÂåÉ¼í¶·şÎñÆ÷
-echo 5.ÔÓ»õÆÌ×¨Ïß-¹ËÑşÃÀ¹úÂåÉ¼í¶·şÎñÆ÷>>logs/ping.txt
-ping 64.69.34.208|findstr /I "×î¶Ì 100% ¶ªÊ§ less lost sent">>logs/ping.txt
-echo.>>logs/ping.txt
-echo.
+REM echo ÕıÔÚ²âÊÔ ÔÓ»õÆÌ×¨Ïß-¹ËÑşÈÕ±¾2·ş-BBTECÈíÒø´óÚæ»ú·¿
+REM echo 4.ÔÓ»õÆÌ×¨Ïß-¹ËÑşÈÕ±¾·ş-BBTECÈíÒø´óÚæ»ú·¿>>logs/ping.txt
+REM ping 45.117.103.145|findstr /I "×î¶Ì 100% ¶ªÊ§ less lost sent">>logs/ping.txt
+REM echo.>>logs/ping.txt
+REM echo.
 echo ÕıÔÚÌø×ªÖÁÑ¡Ôñ·şÎñÆ÷½çÃæ
 echo.
 timeout /t 3
@@ -1274,11 +1339,7 @@ echo ÇëÑ¡ÔñÊÊºÏ×Ô¼ºÍøÂçµÄÏßÂ·£¬100¶ªÊ§µÄÎªÁ¬½Ó²»ÉÏ·şÎñÆ÷£¬ping¸ß²»´ú±íÓÎÏ·ÄÚÑÓ³Ù
 echo.
 echo.
 set /p xz=ÊäÈëÊı×Ö²¢»Ø³µºó¿ªÊ¼ĞŞ¸Ä :
-if %xz%==1 goto mg1
-if %xz%==2 goto gy3
-if %xz%==3 goto us
-if %xz%==4 goto gy4
-if %xz%==5goto gy5
+if %xz%==1 goto us
 
 :ping2
 CLS
@@ -1373,15 +1434,18 @@ copy %windir%\System32\drivers\etc\hosts %windir%\System32\drivers\etc\hostsback
 echo.
 echo ÕıÔÚĞ´ÈëhostsÎÄ¼ş
 echo.>C:\WINDOWS\system32\drivers\etc\hosts
-echo. 140.238.35.210 xmpp-service-prod.ol.epicgames.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo. 140.238.35.210 metrics.ol.epicgames.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo. 140.238.35.210 egp-idsoc-proxy-prod.ol.epicgames.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo. 140.238.35.210 api.rlpp.psynet.gg  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo. 140.238.35.210 ocsp.pki.goog  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo. 140.238.35.210 rl-cdn.psyonix.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo. 140.238.35.210 config.psynet.gg  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo. 140.238.35.210 ocsp.int-x3.letsencrypt.org  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo. 140.238.35.210 psyonix-rl.appspot.com  >> C:\WINDOWS\system32\drivers\etc\hosts
+echo. 124.108.22.138 xmpp-service-prod.ol.epicgames.com  >> C:\WINDOWS\system32\drivers\etc\hosts
+echo. 124.108.22.138 metrics.ol.epicgames.com  >> C:\WINDOWS\system32\drivers\etc\hosts
+echo. 124.108.22.138 egp-idsoc-proxy-prod.ol.epicgames.com  >> C:\WINDOWS\system32\drivers\etc\hosts
+echo. 124.108.22.138 api.rlpp.psynet.gg  >> C:\WINDOWS\system32\drivers\etc\hosts
+echo. 124.108.22.138 ocsp.pki.goog  >> C:\WINDOWS\system32\drivers\etc\hosts
+echo. 124.108.22.138 rl-cdn.psyonix.com  >> C:\WINDOWS\system32\drivers\etc\hosts
+echo. 124.108.22.138 config.psynet.gg  >> C:\WINDOWS\system32\drivers\etc\hosts
+echo. 124.108.22.138 ocsp.int-x3.letsencrypt.org  >> C:\WINDOWS\system32\drivers\etc\hosts
+echo. 124.108.22.138 psyonix-rl.appspot.com  >> C:\WINDOWS\system32\drivers\etc\hosts
+echo. 124.108.22.138 ocsp.int-x3.letsencrypt.org >> C:\WINDOWS\system32\drivers\etc\hosts
+echo. 124.108.22.138 config.psynet.gg >> C:\WINDOWS\system32\drivers\etc\hosts
+echo. 124.108.22.138 connect.epicgames.dev >> C:\WINDOWS\system32\drivers\etc\hosts
 echo ÕıÔÚË¢ĞÂDNS»º´æ
 ipconfig /flushdns >logs/hostserror
 echo.
@@ -1638,46 +1702,6 @@ goto exit
 :mg1
 CLS
 title ÕıÔÚĞŞ¸Ähosts ÔÓ»õÆÌ×¨Ïß-Ã¢¹ûÈÕ±¾¶«¾©·şÎñÆ÷
-echo ÕıÔÚ¶ÔhostsÎÄ¼ş½øĞĞ½µÈ¨
-attrib -h -s -r %windir%\System32\drivers\etc\hosts
-echo.
-echo ÕıÔÚ±¸·İÔ­hostsÎÄ¼ş
-mkdir %windir%\System32\drivers\etc\hostsback
-cd %windir%\System32\drivers\etc
-copy %windir%\System32\drivers\etc\hosts %windir%\System32\drivers\etc\hostsback\hosts
-echo.
-echo ÕıÔÚĞ´ÈëhostsÎÄ¼ş
-echo.>C:\WINDOWS\system32\drivers\etc\hosts
-echo.  #±¾hostÓÉ¹ËÑşRL¹¤¾ßÏäÌá¹©£¬ÓÉÃ¢¹ûÌá¹©·şÎñÆ÷Ö§³Ö£¬ÕâÌõ²»Ó°ÏìhostÕı³£Ê¹ÓÃ  > C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 epicgames.dev  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 psynet.gg  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 appspot.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.	  8.209.196.32 pki.goog  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 psyonix.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 letsencrypt.org  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 github.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 bakkesmod.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 steamcommunity.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 epicgames.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.	   8.209.196.32 unrealengine.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo. 	   8.209.196.32 akamaized.net  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 psynet.gg  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 appspot.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 pki.goog  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 psyonix.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 letsencrypt.org  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 github.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.	   8.209.196.32 bakkesmod.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 steamcommunity.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 epicgames.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 unrealengine.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 akamaized.net  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 githubassets.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 myqcloud.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    8.209.196.32 githubusercontent.com  >> C:\WINDOWS\system32\drivers\etc\hosts
-echo ÕıÔÚË¢ĞÂDNS»º´æ
-ipconfig /flushdns
-goto exit
 
 :gy3
 CLS
@@ -1693,104 +1717,104 @@ echo.
 echo ÕıÔÚĞ´ÈëhostsÎÄ¼ş
 echo.>C:\WINDOWS\system32\drivers\etc\hosts
 echo.  #±¾hostÓÉ¹ËÑşRL¹¤¾ßÏäÌá¹©£¬ÕâÌõ²»Ó°ÏìhostÕı³£Ê¹ÓÃ  > C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 bakkesmod.com >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 steamcommunity.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 steampowered.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 store.steampowered.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 updater.bakkesmod.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 gist.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 api.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 www.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 avatars0.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 avatars1.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 avatars2.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 avatars3.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 avatars4.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 avatars5.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 avatars6.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 avatars7.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 avatars8.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 camo.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 cloud.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 gist.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 marketplace-screenshots.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 raw.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 repository-images.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 user-images.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 steamcommunity.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 www.steamcommunity.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 store.steampowered.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 api.steampowered.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 steamcdn-a.akamaihd.net>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 cdn.akamai.steamstatic.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 origin-a.akamaihd.net>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 static3.cdn.ubi.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 steam-chat.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 www.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 gist.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 api.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 raw.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 raw.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 camo.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 cloud.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 avatars.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 avatars0.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 avatars1.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 avatars2.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 avatars3.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 user-images.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 github-releases.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 assets-cdn.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 github.githubassets.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 codeload.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 pages.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 help.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 docs.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 services.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 resources.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 developer.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 partner.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 desktop.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 support.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 education.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 enterprise.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 lab.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 classroom.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 central.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 desktop.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 guides.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 github.io>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 www.github.io>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 *.github.io>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 store-images.s-microsoft.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 images-eds.xboxlive.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 api1.origin.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 onedrive.live.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 skyapi.onedrive.live.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 api.epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 connect.epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 xmpp-service-prod.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 metrics.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 egp-idsoc-proxy-prod.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 api.rlpp.psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 psyonix-rl.appspot.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 ocsp.pki.goog>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 rl-cdn.psyonix.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 config.psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 ocsp.int-x3.letsencrypt.org>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 talon-service-prod.ecosec.on.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 tracking.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 unrealengine.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 appspot.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 pki.goog>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 psyonix.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.117.103.229 letsencrypt.org>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 bakkesmod.com >> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 steamcommunity.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 steampowered.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 store.steampowered.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 updater.bakkesmod.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 gist.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 api.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 www.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 avatars0.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 avatars1.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 avatars2.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 avatars3.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 avatars4.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 avatars5.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 avatars6.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 avatars7.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 avatars8.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 camo.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 cloud.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 gist.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 marketplace-screenshots.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 raw.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 repository-images.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 user-images.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 steamcommunity.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 www.steamcommunity.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 store.steampowered.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 api.steampowered.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 steamcdn-a.akamaihd.net>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 cdn.akamai.steamstatic.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 origin-a.akamaihd.net>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 static3.cdn.ubi.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 steam-chat.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 www.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 gist.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 api.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 raw.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 raw.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 camo.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 cloud.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 avatars.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 avatars0.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 avatars1.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 avatars2.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 avatars3.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 user-images.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 github-releases.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 assets-cdn.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 github.githubassets.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 codeload.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 pages.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 help.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 docs.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 services.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 resources.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 developer.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 partner.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 desktop.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 support.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 education.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 enterprise.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 lab.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 classroom.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 central.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 desktop.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 guides.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 github.io>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 www.github.io>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 *.github.io>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 store-images.s-microsoft.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 images-eds.xboxlive.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 api1.origin.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 onedrive.live.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 skyapi.onedrive.live.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 api.epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 connect.epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 xmpp-service-prod.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 metrics.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 egp-idsoc-proxy-prod.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 api.rlpp.psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 psyonix-rl.appspot.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 ocsp.pki.goog>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 rl-cdn.psyonix.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 config.psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 ocsp.int-x3.letsencrypt.org>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 talon-service-prod.ecosec.on.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 tracking.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 unrealengine.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 appspot.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 pki.goog>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 psyonix.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 letsencrypt.org>> C:\WINDOWS\system32\drivers\etc\hosts
 echo ÕıÔÚË¢ĞÂDNS»º´æ
 ipconfig /flushdns
 goto exit
@@ -1798,122 +1822,14 @@ goto exit
 :gy4
 CLS
 title ÕıÔÚĞŞ¸Ähosts ÔÓ»õÆÌ×¨Ïß-¹ËÑş¶íÂŞË¹·ş-ĞÂÎ÷²®ÀûÑÇ»ú·¿
-echo ÕıÔÚ¶ÔhostsÎÄ¼ş½øĞĞ½µÈ¨
-attrib -h -s -r %windir%\System32\drivers\etc\hosts
-echo.
-echo ÕıÔÚ±¸·İÔ­hostsÎÄ¼ş
-mkdir %windir%\System32\drivers\etc\hostsback
-cd %windir%\System32\drivers\etc
-copy %windir%\System32\drivers\etc\hosts %windir%\System32\drivers\etc\hostsback\hosts
-echo.
-echo ÕıÔÚĞ´ÈëhostsÎÄ¼ş
-echo.>C:\WINDOWS\system32\drivers\etc\hosts
-echo.  #±¾hostÓÉ¹ËÑşRL¹¤¾ßÏäÌá¹©£¬ÕâÌõ²»Ó°ÏìhostÕı³£Ê¹ÓÃ  > C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 bakkesmod.com >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 steamcommunity.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 steampowered.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 store.steampowered.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 updater.bakkesmod.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 gist.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 api.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 www.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 avatars0.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 avatars1.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 avatars2.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 avatars3.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 avatars4.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 avatars5.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 avatars6.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 avatars7.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 avatars8.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 camo.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 cloud.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 gist.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 marketplace-screenshots.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 raw.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 repository-images.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 user-images.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 steamcommunity.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 www.steamcommunity.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 store.steampowered.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 api.steampowered.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 steamcdn-a.akamaihd.net>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 cdn.akamai.steamstatic.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 origin-a.akamaihd.net>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 static3.cdn.ubi.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 steam-chat.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 www.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 gist.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 api.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 raw.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 raw.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 camo.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 cloud.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 avatars.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 avatars0.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 avatars1.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 avatars2.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 avatars3.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 user-images.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 github-releases.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 assets-cdn.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 github.githubassets.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 codeload.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 pages.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 help.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 docs.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 services.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 resources.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 developer.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 partner.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 desktop.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 support.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 education.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 enterprise.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 lab.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 classroom.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 central.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 desktop.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 guides.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 github.io>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 www.github.io>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 *.github.io>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 store-images.s-microsoft.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 images-eds.xboxlive.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 api1.origin.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 onedrive.live.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 skyapi.onedrive.live.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 api.epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 connect.epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 xmpp-service-prod.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 metrics.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 egp-idsoc-proxy-prod.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 api.rlpp.psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 psyonix-rl.appspot.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 ocsp.pki.goog>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 rl-cdn.psyonix.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 config.psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 ocsp.int-x3.letsencrypt.org>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 talon-service-prod.ecosec.on.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 tracking.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 unrealengine.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 appspot.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 pki.goog>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 psyonix.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    45.144.176.220 letsencrypt.org>> C:\WINDOWS\system32\drivers\etc\hosts
-echo ÕıÔÚË¢ĞÂDNS»º´æ
-ipconfig /flushdns
-goto exit
 
 :gy5
 CLS
 title ÕıÔÚĞŞ¸Ähosts ÔÓ»õÆÌ×¨Ïß-¹ËÑşÃÀ¹ú·ş-ÂåÉ¼í¶»ú·¿
+
+:gy6
+CLS
+title ÕıÔÚĞŞ¸Ähosts ÔÓ»õÆÌ×¨Ïß-¹ËÑşÈÕ±¾2·ş-BBTECÈíÒø´óÚæ»ú·¿
 echo ÕıÔÚ¶ÔhostsÎÄ¼ş½øĞĞ½µÈ¨
 attrib -h -s -r %windir%\System32\drivers\etc\hosts
 echo.
@@ -1925,104 +1841,65 @@ echo.
 echo ÕıÔÚĞ´ÈëhostsÎÄ¼ş
 echo.>C:\WINDOWS\system32\drivers\etc\hosts
 echo.  #±¾hostÓÉ¹ËÑşRL¹¤¾ßÏäÌá¹©£¬ÕâÌõ²»Ó°ÏìhostÕı³£Ê¹ÓÃ  > C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 bakkesmod.com >> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 steamcommunity.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 steampowered.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 store.steampowered.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 updater.bakkesmod.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 gist.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 api.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 www.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 avatars0.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 avatars1.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 avatars2.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 avatars3.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 avatars4.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 avatars5.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 avatars6.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 avatars7.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 avatars8.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 camo.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 cloud.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 gist.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 marketplace-screenshots.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 raw.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 repository-images.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 user-images.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 steamcommunity.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 www.steamcommunity.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 store.steampowered.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 api.steampowered.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 steamcdn-a.akamaihd.net>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 cdn.akamai.steamstatic.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 origin-a.akamaihd.net>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 static3.cdn.ubi.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 steam-chat.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 www.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 gist.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 api.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 raw.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 raw.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 camo.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 cloud.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 avatars.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 avatars0.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 avatars1.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 avatars2.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 avatars3.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 user-images.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 github-releases.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 assets-cdn.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 github.githubassets.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 codeload.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 pages.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 help.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 docs.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 services.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 resources.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 developer.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 partner.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 desktop.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 support.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 education.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 enterprise.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 lab.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 classroom.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 central.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 desktop.githubusercontent.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 guides.github.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 github.io>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 www.github.io>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 *.github.io>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 store-images.s-microsoft.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 images-eds.xboxlive.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 api1.origin.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 onedrive.live.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 skyapi.onedrive.live.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 api.epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 connect.epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 xmpp-service-prod.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 metrics.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 egp-idsoc-proxy-prod.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 api.rlpp.psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 psyonix-rl.appspot.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 ocsp.pki.goog>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 rl-cdn.psyonix.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 config.psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 ocsp.int-x3.letsencrypt.org>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 talon-service-prod.ecosec.on.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 tracking.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 unrealengine.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 appspot.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 pki.goog>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 psyonix.com>> C:\WINDOWS\system32\drivers\etc\hosts
-echo.    64.69.34.208 letsencrypt.org>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 bakkesmod.com >> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 api.epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 connect.epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 xmpp-service-prod.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 metrics.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 egp-idsoc-proxy-prod.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 api.rlpp.psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 psyonix-rl.appspot.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 ocsp.pki.goog>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 rl-cdn.psyonix.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 config.psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 talon-service-prod.ecosec.on.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 tracking.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 appspot.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 pki.goog>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 psyonix.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 static-assets-prod.unrealengine.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 datarouter.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.117.103.145 events.launchdarkly.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo ÕıÔÚË¢ĞÂDNS»º´æ
+ipconfig /flushdns
+goto exit
+
+:gy7
+CLS
+title ÕıÔÚĞŞ¸Ähosts ÔÓ»õÆÌ×¨Ïß-¹ËÑşÏã¸Û·ş-xTom CMIÈıÍøÖ±Á¬»ú·¿
+echo ÕıÔÚ¶ÔhostsÎÄ¼ş½øĞĞ½µÈ¨
+attrib -h -s -r %windir%\System32\drivers\etc\hosts
+echo.
+echo ÕıÔÚ±¸·İÔ­hostsÎÄ¼ş
+mkdir %windir%\System32\drivers\etc\hostsback
+cd %windir%\System32\drivers\etc
+copy %windir%\System32\drivers\etc\hosts %windir%\System32\drivers\etc\hostsback\hosts
+echo.
+echo ÕıÔÚĞ´ÈëhostsÎÄ¼ş
+echo.>C:\WINDOWS\system32\drivers\etc\hosts
+echo.  #±¾hostÓÉ¹ËÑşRL¹¤¾ßÏäÌá¹©£¬ÕâÌõ²»Ó°ÏìhostÕı³£Ê¹ÓÃ  > C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 bakkesmod.com >> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 api.epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 connect.epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 xmpp-service-prod.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 metrics.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 egp-idsoc-proxy-prod.ol.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 api.rlpp.psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 psyonix-rl.appspot.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 ocsp.pki.goog>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 rl-cdn.psyonix.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 config.psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 talon-service-prod.ecosec.on.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 tracking.epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 epicgames.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 epicgames.dev>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 psynet.gg>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 appspot.com>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 pki.goog>> C:\WINDOWS\system32\drivers\etc\hosts
+echo.    45.128.210.230 psyonix.com>> C:\WINDOWS\system32\drivers\etc\hosts
 echo ÕıÔÚË¢ĞÂDNS»º´æ
 ipconfig /flushdns
 goto exit
