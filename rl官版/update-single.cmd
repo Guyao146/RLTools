@@ -34,17 +34,13 @@
 @echo off
 title 新版本更新
 color 0e
-set ver=2.8.3
+set ver=3.0.0
 set f12=7z.exe
 set f13=7z.dll
 set f15=aria2c.exe
 md logs
-aria2c http://down.mcylyr.cn/rl/newver
-copy  "%~dp0"\newver "%~dp0"\logs\newver
-del "%~dp0"\newver
-aria2c http://down.mcylyr.cn/rl/oldver
-copy  "%~dp0"\oldver "%~dp0"\logs\oldver
-del "%~dp0"\oldver
+aria2c http://down.mcylyr.cn/rl/newver -d \logs\newer -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/oldver -d \logs\older -l .\logs\softlogs
 CLS
 cd /d %~dp0
 for /f "tokens=1* delims= " %%i in (logs\newver) do (set softnewver=%%i)
@@ -77,8 +73,8 @@ echo.
 echo 正在下载软件必须文件
 echo.
 cd /d %~dp0
-aria2c http://down.mcylyr.cn/rl/packet/7z.exe
-aria2c http://down.mcylyr.cn/rl/packet/7z.dll
+aria2c http://down.mcylyr.cn/rl/packet/7z.exe -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/packet/7z.dll -l .\logs\softlogs
 goto new1
 
 :update
@@ -103,7 +99,7 @@ pause
 goto starttools
 
 :start
-aria2c http://down.mcylyr.cn/rl/newverinfo
+aria2c http://down.mcylyr.cn/rl/newverinfo -l .\logs\softlogs
 CLS
 echo.
 echo.
@@ -112,7 +108,7 @@ echo.
 type "%~dp0"newverinfo
 echo.
 echo.
-aria2c http://down.mcylyr.cn/rl/tool/tools.7z
+aria2c http://down.mcylyr.cn/rl/test/tools.7z -l .\logs\softlogs
 7z x tools.7z -aoa -y
 cd "%~dp0"
 del tools.7z
@@ -123,24 +119,26 @@ set /p xz= 更新完成，请输入yes进入新版工具
 if %xz%==yes goto starttools
 
 :starttools
-"RLtools.exe"
+"RLBox_test.exe"
 exit
 
 :back
-aria2c http://down.mcylyr.cn/rl/newverinfo
+aria2c http://down.mcylyr.cn/rl/newverinfo -l .\logs\softlogs
 CLS
 echo.
 echo.
 echo 检测到软件需要撤包，正在自动回撤
+echo. [%date% - %time%] 撤包中>>logs\softlogs
 echo.
 type "%~dp0"newverinfo
 echo.
 echo.
-aria2c http://down.mcylyr.cn/rl/tool/tools.7z
+aria2c http://down.mcylyr.cn/rl/tool/tools.7z -l .\logs\softlogs
 7z x tools.7z -aoa -y
 cd "%~dp0"
 del tools.7z
 echo.
 del newverinfo
+echo. [%date% - %time%] 撤包成功>>logs\softlogs
 set /p xz= 完成，请输入yes进入工具
 if %xz%==yes goto starttools

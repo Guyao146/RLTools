@@ -31,9 +31,11 @@
 ::
 ::
 ::978f952a14a936cc963da21a135fa983
+
+:restart
 @echo off
 color 0e
-set ver=2.8.3
+set ver=3.0.0
 set rltools=%rltools%
 set uamd=2021.12.20
 set auth=顾瑶
@@ -64,16 +66,23 @@ cd bin
 md Expand
 md Special
 cd /d %~dp0
+cd logs
+del ad
+del newver
+del uam
+cd logs
+cd /d %~dp0
 echo. %uamd%>logs\uamd
-echo. %ver%>logs\ver
+echo. [%date% - %time%] %ver%>logs\ver
 echo. 本日志由火箭联盟国际服工具箱生成，仅用于排除问题用，不上传至服务器，请放心使用>logs\softlogs
-echo. 日期与版本号>>logs\softlogs
-date /t>>logs\softlogs
-time /t>>logs\softlogs
+echo. [%date% - %time%] 软件版本>>logs\softlogs
 echo. %ver%>>logs\softlogs
+echo. [%date% - %time%] aria2c软件版本>>logs\softlogs
+aria2c -v >>logs\softlogs
 if exist "%f15%" (goto leimu) else (goto leimuerror)
 
 :leimuerror
+echo. [%date% - %time%] 检测到应用损坏>>logs\softlogs
 title 应用损坏
 CLS
 echo.
@@ -87,7 +96,7 @@ echo.
 echo.
 echo   请自行排查以下问题
 echo.
-echo  需要将压缩包内所有文件完整解压至同一文件夹下
+echo   需要将压缩包内所有文件完整解压至同一文件夹下
 echo.
 echo   文件夹中包含RLtools.exe update.exe aria2c.exe三个必要文件
 echo.
@@ -99,9 +108,10 @@ if %xz%==2 exit
 
 :leimu
 cd /d %~dp0
-echo. leimu>>logs\softlogs
+echo. [%date% - %time%] UAC判断逻辑>>logs\softlogs
 CLS
 if exist "%SystemRoot%\SysWOW64" path %path%;%windir%\SysNative;%SystemRoot%\SysWOW64;%~dp0
+goto chinese
 if "%errorlevel%" NEQ 0 (goto UACPrompt) else (goto uactrue)
 
 :UACPrompt
@@ -115,11 +125,13 @@ cd /d %~dp0
 cd bin\Special
 RL工具箱提示您.exe logo.ico RL国际服小工具提示您 工具箱获取管理员权限成功，感谢使用火箭联盟国际服小工具，版本%ver% 2
 RL工具箱提示您.exe logo.ico RL国际服小工具提示您 请赞助顾瑶维持服务器的生计吧，孩子要无了 2
+echo. [%date% - %time%] 显示弹窗成功>>logs\softlogs
 cd /d %~dp0
-echo. UAC通过>>logs\softlogs
+echo. [%date% - %time%] UAC通过>>logs\softlogs
 goto new1
  
 :uacfalse
+echo. [%date% - %time%] UAC获取管理员失败>>logs\softlogs
 cd /d %~dp0
 cd bin\Special
 RL工具箱提示您.exe logo.ico RL国际服小工具提示您 工具箱获取管理员权限失败，请右键使用管理员权限运行 2
@@ -144,16 +156,14 @@ echo.
 echo 正在下载软件必须运行库
 echo.
 cd /d %~dp0
-aria2c http://down.mcylyr.cn/rl/packet/7z.exe
-aria2c http://down.mcylyr.cn/rl/packet/7z.dll
-aria2c http://down.mcylyr.cn/rl/packet/RLtoolstips.exe
+aria2c http://down.mcylyr.cn/rl/packet/7z.exe -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/packet/7z.dll -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/packet/RLtoolstips.exe -d \bin\Special -l .\logs\softlogs
+cd bin\Special
 rename RLtoolstips.exe RL工具箱提示您.exe
-copy  "%~dp0"\RL工具箱提示您.exe "%~dp0"\bin\Special\RL工具箱提示您.exe
-del "%~dp0"\RL工具箱提示您.exe
-aria2c http://down.mcylyr.cn/rl/packet/logo.ico
-copy  "%~dp0"\logo.ico "%~dp0"\bin\Special\logo.ico
-del "%~dp0"\logo.ico
-echo. 运行库下载成功 >>logs\softlogs
+cd /d %~dp0
+aria2c http://down.mcylyr.cn/rl/packet/logo.ico -d \bin\Special -l .\logs\softlogs
+echo. [%date% - %time%] 运行库下载成功>>logs\softlogs
 goto leimu
 
 :usererror
@@ -168,9 +178,8 @@ timeout /t 5
 exit
 
 :usertrue
-aria2c http://down.mcylyr.cn/rl/uam
-copy  "%~dp0"\uam "%~dp0"\logs\uam
-del "%~dp0"\uam
+aria2c http://down.mcylyr.cn/rl/uam -d \logs -l .\logs\softlogs
+echo. [%date% - %time%] 用户协议下载中>>logs\softlogs
 cd /d %~dp0
 if exist "logs\true" (goto open) else (goto usertrue2)
 :usertrue2
@@ -181,6 +190,7 @@ cd /d %~dp0
 cd bin\Special
 RL工具箱提示您.exe logo.ico RL国际服小工具提示您 程序正在显示用户协议，可能会稍有卡顿，同意后即可开始使用 2
 title 用户协议
+echo. [%date% - %time%] 用户协议显示成功>>logs\softlogs
 cd /d %~dp0
 echo.
 echo.
@@ -199,17 +209,12 @@ if %xz%==n goto usererror
 
 :open
 echo. 获取新版本与最新公告等>>logs\softlogs
+echo. [%date% - %time%] 新版本与公告下载完成>>logs\softlogs
 CLS
 ipconfig /flushdns
-aria2c http://down.mcylyr.cn/rl/info
-copy  "%~dp0"\info "%~dp0"\logs\info
-del "%~dp0"\info
-aria2c http://down.mcylyr.cn/rl/newver
-copy  "%~dp0"\newver "%~dp0"\logs\newver
-del "%~dp0"\newver
-aria2c http://down.mcylyr.cn/rl/oldver
-copy  "%~dp0"\oldver "%~dp0"\logs\oldver
-del "%~dp0"\oldver
+aria2c http://down.mcylyr.cn/rl/info -d \logs -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/newver -d \logs -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/oldver -d \logs -l .\logs\softlogs
 cd /d %~dp0
 for /f "tokens=1* delims= " %%i in (logs\newver) do (set softnewver=%%i)
 cd /d %~dp0
@@ -229,7 +234,7 @@ start update.exe
 exit
 
 :open2
-echo. 初始化>>logs\softlogs
+echo. [%date% - %time%] 初始化>>logs\softlogs
 cd /d %~dp0
 CLS
 echo.
@@ -238,14 +243,15 @@ echo.
 CLS
 type "%~dp0"logs\info
 echo.
-ping rl.mcylyr.cn|findstr /i /c:"找不到主机">logs/test2 && goto errornet
+ping rl.mcylyr.cn|findstr /i /c:"找不到主机">>logs/softlogs && echo. [%date% - %time%] 软件找不到主机>>logs\softlogs && goto errornet
 goto new
 
 :errornet
-echo. 无法连接服务器>>logs\softlogs
+echo. [%date% - %time%] 无法连接至服务器>>logs\softlogs
+echo.
 echo 无法连接到服务器
 echo.
-echo 可能是顾瑶已停用软件或电脑未联网
+echo 可能是顾瑶已停用软件/电脑未联网/服务器被攻击
 echo.
 echo 请留意官网与QQ群公告是否服务器出错了或没钱续费关了
 echo.
@@ -264,6 +270,7 @@ setx "PATH" "%path_%;%~dp0;%rltools%" /m
 echo. %errorlevel% >>logs\softlogs
 mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShortcut(a.SpecialFolders(""Desktop"") & ""\火箭联盟国际服工具箱.lnk""):b.TargetPath=""%~dp0RLtools.exe"":b.WorkingDirectory=""%~dp0"":b.Save:close")
 title 新手指引与软件介绍
+echo. [%date% - %time%] 软件介绍已显示>>logs\softlogs
 echo.
 echo   检测到你是第一次打开/更新本软件，是否需要软件介绍
 echo.
@@ -283,10 +290,8 @@ goto new
 :chinese
 TIMEOUT /T 1 /NOBREAK
 title %appname% %eng% %ver% - %auth% %admin%
-aria2c http://down.mcylyr.cn/rl/ad
-copy  "%~dp0"\ad "%~dp0"\logs\ad
-del "%~dp0"\ad
-echo. 获取主页公告与进入主页成功 >>logs\softlogs
+aria2c http://down.mcylyr.cn/rl/ad -d \logs -l .\logs\softlogs
+echo. [%date% - %time%] 获取主页公告与进入主页成功 >>logs\softlogs
 CLS
 color 0e
 echo.
@@ -367,6 +372,7 @@ mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShor
 goto toolsinfo
 
 :usererrortrue
+echo. [%date% - %time%] 用户已撤销隐私协议同意>>logs\softlogs
 title 撤销工具箱隐私协议同意
 CLS
 echo.
@@ -381,8 +387,10 @@ if %xz%==n echo.>>logs\false
 if %xz%==n goto usererror
 
 :reloadnet
+echo. [%date% - %time%] 用户执行重置网络操作>>logs\softlogs
 title 重置网络
 CLS
+echo. [%date% - %time%] 刷新DNS>>logs\softlogs
 echo 开始执行第一步 刷新DNS
 ipconfig /flushdns
 ipconfig /flushdns
@@ -392,6 +400,7 @@ echo.
 echo 3秒后继续
 timeout 3
 echo.
+echo. [%date% - %time%] 刷新缓存>>logs\softlogs
 echo 开始执行第二步 刷新缓存
 ipconfig /flushdns
 echo.
@@ -400,6 +409,7 @@ echo.
 echo 3秒后继续
 timeout 3
 echo.
+echo. [%date% - %time%] 读取网络配置>>logs\softlogs
 echo 开始执行第三步 读取网络
 ipconfig /all
 ipconfig /release
@@ -410,20 +420,22 @@ echo.
 echo 3秒后继续
 timeout 3
 echo.
+echo. [%date% - %time%] 分析数据中...>>logs\softlogs
 echo 开始执行第四步 分析数据
 ipconfig /all
 echo.
 timeout 5
 echo.
 echo 分析完毕
-echo/
+echo.
+echo. [%date% - %time%] 刷新网络>>logs\softlogs
 echo 开始执行第五步 刷新网络
 echo.
 ipconfig /release
 ipconfig /renew
 echo.
+echo. [%date% - %time%] 重置网络完成>>logs\softlogs
 echo 刷新完成，请尽情享受吧
-echo. 重置网络成功 >>logs\softlogs
 echo.
 echo 按任意键退出
 pause>nul
@@ -440,7 +452,8 @@ pause>nul
 goto chinese
 
 :closerl
-title 一键关闭火箭联盟国际服修复Steam与Epic正在运行中的错误
+echo. [%date% - %time%] 一键修复并关闭火箭联盟国际服修复Steam与Epic正在运行中的错误>>logs\softlogs
+title 一键修复并关闭关闭火箭联盟国际服修复Steam与Epic正在运行中的错误
 CLS
 taskkill /f /im "RocketLeague.exe"
 echo.
@@ -463,21 +476,21 @@ start http://rl.mcylyr.cn/ad.html
 goto chinese
 
 :epicinstall
+echo. [%date% - %time%] 用户执行安装Epic操作>>logs\softlogs
 title 安装epic
 CLS
 echo.
 echo.
 echo 正在下载epic客户端
-aria2c http://down.mcylyr.cn/rl/packet/EpicInstaller.msi
-copy  "%~dp0"\EpicInstaller.msi "%~dp0"\bin\EpicInstaller.msi
-del "%~dp0"\EpicInstaller.msi
+aria2c http://down.mcylyr.cn/rl/packet/EpicInstaller.msi -d \bin -l .\logs\softlogs
 CLS
 echo.
 echo 正在打开epic客户端
 start bin\EpicInstaller.msi
 echo.
-echo 安装完成，如果下载速度很慢可以试试改hosts试试，5秒后返回主页
-timeout /t 5
+echo 安装完成，如果下载速度很慢可以试试改hosts试试，3秒后返回主页
+echo. [%date% - %time%] Epic安装完成>>logs\softlogs
+timeout /t 3
 goto chinese
 
 :other
@@ -515,6 +528,7 @@ pause>nul
 goto chinese
 
 :rlstart
+echo. [%date% - %time%] 一键启动RL>>logs\softlogs
 CLS
 title 一键启动RL
 echo.
@@ -539,6 +553,7 @@ timeout /t 5
 goto chinese
 
 :CHN
+echo. [%date% - %time%] 修改语言文件>>logs\softlogs
 echo.
 echo.
 echo 正在检测语言文件是否完整
@@ -573,9 +588,9 @@ md Bin1
 cd Bin1
 md Bin2
 cd /d %~dp0
-aria2c http://down.mcylyr.cn/rl/packet/Coalesced_CHN.bin
-aria2c http://down.mcylyr.cn/rl/packet/Language.ini
-aria2c http://down.mcylyr.cn/rl/packet/lan.exe
+aria2c http://down.mcylyr.cn/rl/packet/Coalesced_CHN.bin -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/packet/Language.ini -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/packet/lan.exe -l .\logs\softlogs
 copy  "%~dp0"\Coalesced_CHN.bin "%~dp0"\bin\Bin1\Bin2
 copy  "%~dp0"\Language.ini "%~dp0"\bin\Bin1\Bin2
 copy  "%~dp0"\lan.exe "%~dp0"\bin\Bin1
@@ -587,8 +602,6 @@ goto CHN
 :mod
 CLS
 title BakkesMod帮助与下载
-echo.
-echo.
 echo.
 echo.
 echo     1.首次安装Bakkesmod请选我！
@@ -623,17 +636,17 @@ if %xz%==0 goto chinese
 goto chinese
 
 :bminstall
+echo. [%date% - %time%] 首次安装Bakkesmod...>>logs\softlogs
 title 首次安装Bakkesmod
 CLS
-aria2c http://down.mcylyr.cn/rl/packet/BakkesModSetup.exe
-copy  "%~dp0"\BakkesModSetup.exe "%~dp0"\bin\BakkesModSetup.exe
-del "%~dp0"\BakkesModSetup.exe
+aria2c http://down.mcylyr.cn/rl/packet/BakkesModSetup.exe -d \bin -l .\logs\softlogs
 CLS
 "%~dp0"bin\BakkesModSetup.exe
 echo 安装完成
 goto mod
 
 :bmrepair
+echo. [%date% - %time%] 尝试修复Bakkesmod疑难杂症>>logs\softlogs
 title 尝试修复Bakkesmod疑难杂症
 CLS
 echo.
@@ -668,9 +681,11 @@ cd /d %~dp0
 bin\Expand\net.exe
 echo.
 echo VC与Net运行库已修复完成，现在准备修复Bakkesmod本体文件
+echo. [%date% - %time%] VC与Net运行库已修复完成，现在准备修复Bakkesmod本体文件>>logs\softlogs
 goto bmupdate
 
 :bmupdate
+echo. [%date% - %time%] 修复Bakkesmod>>logs\softlogs
 cd /d %~dp0
 echo  正在检查Bakkesmod修复/更新包是否存在
 if exist "bin\Expand\%f16%" (goto bmupdate2) else (goto repairerror5)
@@ -688,6 +703,7 @@ timeout /t 3
 echo.
 echo.
 echo 修复/更新完毕，请重新打开Bakkesmod检查是否修复/更新成功
+echo. [%date% - %time%] 修复Bakkesmod完毕>>logs\softlogs
 pause>nul
 goto mod
 
@@ -700,9 +716,7 @@ timeout /t 5
 cd bin
 md Bin1
 cd /d %~dp0
-aria2c.exe http://193.221.95.192/vc.exe
-copy  "%~dp0"\vc.exe "%~dp0"\bin\Expand
-del "%~dp0"\vc.exe
+aria2c.exe http://down.mcylyr.cn/rl/packet/vc.exe -d \bin\Expand -l .\logs\softlogs
 goto bmrepair
 
 :repairerror4
@@ -714,9 +728,7 @@ timeout /t 5
 cd bin
 md Bin1
 cd /d %~dp0
-aria2c.exe http://193.221.95.192/net.exe
-copy  "%~dp0"\net.exe "%~dp0"\bin\Expand\net.exe
-del "%~dp0"\net.exe
+aria2c.exe http://down.mcylyr.cn/rl/packet/net.exe -d \bin\Expand -l .\logs\softlogs
 goto bminstall
 
 :repairerror5
@@ -728,9 +740,7 @@ timeout /t 5
 cd bin
 md Bin1
 cd /d %~dp0
-aria2c.exe http://down.mcylyr.cn/rl/packet/BakkesModSetup.7z
-copy  "%~dp0"\bakkesmod.7z "%~dp0"\bin\Expand\bakkesmod.7z
-del "%~dp0"\bakkesmod.7z
+aria2c.exe http://down.mcylyr.cn/rl/packet/BakkesModSetup.7z -d \bin\Expand -l .\logs\softlogs
 goto bmupdate
 
 :readme
@@ -784,6 +794,7 @@ if exist "bin\Expand\%f6%" (goto checknet) else (goto repairerror1)
 cd /d %~dp0
 echo  正在检查Net运行库是否存在
 if exist "bin\Expand\%f7%" (goto startrepair) else (goto repairerror2)
+
 :startrepair
 CLS
 echo.
@@ -793,9 +804,14 @@ echo 1.EPIC客户端
 echo.
 echo 2.火箭联盟客户端
 echo.
+echo 0.返回主页
+echo.
 set /p xz=请输入序号并回车 : 
 if %xz%==1 goto repairepic
 if %xz%==2 goto repairrl
+if %xz%==0 goto chinese
+goto startrepair
+
 :repairepic
 echo.
 echo 正在尝试关闭EPIC客户端
@@ -849,7 +865,7 @@ echo 按任意键确定，3秒后重启电脑，请保存好当前软件数据
 echo.
 pause>nul
 TIMEOUT /T 3 /NOBREAK
-shutdown /s -t 0
+shutdown /r -t 0
 
 :repairerror1
 CLS
@@ -858,9 +874,7 @@ echo 抱歉，未检测到VC运行库修复程序，5秒后自动开始下载vc.exe运行库
 echo.
 timeout /t 5
 cd /d %~dp0
-aria2c http://193.221.95.192/vc.exe
-copy  "%~dp0"\vc.exe "%~dp0"\bin\Expand
-del "%~dp0"\vc.exe
+aria2c https://down.mcylyr.cn/rl/packet/vc.exe -d \bin\Expand -l .\logs\softlogs
 goto repair
 
 :repairerror2
@@ -870,9 +884,8 @@ echo 抱歉，未检测到Net运行库修复程序，5秒后自动开始下载net.exe运行库
 echo.
 timeout /t 5
 cd /d %~dp0
-aria2c http://193.221.95.192/net.exe
-copy  "%~dp0"\net.exe "%~dp0"\bin\Expand\net.exe
-del "%~dp0"\net.exe
+aria2c https://down.mcylyr.cn/rl/packet/net.exe -d \bin\Expand -l .\logs\softlogs
+pause
 goto repair
 
 :exit
@@ -969,12 +982,12 @@ echo 按任意键返回主菜单
 pause>nul
 goto leimu
 
-:toolsmode
+:test
 CLS
-title 高级模式
+title 测试模式
 echo.
 echo.
-echo    工具箱高级模式
+echo    工具箱测试模式
 echo.
 echo    1. 输出全部日志
 echo.
@@ -982,9 +995,13 @@ echo    2. 打开游戏日志文件夹
 echo.
 echo    3. 输出路由追踪日志
 echo.
-echo    4.免测ping修改hosts(不推荐，除非你很了解这些服务器)
+echo    4. 免测ping修改hosts(不推荐，除非你很了解这些服务器)
 echo.
-echo    5.刷新网络设置与缓存 (仅适合极客用户使用，小白不要乱打开，可能会断网1-3分钟，刷新完成前不要关闭)
+echo    5. 刷新网络设置与缓存 (仅适合极客用户使用，小白不要乱打开，可能会断网1-3分钟，刷新完成前不要关闭)
+echo.
+echo    6. 打开实时日志监控程序
+echo.
+echo    7. 重新启动工具箱
 echo.
 echo    0. 返回主菜单
 echo.
@@ -994,8 +1011,17 @@ if %xz%==2 explorer "%USERPROFILE%/Documents/My Games/Rocket League/TAGame/Logs"
 if %xz%==3 goto luyou
 if %xz%==4 goto noping
 if %xz%==5 goto reloadnet
+if %xz%==6 goto toollogs
+if %xz%==7 goto restart
 if %xz%==0 goto chinese
-goto toolsmode
+goto test
+
+:toollogs
+SETLOCAL
+set whatlog=%~dp0\logs\softlogs
+start %~dp0bin\ReadLog.cmd
+ENDLOCAL
+goto test
 
 :luyou
 echo 正在生成本地至host网络信息
@@ -1019,18 +1045,23 @@ CLS
 title 系统诊断中
 cd /d %~dp0
 echo.
-
+echo.本日志由火箭联盟国际服工具箱生成，仅用于排除问题用，不上传至服务器，请放心使用>logs\systeminfo
+echo.
 echo 预计全程需要1-10分钟，请耐心等待
 echo.
 echo 进度  [#---------] 5%
 echo 正在生成时间信息
-echo.当前地区日期与时间>logs\systeminfo
+echo.当前地区日期与时间>>logs\systeminfo
+SETLOCAL
+set whatlog=%cd%\logs\systeminfo
+start %~dp0bin\ReadLog.exe
+ENDLOCAL
 date /t>>logs\systeminfo
 time /t>>logs\systeminfo
 echo.
 echo ok
 echo.
-
+ 
 echo 进度  [##--------] 10%
 echo 正在生成软件信息
 echo.>>logs\systeminfo

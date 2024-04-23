@@ -1,1 +1,5 @@
-mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShortcut(a.SpecialFolders(""Desktop"") & ""\火箭联盟国际服工具箱.lnk""):b.TargetPath=""%~dp0RLtools.cmd"":b.WorkingDirectory=""%~dp0"":b.Save:close")
+cd /d "%~dp0"
+cd
+aria2c http://down.mcylyr.cn/rl/packet/vc.exe --dir="%~dp0bin\Expand"
+cd
+cmd /k
