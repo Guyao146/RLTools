@@ -11,13 +11,13 @@ name: 更新工具箱3.0.0
 #10.升级 aria2依赖已更新至1.37.0
 on:
   push:
-    branches: ["master"]
+    branches: ["main"]
   pull_request:
-    branches: ["master"]
+    branches: ["main"]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: Windows11 For WorkStation Least Version
 
     strategy:
       matrix:
