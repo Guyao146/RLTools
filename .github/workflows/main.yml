@@ -1,8 +1,8 @@
 Job Description:
   Daily Update:
   Version: 3.0.0
-    date: 2024.4.23
-    runs-on: Windows 11 Least Version
+  date: 2024.4.23
+  runs-on: Windows 11 Least Version
     steps:
       # 更新日志
       - name: 1.修复 VC、Net运行库无法下载的bug
