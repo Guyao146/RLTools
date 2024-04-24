@@ -32,7 +32,7 @@
 ::
 ::978f952a14a936cc963da21a135fa983
 @echo off
-title ĞÂ°æ±¾¸üĞÂ
+title æ–°ç‰ˆæœ¬æ›´æ–°
 color 0e
 set ver=3.0.0
 set f12=7z.exe
@@ -50,17 +50,17 @@ for /f "tokens=1* delims= " %%i in (logs\oldver) do (set softoldver=%%i)
 if exist "%f15%" (goto new1) else (goto leimuerror)
 
 :leimuerror
-title Ó¦ÓÃËğ»µ
+title åº”ç”¨æŸå
 CLS
 echo.
 echo.
-echo   ¼ì²âµ½Èí¼ş²»ÍêÕû£¬ÊÇ·ñÇ°Íù¹ÙÍøÖØĞÂÏÂÔØÍêÕû°ü
+echo   æ£€æµ‹åˆ°è½¯ä»¶ä¸å®Œæ•´ï¼Œæ˜¯å¦å‰å¾€å®˜ç½‘é‡æ–°ä¸‹è½½å®Œæ•´åŒ…
 echo.
-echo   1.ÊÇ£¬Ìø×ªµ½¹ÙÍøÏÂÔØ
+echo   1.æ˜¯ï¼Œè·³è½¬åˆ°å®˜ç½‘ä¸‹è½½
 echo.
-echo   2.·ñ£¬ÍË³ö
+echo   2.å¦ï¼Œé€€å‡º
 echo.
-set /p xz=ÇëÊäÈëĞòºÅºó»Ø³µ :
+set /p xz=è¯·è¾“å…¥åºå·åå›è½¦ :
 if %xz%==1 start http://rl.mcylyr.cn
 if %xz%==2 exit
 
@@ -70,7 +70,7 @@ if exist "%f12%" (goto update) else (goto downloadmust)
 if exist "%f13%" (goto update) else (goto downloadmust)
 :downloadmust
 echo.
-echo ÕıÔÚÏÂÔØÈí¼ş±ØĞëÎÄ¼ş
+echo æ­£åœ¨ä¸‹è½½è½¯ä»¶å¿…é¡»æ–‡ä»¶
 echo.
 cd /d %~dp0
 aria2c http://down.mcylyr.cn/rl/packet/7z.exe -l .\logs\softlogs
@@ -88,13 +88,13 @@ goto updatenew
 
 :updatenew
 CLS
-title ĞÂ°æ±¾¸üĞÂ
+title æ–°ç‰ˆæœ¬æ›´æ–°
 echo.
-echo µ±Ç°°æ±¾ %ver%
+echo å½“å‰ç‰ˆæœ¬ %ver%
 echo.
 echo.
 echo.
-echo ÓÃ²»×Å¸üĞÂ,°´ÈÎÒâ¼ü·µ»Ø¹¤¾ß
+echo ç”¨ä¸ç€æ›´æ–°,æŒ‰ä»»æ„é”®è¿”å›å·¥å…·
 pause
 goto starttools
 
@@ -103,7 +103,7 @@ aria2c http://down.mcylyr.cn/rl/newverinfo -l .\logs\softlogs
 CLS
 echo.
 echo.
-echo ¼ì²âµ½Èí¼şĞÂ°æ±¾£¬ÕıÔÚ×Ô¶¯¸üĞÂ°æ±¾
+echo æ£€æµ‹åˆ°è½¯ä»¶æ–°ç‰ˆæœ¬ï¼Œæ­£åœ¨è‡ªåŠ¨æ›´æ–°ç‰ˆæœ¬
 echo.
 type "%~dp0"newverinfo
 echo.
@@ -113,7 +113,7 @@ cd "%~dp0"
 echo.
 del newverinfo
 rd logs
-set /p xz= ¸üĞÂÍê³É£¬ÇëÊäÈëyes½øÈëĞÂ°æ¹¤¾ß
+set /p xz= æ›´æ–°å®Œæˆï¼Œè¯·è¾“å…¥yesè¿›å…¥æ–°ç‰ˆå·¥å…·
 if %xz%==yes goto starttools
 
 :starttools
@@ -125,8 +125,8 @@ aria2c http://down.mcylyr.cn/rl/newverinfo -l .\logs\softlogs
 CLS
 echo.
 echo.
-echo ¼ì²âµ½Èí¼şĞèÒª³·°ü£¬ÕıÔÚ×Ô¶¯»Ø³·
-echo. [%date% - %time%] ³·°üÖĞ>>logs\softlogs
+echo æ£€æµ‹åˆ°è½¯ä»¶éœ€è¦æ’¤åŒ…ï¼Œæ­£åœ¨è‡ªåŠ¨å›æ’¤
+echo. [%date% - %time%] æ’¤åŒ…ä¸­>>logs\softlogs
 echo.
 cd "%~dp0"
 type "%~dp0"newverinfo
@@ -135,6 +135,6 @@ echo.
 aria2c http://down.mcylyr.cn/rl/test/RLBox_testold.exe -l .\logs\softlogs
 echo.
 del newverinfo
-echo. [%date% - %time%] ³·°ü³É¹¦>>logs\softlogs
-set /p xz= Íê³É£¬ÇëÊäÈëyes½øÈë¹¤¾ß
+echo. [%date% - %time%] æ’¤åŒ…æˆåŠŸ>>logs\softlogs
+set /p xz= å®Œæˆï¼Œè¯·è¾“å…¥yesè¿›å…¥å·¥å…·
 if %xz%==yes goto starttools
