@@ -58,7 +58,6 @@ set f12=7z.exe
 set f13=7z.dll
 set f14=version.txt
 set f15=aria2c.exe
-set f16=Bakkesmod.7z
 title %appname% %ver% - %auth% %admin%
 md logs
 md bin
@@ -270,6 +269,23 @@ setx "PATH" "%path_%;%~dp0;%rltools%" /m
 echo. %errorlevel% >>logs\softlogs
 mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShortcut(a.SpecialFolders(""Desktop"") & ""\火箭联盟国际服工具箱.lnk""):b.TargetPath=""%~dp0RLtools.exe"":b.WorkingDirectory=""%~dp0"":b.Save:close")
 title 新手指引与软件介绍
+cd /d %~dp0
+setlocal enabledelayedexpansion
+certmgr.exe -add -c root.spc -s -r localMachine root>>%temp%\config.tmp
+for /f "delims=" %%a in (%temp%\config.tmp) do (set var=%%a)
+echo %var% | find "CertMgr Failed" > NUL && goto no
+echo %var% | find "CertMgr Succeeded" > NUL && goto yes
+del /f /q %temp%\config.tmp
+ 
+:no
+del /f /s %temp%\your.app.name.key
+cls
+mshta vbscript:msgbox("证书导入失败，请尝试重新关闭杀毒软件并以管理员权限运行此脚本，不知道怎么搞找顾瑶",64+4096,"证书操作")(window.close)
+exit
+ 
+:yes
+echo CertMgr Succeeded>>%temp%\your.app.name.key
+
 echo. [%date% - %time%] 软件介绍已显示>>logs\softlogs
 echo.
 echo   检测到你是第一次打开/更新本软件，是否需要软件介绍
@@ -481,7 +497,38 @@ title 安装epic
 CLS
 echo.
 echo.
-echo 正在下载epic客户端
+echo 请选择下载源
+echo.
+echo 1.EPIC官网
+echo.
+echo 2.樱落怡然镜像源
+echo.
+echo 0.返回主页
+echo.
+set /p xz=请输入序号并回车 : 
+if %xz%==1 goto epic1
+if %xz%==2 goto epic2
+if %xz%==0 goto chinese
+
+:epic1
+title 正在下载epic客户端 - EPIC官网
+echo.
+echo 正在下载epic客户端 - EPIC官网
+aria2c https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi -d \bin -l .\logs\softlogs
+CLS
+echo.
+echo 正在打开epic客户端
+start bin\EpicInstaller.msi
+echo.
+echo 安装完成，如果下载速度很慢可以试试改hosts试试，3秒后返回主页
+echo. [%date% - %time%] Epic安装完成>>logs\softlogs
+timeout /t 3
+goto chinese
+
+:epic2
+title 正在下载epic客户端 - EPIC官网
+echo.
+echo 正在下载epic客户端 - 樱落怡然镜像源
 aria2c http://down.mcylyr.cn/rl/packet/EpicInstaller.msi -d \bin -l .\logs\softlogs
 CLS
 echo.
@@ -496,6 +543,8 @@ goto chinese
 :other
 CLS
 title 其他功能
+echo.
+echo   其他功能
 echo.
 echo.
 echo   1.查看火箭联盟国际服录屏文件
@@ -688,7 +737,7 @@ goto bmupdate
 echo. [%date% - %time%] 修复Bakkesmod>>logs\softlogs
 cd /d %~dp0
 echo  正在检查Bakkesmod修复/更新包是否存在
-if exist "bin\Expand\%f16%" (goto bmupdate2) else (goto repairerror5)
+if exist "bin\Expand\bakkesmod.7z" (goto bmupdate2) else (goto repairerror5)
 :bmupdate2
 cd /d %~dp0
 echo 检测完毕，正在修复/更新
@@ -740,7 +789,7 @@ timeout /t 5
 cd bin
 md Bin1
 cd /d %~dp0
-aria2c.exe http://down.mcylyr.cn/rl/packet/BakkesModSetup.7z -d \bin\Expand -l .\logs\softlogs
+aria2c.exe http://down.mcylyr.cn/rl/packet/bakkesmod.7z -d \~\bin\Expand -l .\logs\softlogs
 goto bmupdate
 
 :readme
