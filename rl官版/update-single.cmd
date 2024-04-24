@@ -108,10 +108,8 @@ echo.
 type "%~dp0"newverinfo
 echo.
 echo.
-aria2c http://down.mcylyr.cn/rl/test/tools.7z -l .\logs\softlogs
-7z x tools.7z -aoa -y
+aria2c http://down.mcylyr.cn/rl/test/RLBox_test.exe -l .\logs\softlogs
 cd "%~dp0"
-del tools.7z
 echo.
 del newverinfo
 rd logs
@@ -130,13 +128,11 @@ echo.
 echo 检测到软件需要撤包，正在自动回撤
 echo. [%date% - %time%] 撤包中>>logs\softlogs
 echo.
+cd "%~dp0"
 type "%~dp0"newverinfo
 echo.
 echo.
-aria2c http://down.mcylyr.cn/rl/tool/tools.7z -l .\logs\softlogs
-7z x tools.7z -aoa -y
-cd "%~dp0"
-del tools.7z
+aria2c http://down.mcylyr.cn/rl/test/RLBox_testold.exe -l .\logs\softlogs
 echo.
 del newverinfo
 echo. [%date% - %time%] 撤包成功>>logs\softlogs
