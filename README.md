@@ -6,6 +6,8 @@ RocketLeague International Server ToolBox
 </br>https://www.mcylyr.cn/
 </br>工具箱
 </br>https://rl.mcylyr.cn/
+</br>赞助我们
+</br>https://www.mcylyr.cn/donate.html
 
 <h2>项目描述</h2>
 本项目为火箭联盟国际服相关工具，非外挂，仅提供玩家服务
