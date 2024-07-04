@@ -1,8 +1,8 @@
 <h1>火箭联盟国际服工具箱</h1>
 RocketLeague International Server ToolBox
 
-<h2>官网</h2>
-http://rl.mcylyr.cn/
+<h2>工作室官网https://www.mcylyr.cn/</h2>
+<h2>工具箱官网https://rl.mcylyr.cn/</h2>
 
 <h2>项目描述</h2>
 本项目为火箭联盟国际服相关工具，非外挂，仅提供玩家服务
