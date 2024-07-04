@@ -146,7 +146,7 @@ Want-Digest: SHA-512;q=1, SHA-256;q=1, SHA;q=0.1
 2024-04-25 02:06:52.750535 [DEBUG] [WinTLSSession.cc:181] WinTLS: Closing connection
 2024-04-25 02:06:52.752037 [DEBUG] [WinTLSSession.cc:336] WinTLS: Write request: 31 buffered: 0
 2024-04-25 02:06:52.752037 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 0 bytes left
-2024-04-25 02:06:52.752037 [DEBUG] [WinTLSSession.cc:397] WinTLS: Failed to encrypt a message! Error: 上下文已过期，不能再用了。
+2024-04-25 02:06:52.752037 [DEBUG] [WinTLSSession.cc:397] WinTLS: Failed to encrypt a message! Error: 上下文已过期，不能再用了�?
 (80090317)
 2024-04-25 02:06:52.752037 [DEBUG] [WinTLSSession.cc:225] WinTLS: Closed Connection
 2024-04-25 02:06:52.752037 [DEBUG] [WinTLSSession.cc:556] WinTLS: Connection gracefully closed!
@@ -2419,7 +2419,7 @@ Content-Type: application/x-7z-compressed
 2024-04-25 02:07:01.950627 [DEBUG] [WinTLSSession.cc:181] WinTLS: Closing connection
 2024-04-25 02:07:01.951618 [DEBUG] [WinTLSSession.cc:336] WinTLS: Write request: 31 buffered: 0
 2024-04-25 02:07:01.951618 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 0 bytes left
-2024-04-25 02:07:01.951618 [DEBUG] [WinTLSSession.cc:397] WinTLS: Failed to encrypt a message! Error: 上下文已过期，不能再用了。
+2024-04-25 02:07:01.951618 [DEBUG] [WinTLSSession.cc:397] WinTLS: Failed to encrypt a message! Error: 上下文已过期，不能再用了�?
 (80090317)
 2024-04-25 02:07:01.951618 [DEBUG] [WinTLSSession.cc:225] WinTLS: Closed Connection
 2024-04-25 02:07:01.951618 [DEBUG] [WinTLSSession.cc:556] WinTLS: Connection gracefully closed!

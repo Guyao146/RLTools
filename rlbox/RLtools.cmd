@@ -36,8 +36,14 @@
 @echo off
 color 0e
 set ver=3.0.0
-set rltools=%rltools%
+setlocal enabledelayedexpansion
 set uamd=2021.12.20
+for /f "tokens=1-3 delims=," %%i in (tmp2.txt) do (
+    set name=%%i
+    set age=%%j
+    set address=%%k
+    echo 姓名=!name!   年龄=!age!   家住地址=!address!
+)
 set auth=顾瑶
 set appname=火箭联盟国际服小工具
 set admin=请使用管理员权限运行
@@ -52,11 +58,9 @@ set f6=vc.exe
 set f7=net.exe
 set f8=new
 set f9=lan.exe
-set f10=Coalesced_CHN.bin
-set f11=Language.ini
 set f12=7z.exe
 set f13=7z.dll
-set f14=version.txt
+set f14=version.txt 
 set f15=aria2c.exe
 title %appname% %ver% - %auth% %admin%
 md logs
@@ -72,7 +76,7 @@ del uam
 cd logs
 cd /d %~dp0
 echo. %uamd%>logs\uamd
-echo. [%date% - %time%] %ver%>logs\ver
+echo. %ver%>logs\ver
 echo. 本日志由火箭联盟国际服工具箱生成，仅用于排除问题用，不上传至服务器，请放心使用>logs\softlogs
 echo. [%date% - %time%] 软件版本>>logs\softlogs
 echo. %ver%>>logs\softlogs
