@@ -12,7 +12,7 @@ RocketLeague International Server ToolBox
 <h2>项目描述</h2>
 本项目为火箭联盟国际服相关工具，非外挂，仅提供玩家服务
 </br>
-项目遵循MIT2.0开源协议
+项目遵循MIT开源协议
 </br>
 有意贡献代码欢迎Pull request
 </br>
