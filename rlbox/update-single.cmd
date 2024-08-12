@@ -39,8 +39,8 @@ set f12=7z.exe
 set f13=7z.dll
 set f15=aria2c.exe
 md logs
-aria2c http://down.mcylyr.cn/rl/newver -d \logs\newer -l .\logs\softlogs
-aria2c http://down.mcylyr.cn/rl/oldver -d \logs\older -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/test/newver -d \logs\newer -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/test/oldver -d \logs\older -l .\logs\softlogs
 CLS
 cd /d %~dp0
 for /f "tokens=1* delims= " %%i in (logs\newver) do (set softnewver=%%i)
@@ -99,7 +99,7 @@ pause
 goto starttools
 
 :start
-aria2c http://down.mcylyr.cn/rl/newverinfo -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/test/newverinfo -l .\logs\softlogs
 CLS
 echo.
 echo.
@@ -121,7 +121,7 @@ if %xz%==yes goto starttools
 exit
 
 :back
-aria2c http://down.mcylyr.cn/rl/newverinfo -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/test/newverinfo -l .\logs\softlogs
 CLS
 echo.
 echo.

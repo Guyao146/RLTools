@@ -33,17 +33,11 @@
 ::978f952a14a936cc963da21a135fa983
 
 :restart
+chcp 20936
 @echo off
 color 0e
 set ver=3.0.0
-setlocal enabledelayedexpansion
 set uamd=2021.12.20
-for /f "tokens=1-3 delims=," %%i in (tmp2.txt) do (
-    set name=%%i
-    set age=%%j
-    set address=%%k
-    echo 姓名=!name!   年龄=!age!   家住地址=!address!
-)
 set auth=顾瑶
 set appname=火箭联盟国际服小工具
 set admin=请使用管理员权限运行
@@ -52,15 +46,12 @@ set cd2=cd
 set f1=systeminfo
 set f2=hosts
 set f3=DxDiag.txt
-set f4=eng
-set f5=chn
 set f6=vc.exe
 set f7=net.exe
 set f8=new
-set f9=lan.exe
 set f12=7z.exe
 set f13=7z.dll
-set f14=version.txt 
+set f14=version.txt
 set f15=aria2c.exe
 title %appname% %ver% - %auth% %admin%
 md logs
@@ -75,7 +66,6 @@ del newver
 del uam
 cd logs
 cd /d %~dp0
-echo. %uamd%>logs\uamd
 echo. %ver%>logs\ver
 echo. 本日志由火箭联盟国际服工具箱生成，仅用于排除问题用，不上传至服务器，请放心使用>logs\softlogs
 echo. [%date% - %time%] 软件版本>>logs\softlogs
@@ -114,7 +104,6 @@ cd /d %~dp0
 echo. [%date% - %time%] UAC判断逻辑>>logs\softlogs
 CLS
 if exist "%SystemRoot%\SysWOW64" path %path%;%windir%\SysNative;%SystemRoot%\SysWOW64;%~dp0
-goto chinese
 if "%errorlevel%" NEQ 0 (goto UACPrompt) else (goto uactrue)
 
 :UACPrompt
@@ -156,9 +145,10 @@ if exist "bin\Special\logo.ico" (goto usertrue) else (goto downloadmust)
 :downloadmust
 echo. 下载运行库>>logs\softlogs
 echo.
-echo 正在下载软件必须运行库
+echo 正在下载软件依赖
 echo.
 cd /d %~dp0
+aria2c http://down.mcylyr.cn/rl/packet/ReadLog.exe -l .\logs\softlogs
 aria2c http://down.mcylyr.cn/rl/packet/7z.exe -l .\logs\softlogs
 aria2c http://down.mcylyr.cn/rl/packet/7z.dll -l .\logs\softlogs
 aria2c http://down.mcylyr.cn/rl/packet/RLtoolstips.exe -d \bin\Special -l .\logs\softlogs
@@ -181,7 +171,8 @@ timeout /t 5
 exit
 
 :usertrue
-aria2c http://down.mcylyr.cn/rl/uam -d \logs -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/uamd -d .\logs --allow-overwrite=true
+aria2c http://down.mcylyr.cn/rl/uam -d .\logs --allow-overwrite=true
 echo. [%date% - %time%] 用户协议下载中>>logs\softlogs
 cd /d %~dp0
 if exist "logs\true" (goto open) else (goto usertrue2)
@@ -189,6 +180,7 @@ if exist "logs\true" (goto open) else (goto usertrue2)
 cd /d %~dp0
 if exist "logs\false" (goto usererror) else (goto usertrue3)
 :usertrue3
+CLS
 cd /d %~dp0
 cd bin\Special
 RL工具箱提示您.exe logo.ico RL国际服小工具提示您 程序正在显示用户协议，可能会稍有卡顿，同意后即可开始使用 2
@@ -215,9 +207,9 @@ echo. 获取新版本与最新公告等>>logs\softlogs
 echo. [%date% - %time%] 新版本与公告下载完成>>logs\softlogs
 CLS
 ipconfig /flushdns
-aria2c http://down.mcylyr.cn/rl/info -d \logs -l .\logs\softlogs
-aria2c http://down.mcylyr.cn/rl/newver -d \logs -l .\logs\softlogs
-aria2c http://down.mcylyr.cn/rl/oldver -d \logs -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/info -d .\logs -l .\logs\softlogs --allow-overwrite=true
+aria2c http://down.mcylyr.cn/rl/ver/newver -d .\logs -l .\logs\softlogs --allow-overwrite=true
+aria2c http://down.mcylyr.cn/rl/ver/oldver -d .\logs -l .\logs\softlogs --allow-overwrite=true
 cd /d %~dp0
 for /f "tokens=1* delims= " %%i in (logs\newver) do (set softnewver=%%i)
 cd /d %~dp0
@@ -230,10 +222,10 @@ goto newver3
 :newver3
 if %softnewver% GTR %ver% goto newupdate2
 goto open2
-pause
 
 :newupdate2
 start update.exe
+goto open2
 exit
 
 :open2
@@ -273,23 +265,6 @@ setx "PATH" "%path_%;%~dp0;%rltools%" /m
 echo. %errorlevel% >>logs\softlogs
 mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShortcut(a.SpecialFolders(""Desktop"") & ""\火箭联盟国际服工具箱.lnk""):b.TargetPath=""%~dp0RLtools.exe"":b.WorkingDirectory=""%~dp0"":b.Save:close")
 title 新手指引与软件介绍
-cd /d %~dp0
-setlocal enabledelayedexpansion
-certmgr.exe -add -c root.spc -s -r localMachine root>>%temp%\config.tmp
-for /f "delims=" %%a in (%temp%\config.tmp) do (set var=%%a)
-echo %var% | find "CertMgr Failed" > NUL && goto no
-echo %var% | find "CertMgr Succeeded" > NUL && goto yes
-del /f /q %temp%\config.tmp
- 
-:no
-del /f /s %temp%\your.app.name.key
-cls
-mshta vbscript:msgbox("证书导入失败，请尝试重新关闭杀毒软件并以管理员权限运行此脚本，不知道怎么搞找顾瑶",64+4096,"证书操作")(window.close)
-exit
- 
-:yes
-echo CertMgr Succeeded>>%temp%\your.app.name.key
-
 echo. [%date% - %time%] 软件介绍已显示>>logs\softlogs
 echo.
 echo   检测到你是第一次打开/更新本软件，是否需要软件介绍
@@ -310,7 +285,7 @@ goto new
 :chinese
 TIMEOUT /T 1 /NOBREAK
 title %appname% %eng% %ver% - %auth% %admin%
-aria2c http://down.mcylyr.cn/rl/ad -d \logs -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/ad -d .\logs -l .\logs\softlogs --allow-overwrite=true
 echo. [%date% - %time%] 获取主页公告与进入主页成功 >>logs\softlogs
 CLS
 color 0e
@@ -328,6 +303,10 @@ echo     4.关于我们与工具箱高级设置
 echo.
 echo     5.赞助顾瑶
 echo.
+echo     6.进入本项目Github页面
+echo.
+echo     7.阅读用户协议
+echo.
 echo     0.退出
 echo.
 type "%~dp0"logs\ad
@@ -338,11 +317,12 @@ if %xz%==1 goto rlstart
 if %xz%==2 goto 3
 if %xz%==3 goto other
 if %xz%==4 goto toolsinfo
-if %xz%==5 start http://rl.mcylyr.cn/donate.html&goto chinese
+if %xz%==5 start http://www.mcylyr.cn/donate.html&goto chinese
+if %xz%==6 start https://github.com/Guyao146/RLTools&goto chinese
+if %xz%==6 start https://api.mcylyr.cn/h5/servicesagreement.html&goto chinese
 if %xz%==time goto ad
 if %xz%==test goto test
 if %xz%==0 exit
-TIMEOUT /T 1 /NOBREAK
 goto chinese
 
 :toolsinfo
@@ -392,19 +372,17 @@ mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShor
 goto toolsinfo
 
 :usererrortrue
-echo. [%date% - %time%] 用户已撤销隐私协议同意>>logs\softlogs
+echo. [%date% - %time%] 用户撤销隐私协议同意>>logs\softlogs
 title 撤销工具箱隐私协议同意
 CLS
 echo.
 echo.
-echo   您真的要撤销工具箱隐私协议同意吗？
+echo   您真的要撤销用户协议的同意吗？
 echo.
-set /p xz=   输入Y撤销 输入N返回主页后并回车 : 
+set /p xz=   输入Y撤销 输入N返回主页 : 
 if %xz%==y del logs\true /q /s
 if %xz%==y echo.>>logs\false
-if %xz%==y goto usererror
-if %xz%==n echo.>>logs\false
-if %xz%==n goto usererror
+if %xz%==y goto Chinese
 
 :reloadnet
 echo. [%date% - %time%] 用户执行重置网络操作>>logs\softlogs
@@ -518,7 +496,7 @@ if %xz%==0 goto chinese
 title 正在下载epic客户端 - EPIC官网
 echo.
 echo 正在下载epic客户端 - EPIC官网
-aria2c https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi -d \bin -l .\logs\softlogs
+aria2c https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi -d \bin -l .\logs\softlogs -s64 -x16
 CLS
 echo.
 echo 正在打开epic客户端
@@ -531,9 +509,9 @@ goto chinese
 
 :epic2
 title 正在下载epic客户端 - EPIC官网
-echo.
+echo.  
 echo 正在下载epic客户端 - 樱落怡然镜像源
-aria2c http://down.mcylyr.cn/rl/packet/EpicInstaller.msi -d \bin -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/packet/EpicInstaller.msi -d \bin -l .\logs\softlogs -s64 -x16
 CLS
 echo.
 echo 正在打开epic客户端
@@ -557,13 +535,11 @@ echo   2.诊断电脑并生成日志
 echo.
 echo   3.尝试修复火箭联盟与Epic客户端运行环境
 echo.
-echo   4.查询百科(正在完善中)
+echo   4.一键关闭火箭联盟国际服修复Steam与Epic正在运行中的错误
 echo.
-echo   5.一键关闭火箭联盟国际服修复Steam与Epic正在运行中的错误
+echo   5.下载 帮助 修复 安装插件 BakkesMod
 echo.
-echo   6.下载 帮助 修复 安装插件 BakkesMod
-echo.
-echo   7.下载 安装 epic客户端
+echo   6.下载 安装 epic客户端
 echo.
 echo   0.返回主菜单
 echo.
@@ -572,10 +548,9 @@ set /p xz=请输入序号并回车 :
 if %xz%==1 explorer "%Userprofile%\Documents\My Games\Rocket League\TAGame\Demos"
 if %xz%==2 goto log
 if %xz%==3 goto repair
-if %xz%==4 start http://wiki.mcylyr.cn
-if %xz%==5 goto closerl
-if %xz%==6 goto mod
-if %xz%==7 goto epicinstall
+if %xz%==4 goto closerl
+if %xz%==5 goto mod
+if %xz%==6 goto epicinstall
 if %xz%==0 goto chinese
 pause>nul
 goto chinese
@@ -657,13 +632,15 @@ CLS
 title BakkesMod帮助与下载
 echo.
 echo.
+echo     BakkesMod帮助与下载
+echo.
 echo     1.首次安装Bakkesmod请选我！
 echo.
 echo     2.BakkesMod原作者下载页面
 echo.
-echo     3.BakkesMod国内下载源 密码:fytn
+echo     3.BakkesMod蓝奏云下载源 密码:fytn
 echo.
-echo     4.BakkesMod 常见问题
+echo     4.BakkesMod常见问题
 echo.
 echo     5.告知原作者的东西
 echo.
@@ -672,6 +649,8 @@ echo.
 echo     7.安装Bakkesmod插件
 echo.
 echo     8.自动更新Bakkesmod最新版本
+echo.
+echo     9.Bakkesmod插件辅助安装
 echo.
 echo     0.返回主菜单
 echo.
@@ -683,10 +662,29 @@ if %xz%==3 start https://sakuragu.lanzoui.com/b01zvumje
 if %xz%==4 start https://bakkesmod.fandom.com/wiki/Troubleshooting
 if %xz%==5 goto readme
 if %xz%==6 goto bmrepair
-if %xz%==7 start http://rl.mcylyr.cn/plugins.html
+if %xz%==7 start http://rl.mcylyr.cn/plugins/index.html
 if %xz%==8 goto bmupdate
+if %xz%==9 goto bmplugins
 if %xz%==0 goto chinese
 goto chinese
+
+:bmplugins
+CLS
+echo. [%date% - %time%] 安装Bakkesmod插件...>>logs\softlogs
+title 安装Bakkesmod插件
+echo.
+echo.
+echo  请输入网页上显示的插件编号，输入后将自动安装此插件
+echo. 
+set /p bmpg=请输入序号并回车 : 
+"%Appdata%"\bakkesmod\bakkesmod\plugininstaller.exe bakkesmod://install/%bmpg%
+echo 已尝试呼出Bakkesmod插件安装，如出现找不到文件情况请使用修复功能
+echo.
+echo 如出现Plugin will be installed next time you launch the game!请在启动Bakkesmod与游戏时再次尝试安装
+echo.
+echo 如出现其他情况，请联系顾瑶
+pause>nul
+goto mod
 
 :bminstall
 echo. [%date% - %time%] 首次安装Bakkesmod...>>logs\softlogs
@@ -741,17 +739,18 @@ goto bmupdate
 echo. [%date% - %time%] 修复Bakkesmod>>logs\softlogs
 cd /d %~dp0
 echo  正在检查Bakkesmod修复/更新包是否存在
-if exist "bin\Expand\bakkesmod.7z" (goto bmupdate2) else (goto repairerror5)
+if exist "bin\Expand\bakkesmod.zip" (goto bmupdate2) else (goto repairerror5)
 :bmupdate2
 cd /d %~dp0
 echo 检测完毕，正在修复/更新
 echo.
 cd %Appdata%\bakkesmod
-md bakkesmod
+md %Appdata%\bakkesmod\bakkesmod
 cd /d %~dp0
-copy  "%~dp0"bin\Expand\bakkesmod.7z %Appdata%\bakkesmod\bakkesmod\bakkesmod.7z
+copy  "%~dp0"bin\Expand\bakkesmod.zip %Appdata%\bakkesmod\bakkesmod\bakkesmod.zip
 cd %Appdata%\bakkesmod\bakkesmod
-7z x bakkesmod.7z -aoa -y
+7z x %Appdata%\bakkesmod\bakkesmod\bakkesmod.zip -o%Appdata%\bakkesmod\bakkesmod -aoa -y
+del %Appdata%\bakkesmod\bakkesmod\bakkesmod.zip
 timeout /t 3
 echo.
 echo.
@@ -769,7 +768,7 @@ timeout /t 5
 cd bin
 md Bin1
 cd /d %~dp0
-aria2c.exe http://down.mcylyr.cn/rl/packet/vc.exe -d \bin\Expand -l .\logs\softlogs
+aria2c.exe http://down.mcylyr.cn/rl/runtime/vc.exe -d \bin\Expand -l .\logs\softlogs -s64 -x16
 goto bmrepair
 
 :repairerror4
@@ -781,7 +780,7 @@ timeout /t 5
 cd bin
 md Bin1
 cd /d %~dp0
-aria2c.exe http://down.mcylyr.cn/rl/packet/net.exe -d \bin\Expand -l .\logs\softlogs
+aria2c.exe http://down.mcylyr.cn/rl/runtime/net.exe -d \bin\Expand -l .\logs\softlogs -s64 -x16
 goto bminstall
 
 :repairerror5
@@ -793,7 +792,7 @@ timeout /t 5
 cd bin
 md Bin1
 cd /d %~dp0
-aria2c.exe http://down.mcylyr.cn/rl/packet/bakkesmod.7z -d .\bin\Expand -l .\logs\softlogs
+aria2c.exe http://down.mcylyr.cn/rl/packet/bakkesmod.zip -d .\bin\Expand -l .\logs\softlogs
 goto bmupdate
 
 :readme
@@ -807,7 +806,7 @@ echo 请优先下载Bakkesmod原创作者源
 echo.
 echo 转载没有得到作者的授权，因为我不知道在哪里联系
 echo.
-echo 请在作者看到后联系我，给我发邮件SakuraGu146@outlook.com
+echo 请在作者看到后联系我，给我发邮件SakuraGuWork@outlook.com
 echo.
 echo 我们非常重视原作者的版权
 echo.
@@ -927,7 +926,7 @@ echo 抱歉，未检测到VC运行库修复程序，5秒后自动开始下载vc.exe运行库
 echo.
 timeout /t 5
 cd /d %~dp0
-aria2c https://down.mcylyr.cn/rl/packet/vc.exe -d \bin\Expand -l .\logs\softlogs
+aria2c https://down.mcylyr.cn/rl/runtime/vc.exe -d \bin\Expand -l .\logs\softlogs -s64 -x16
 goto repair
 
 :repairerror2
@@ -937,7 +936,7 @@ echo 抱歉，未检测到Net运行库修复程序，5秒后自动开始下载net.exe运行库
 echo.
 timeout /t 5
 cd /d %~dp0
-aria2c https://down.mcylyr.cn/rl/packet/net.exe -d \bin\Expand -l .\logs\softlogs
+aria2c https://down.mcylyr.cn/rl/runtime/net.exe -d \bin\Expand -l .\logs\softlogs -s64 -x16
 pause
 goto repair
 
@@ -1003,7 +1002,7 @@ if %xz%==5 start %systemroot%/system32/drivers/etc/hostsback
 if %xz%==6 ipconfig /flushdns&goto chinese
 if %xz%==0 goto chinese
 pause>nul
-goto lau
+goto 3
 
 :logerrordx
 CLS
@@ -1013,7 +1012,7 @@ echo 找不到问题请联系顾瑶
 echo.
 echo 按任意键返回主菜单
 pause>nul
-goto leimu
+goto chinese
 
 :logerrorsysteminfo
 CLS
@@ -1023,7 +1022,7 @@ echo 找不到问题请联系顾瑶
 echo.
 echo 按任意键返回主菜单
 pause>nul
-goto leimu
+goto chinese
 
 :logerrorhosts
 CLS
@@ -1033,7 +1032,7 @@ echo 找不到问题请联系顾瑶
 echo.
 echo 按任意键返回主菜单
 pause>nul
-goto leimu
+goto chinese
 
 :test
 CLS
@@ -1048,7 +1047,7 @@ echo    2. 打开游戏日志文件夹
 echo.
 echo    3. 输出路由追踪日志
 echo.
-echo    4. 免测ping修改hosts(不推荐，除非你很了解这些服务器)
+echo    4. 免测ping修改hosts (不推荐，除非你很了解这些服务器)
 echo.
 echo    5. 刷新网络设置与缓存 (仅适合极客用户使用，小白不要乱打开，可能会断网1-3分钟，刷新完成前不要关闭)
 echo.
@@ -1072,7 +1071,7 @@ goto test
 :toollogs
 SETLOCAL
 set whatlog=%~dp0\logs\softlogs
-start %~dp0bin\ReadLog.cmd
+start %~dp0bin\ReadLog.exe
 ENDLOCAL
 goto test
 
@@ -1106,7 +1105,7 @@ echo 进度  [#---------] 5%
 echo 正在生成时间信息
 echo.当前地区日期与时间>>logs\systeminfo
 SETLOCAL
-set whatlog=%cd%\logs\systeminfo
+set whatlog=%~dp0\logs\systeminfo
 start %~dp0bin\ReadLog.exe
 ENDLOCAL
 date /t>>logs\systeminfo
@@ -1132,7 +1131,7 @@ echo.系统信息>>logs\systeminfo
 echo.>>logs\systeminfo
 systeminfo>>logs\systeminfo
 echo.>>logs\systeminfo
-echo 正在输出RL游戏日志
+echo 正在复制RL游戏日志
 md %CD%/logs/rllogs
 xcopy -y "%USERPROFILE%/Documents/My Games/Rocket League/TAGame/Logs" "%CD%/logs/rllogs"
 echo.
