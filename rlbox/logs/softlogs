@@ -1,609 +1,53 @@
- ±æ»’÷æ”…ªº˝¡™√Àπ˙º ∑˛π§æﬂœ‰…˙≥…£¨Ωˆ”√”⁄≈≈≥˝Œ Ã‚”√£¨≤ª…œ¥´÷¡∑˛ŒÒ∆˜£¨«Î∑≈–ƒ π”√
- [÷‹“ª 2024/08/12 - 19:45:33.03] »Ìº˛∞Ê±æ
- 3.0.0
- [÷‹“ª 2024/08/12 - 19:45:33.03] aria2c»Ìº˛∞Ê±æ
-aria2 version 1.37.0
-Copyright (C) 2006, 2019 Tatsuhiro Tsujikawa
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-** Configuration **
-Enabled Features: Async DNS, BitTorrent, Firefox3 Cookie, GZip, HTTPS, Message Digest, Metalink, XML-RPC, SFTP
-Hash Algorithms: sha-1, sha-224, sha-256, sha-384, sha-512, md5, adler32
-Libraries: zlib/1.3 expat/2.5.0 sqlite3/3.43.1 GMP/6.3.0 c-ares/1.19.1 libssh2/1.11.0
-Compiler: mingw-w64 8.0.0 (alpha) / gcc 10-win32 20220113
+ [2024/08/17 ÷‹¡˘ - 15:22:13.98] »Ìº˛ΩÈ…‹“—œ‘ æ
+2024-08-17 15:22:19.239592 [INFO] [Context.cc:179] <<--- --- --- ---
+2024-08-17 15:22:19.239592 [INFO] [Context.cc:180]   --- --- --- ---
+2024-08-17 15:22:19.239592 [INFO] [Context.cc:181]   --- --- --- --->>
+2024-08-17 15:22:19.239592 [INFO] [Context.cc:182] aria2 1.37.0
+2024-08-17 15:22:19.239592 [INFO] [Context.cc:183] mingw-w64 8.0.0 (alpha) / gcc 10-win32 20220113
   built by  x86_64-pc-linux-gnu
   targeting x86_64-w64-mingw32
   on        Nov 15 2023 11:17:49
-System: Windows 6.2 (x86_64) (6.2)
-
-Report bugs to https://github.com/aria2/aria2/issues
-Visit https://aria2.github.io/
- [÷‹“ª 2024/08/12 - 19:45:33.09] UAC≈–∂œ¬ﬂº≠
- [÷‹“ª 2024/08/12 - 19:45:34.04] UACÕ®π˝
- [÷‹“ª 2024/08/12 - 19:45:38.82] ”√ªß–≠“Èœ¬‘ÿ÷–
- ªÒ»°–¬∞Ê±æ”Î◊Ó–¬π´∏Êµ»
- [÷‹“ª 2024/08/12 - 19:45:38.83] –¬∞Ê±æ”Îπ´∏Êœ¬‘ÿÕÍ≥…
-2024-08-12 19:45:38.895700 [INFO] [Context.cc:179] <<--- --- --- ---
-2024-08-12 19:45:38.895700 [INFO] [Context.cc:180]   --- --- --- ---
-2024-08-12 19:45:38.895700 [INFO] [Context.cc:181]   --- --- --- --->>
-2024-08-12 19:45:38.895700 [INFO] [Context.cc:182] aria2 1.37.0
-2024-08-12 19:45:38.895700 [INFO] [Context.cc:183] mingw-w64 8.0.0 (alpha) / gcc 10-win32 20220113
-  built by  x86_64-pc-linux-gnu
-  targeting x86_64-w64-mingw32
-  on        Nov 15 2023 11:17:49
-2024-08-12 19:45:38.895700 [INFO] [Context.cc:184] Windows 6.2 (x86_64) (6.2)
-2024-08-12 19:45:38.895700 [INFO] [Context.cc:185] zlib/1.3 expat/2.5.0 sqlite3/3.43.1 GMP/6.3.0 c-ares/1.19.1 libssh2/1.11.0
-2024-08-12 19:45:38.895700 [INFO] [Context.cc:186] Logging started.
-2024-08-12 19:45:38.895700 [INFO] [SocketCore.cc:1586] Checking configured addresses
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1650] Not considered: fe80::420d:53c4:550c:ff58%10
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1650] Not considered: 169.254.228.110
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1650] Not considered: fe80::8008:76f1:c226:46b3%8
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1650] Not considered: 169.254.209.141
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1647] Found configured address: fd00:6868:6868::b22
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1647] Found configured address: fd00:6868:6868:0:84eb:6f2e:cb94:d1a6
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1647] Found configured address: fd00:6868:6868:0:d03f:f867:2222:9487
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1650] Not considered: fe80::32fc:8bfe:8331:688a%18
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1647] Found configured address: 192.168.31.183
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1650] Not considered: fe80::7cae:467:baea:2e14%19
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1647] Found configured address: 192.168.70.1
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1650] Not considered: fe80::c2e1:9271:fd8e:6a4f%6
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1647] Found configured address: 192.168.159.1
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1650] Not considered: fe80::1ae1:652:a6f1:f86e%3
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1650] Not considered: 169.254.196.215
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1650] Not considered: fe80::9add:ad06:af9c:ff24%13
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1650] Not considered: 169.254.41.182
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1650] Not considered: ::1
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1650] Not considered: 127.0.0.1
-2024-08-12 19:45:38.902190 [INFO] [SocketCore.cc:1657] IPv4 configured=1, IPv6 configured=1
-2024-08-12 19:45:38.902190 [NOTICE] [Context.cc:310] Downloading 1 item(s)
-2024-08-12 19:45:38.903211 [DEBUG] [RequestGroupMan.cc:591] 1 RequestGroup(s) added.
-2024-08-12 19:45:38.903211 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:38.903211 [DEBUG] [FeedbackURISelector.cc:162] Selected from normCands
-2024-08-12 19:45:38.903211 [DEBUG] [FeedbackURISelector.cc:84] FeedbackURISelector selected http://down.mcylyr.cn/rl/info
-2024-08-12 19:45:38.903211 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:38.912210 [INFO] [AsyncNameResolverMan.cc:82] CUID#7 - Resolving hostname down.mcylyr.cn
-2024-08-12 19:45:38.912210 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:38.917286 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:38.917286 [INFO] [AbstractCommand.cc:816] CUID#7 - Name resolution complete: down.mcylyr.cn -> 2404:8c80:0:1001:128:50e1:c06b:a896, 2404:8c80:0:1001:11b:8a60:ced5:d0dd, 45.153.129.224
-2024-08-12 19:45:38.917286 [INFO] [HttpInitiateConnectionCommand.cc:123] CUID#7 - Connecting to 2404:8c80:0:1001:128:50e1:c06b:a896:80
-2024-08-12 19:45:38.917286 [INFO] [InitiateConnectionCommand.cc:143] Searching IPv4 address for backup connection attempt
-2024-08-12 19:45:38.917286 [INFO] [InitiateConnectionCommand.cc:155] Issue backup connection command CUID#8, addr=45.153.129.224
-2024-08-12 19:45:38.917286 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:39.261394 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
-2024-08-12 19:45:39.261394 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
-2024-08-12 19:45:39.261394 [INFO] [HttpConnection.cc:128] CUID#7 - Requesting:
-GET /rl/info HTTP/1.1
-User-Agent: aria2/1.37.0
-Accept: */*,application/metalink4+xml,application/metalink+xml
-Host: down.mcylyr.cn
-Want-Digest: SHA-512;q=1, SHA-256;q=1, SHA;q=0.1
-
-
-2024-08-12 19:45:39.609948 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:39.609948 [INFO] [HttpConnection.cc:163] CUID#7 - Response received:
-HTTP/1.1 301 Moved Permanently
-Date: Mon, 12 Aug 2024 11:45:40 GMT
-Server: Apache
-Location: https://down.mcylyr.cn/rl/info
-Content-Length: 302
-Connection: close
-Content-Type: text/html; charset=iso-8859-1
-
-
-2024-08-12 19:45:39.610941 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:39.610941 [NOTICE] [HttpResponse.cc:168] CUID#7 - Redirecting to https://down.mcylyr.cn/rl/info
-2024-08-12 19:45:39.610941 [DEBUG] [AbstractCommand.cc:451] CUID#7 - Pooling request URI=http://down.mcylyr.cn/rl/info
-2024-08-12 19:45:39.610941 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:39.610941 [DEBUG] [FileEntry.cc:225] Picked up from pool: http://down.mcylyr.cn/rl/info
-2024-08-12 19:45:39.610941 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:39.620504 [INFO] [AsyncNameResolverMan.cc:82] CUID#7 - Resolving hostname down.mcylyr.cn
-2024-08-12 19:45:39.620504 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:39.625585 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:39.625585 [INFO] [AbstractCommand.cc:816] CUID#7 - Name resolution complete: down.mcylyr.cn -> 2404:8c80:0:1001:11b:8a60:ced5:d0dd, 2404:8c80:0:1001:128:50e1:c06b:a896, 45.153.129.224
-2024-08-12 19:45:39.625585 [INFO] [HttpInitiateConnectionCommand.cc:123] CUID#7 - Connecting to 2404:8c80:0:1001:11b:8a60:ced5:d0dd:443
-2024-08-12 19:45:39.625585 [INFO] [InitiateConnectionCommand.cc:143] Searching IPv4 address for backup connection attempt
-2024-08-12 19:45:39.626576 [INFO] [InitiateConnectionCommand.cc:155] Issue backup connection command CUID#9, addr=45.153.129.224
-2024-08-12 19:45:39.626576 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:40.018462 [INFO] [BackupIPv4ConnectCommand.cc:85] CUID#8 - Backup connection canceled
-2024-08-12 19:45:40.019459 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
-2024-08-12 19:45:40.019459 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
-2024-08-12 19:45:40.019459 [DEBUG] [SocketCore.cc:927] Creating TLS session
-2024-08-12 19:45:40.020456 [DEBUG] [SocketCore.cc:947] TLS Handshaking
-2024-08-12 19:45:40.020456 [DEBUG] [WinTLSSession.cc:585] WinTLS: Starting/Resuming TLS Connect
-2024-08-12 19:45:40.020456 [DEBUG] [WinTLSSession.cc:604] WinTLS: Initializing handshake
-2024-08-12 19:45:40.020456 [DEBUG] [WinTLSSession.cc:630] WinTLS: Writing handshake
-2024-08-12 19:45:40.021958 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
-2024-08-12 19:45:40.089871 [INFO] [BackupIPv4ConnectCommand.cc:85] CUID#9 - Backup connection canceled
-2024-08-12 19:45:40.413049 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:40.413049 [DEBUG] [WinTLSSession.cc:585] WinTLS: Starting/Resuming TLS Connect
-2024-08-12 19:45:40.413049 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
-2024-08-12 19:45:40.415549 [DEBUG] [WinTLSSession.cc:758] WinTLS: Continuing with handshake
-2024-08-12 19:45:40.415549 [DEBUG] [WinTLSSession.cc:630] WinTLS: Writing handshake
-2024-08-12 19:45:40.415549 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
-2024-08-12 19:45:40.806850 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:40.806850 [DEBUG] [WinTLSSession.cc:585] WinTLS: Starting/Resuming TLS Connect
-2024-08-12 19:45:40.806850 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
-2024-08-12 19:45:40.808844 [INFO] [WinTLSSession.cc:788] WinTLS: connected with: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-2024-08-12 19:45:40.808844 [DEBUG] [SocketCore.cc:994] Securely connected to down.mcylyr.cn (2404:8c80:0:1001:11b:8a60:ced5:d0dd:443) with TLSv1.2
-2024-08-12 19:45:40.808844 [INFO] [HttpConnection.cc:128] CUID#7 - Requesting:
-GET /rl/info HTTP/1.1
-User-Agent: aria2/1.37.0
-Accept: */*,application/metalink4+xml,application/metalink+xml
-Host: down.mcylyr.cn
-Want-Digest: SHA-512;q=1, SHA-256;q=1, SHA;q=0.1
-
-
-2024-08-12 19:45:40.808844 [DEBUG] [WinTLSSession.cc:336] WinTLS: Write request: 187 buffered: 0
-2024-08-12 19:45:40.808844 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 0 bytes left
-2024-08-12 19:45:40.808844 [DEBUG] [WinTLSSession.cc:404] WinTLS: Write TLS record header: 13 body: 187 trailer: 16
-2024-08-12 19:45:40.808844 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 216 bytes left
-2024-08-12 19:45:40.808844 [DEBUG] [WinTLSSession.cc:428] WinTLS: Write result: 187
-2024-08-12 19:45:41.200974 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:41.200974 [DEBUG] [WinTLSSession.cc:435] WinTLS: Read request: 16384 buffered: 0
-2024-08-12 19:45:41.200974 [DEBUG] [WinTLSSession.cc:497] WinTLS: Connection abruptly closed!
-2024-08-12 19:45:41.200974 [DEBUG] [WinTLSSession.cc:181] WinTLS: Closing connection
-2024-08-12 19:45:41.201966 [DEBUG] [WinTLSSession.cc:336] WinTLS: Write request: 31 buffered: 0
-2024-08-12 19:45:41.201966 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 0 bytes left
-2024-08-12 19:45:41.201966 [DEBUG] [WinTLSSession.cc:397] WinTLS: Failed to encrypt a message! Error: ‰∏ä‰∏ãÊñáÂ∑≤ËøáÊúüÔºå‰∏çËÉΩÂÜçÁî®‰∫Ü„ÄÇ
-(80090317)
-2024-08-12 19:45:41.201966 [DEBUG] [WinTLSSession.cc:225] WinTLS: Closed Connection
-2024-08-12 19:45:41.202473 [DEBUG] [WinTLSSession.cc:556] WinTLS: Connection gracefully closed!
-2024-08-12 19:45:41.202473 [DEBUG] [WinTLSSession.cc:176] WinTLS: Cannot close connection
-2024-08-12 19:45:41.202473 [INFO] [HttpConnection.cc:163] CUID#7 - Response received:
-HTTP/1.1 200 OK
-Date: Mon, 12 Aug 2024 11:45:41 GMT
-Server: Apache
-Upgrade: h2
-Connection: Upgrade, close
-Last-Modified: Sun, 11 Aug 2024 10:43:40 GMT
-ETag: "76-61f660cb60c46"
-Accept-Ranges: bytes
-Content-Length: 118
-Vary: Accept-Encoding
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
-
-
-2024-08-12 19:45:41.202473 [DEBUG] [RequestGroup.cc:1045] Finding PreDownloadHandler for path ./logs/info.
-2024-08-12 19:45:41.202473 [DEBUG] [RequestGroup.cc:1060] No PreDownloadHandler found.
-2024-08-12 19:45:41.202580 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/info.aria2 does not exist.
-2024-08-12 19:45:41.202580 [DEBUG] [DefaultPieceStorage.cc:637] Instantiating DirectDiskAdaptor
-2024-08-12 19:45:41.202580 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/info.aria2 does not exist.
-2024-08-12 19:45:41.202580 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/info.aria2 does not exist.
-2024-08-12 19:45:41.202580 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/info.aria2 does not exist.
-2024-08-12 19:45:41.202580 [DEBUG] [DefaultPieceStorage.cc:168] usedPieces_.size()=1
-2024-08-12 19:45:41.202580 [DEBUG] [SegmentMan.cc:140] Attach segment#0 to CUID#7.
-2024-08-12 19:45:41.202580 [DEBUG] [SegmentMan.cc:146] Flushing cached data, size=0
-2024-08-12 19:45:41.202580 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=0, delta=0, clock=1
-2024-08-12 19:45:41.202580 [DEBUG] [SegmentMan.cc:163] index=0, length=118, segmentLength=1048576, writtenLength=0
-2024-08-12 19:45:41.202580 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=0, delta=0, clock=2
-2024-08-12 19:45:41.232696 [INFO] [DefaultBtProgressInfoFile.cc:207] Saving the segment file ./logs/info.aria2
-2024-08-12 19:45:41.303959 [INFO] [DefaultBtProgressInfoFile.cc:219] The segment file was saved successfully.
-2024-08-12 19:45:41.303959 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:41.303959 [DEBUG] [Piece.cc:342] updateWrCache entry=000001aa326c3b20
-2024-08-12 19:45:41.303959 [DEBUG] [WrDiskCacheEntry.cc:94] WrDiskCacheEntry cache goff=0, len=118
-2024-08-12 19:45:41.303959 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=118, delta=118, clock=3
-2024-08-12 19:45:41.303959 [INFO] [DownloadCommand.cc:242] CUID#7 - The download for one segment completed successfully.
-2024-08-12 19:45:41.303959 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=118, delta=-118, clock=4
-2024-08-12 19:45:41.303959 [DEBUG] [AbstractSingleDiskAdaptor.cc:100] Cache flush goff=0, len=118
-2024-08-12 19:45:41.305318 [DEBUG] [WrDiskCache.cc:79] Removed cache entry size=0, clock=5
-2024-08-12 19:45:41.305318 [INFO] [DefaultPieceStorage.cc:483] The download was complete.
-2024-08-12 19:45:41.305318 [INFO] [DownloadEngine.cc:315] Pool socket for 2404:8c80:0:1001:11b:8a60:ced5:d0dd(443)
-2024-08-12 19:45:41.305318 [DEBUG] [RequestGroup.cc:983] GID#1be3256ac68376c8 - Request queue check
-2024-08-12 19:45:41.305318 [DEBUG] [ServerStat.cc:107] ServerStat:down.mcylyr.cn: singleConnectionAvgSpeed_ old:0.00KB/s new:1.12KB/s last:1.12KB/s
-2024-08-12 19:45:41.404192 [NOTICE] [RequestGroup.cc:1214] Download complete: ./logs/info
-2024-08-12 19:45:41.404192 [INFO] [DefaultBtProgressInfoFile.cc:417] The segment file ./logs/info.aria2 exists.
-2024-08-12 19:45:41.405231 [DEBUG] [RequestGroup.cc:1067] Finding PostDownloadHandler for path ./logs/info.
-2024-08-12 19:45:41.405231 [DEBUG] [RequestGroup.cc:1081] No PostDownloadHandler found.
-2024-08-12 19:45:41.405231 [DEBUG] [RequestGroup.cc:1173] GID#1be3256ac68376c8 - Creating DownloadResult.
-2024-08-12 19:45:41.405231 [DEBUG] [DefaultPieceStorage.cc:745] Removed 0 have entries.
-2024-08-12 19:45:41.405231 [DEBUG] [RequestGroupMan.cc:481] 1 RequestGroup(s) deleted.
-2024-08-12 19:45:41.406231 [DEBUG] [WinTLSSession.cc:176] WinTLS: Cannot close connection
-2024-08-12 19:45:41.502210 [INFO] [Context.cc:179] <<--- --- --- ---
-2024-08-12 19:45:41.502828 [INFO] [Context.cc:180]   --- --- --- ---
-2024-08-12 19:45:41.502828 [INFO] [Context.cc:181]   --- --- --- --->>
-2024-08-12 19:45:41.502828 [INFO] [Context.cc:182] aria2 1.37.0
-2024-08-12 19:45:41.502828 [INFO] [Context.cc:183] mingw-w64 8.0.0 (alpha) / gcc 10-win32 20220113
-  built by  x86_64-pc-linux-gnu
-  targeting x86_64-w64-mingw32
-  on        Nov 15 2023 11:17:49
-2024-08-12 19:45:41.502828 [INFO] [Context.cc:184] Windows 6.2 (x86_64) (6.2)
-2024-08-12 19:45:41.502828 [INFO] [Context.cc:185] zlib/1.3 expat/2.5.0 sqlite3/3.43.1 GMP/6.3.0 c-ares/1.19.1 libssh2/1.11.0
-2024-08-12 19:45:41.502828 [INFO] [Context.cc:186] Logging started.
-2024-08-12 19:45:41.502828 [INFO] [SocketCore.cc:1586] Checking configured addresses
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1650] Not considered: fe80::420d:53c4:550c:ff58%10
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1650] Not considered: 169.254.228.110
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1650] Not considered: fe80::8008:76f1:c226:46b3%8
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1650] Not considered: 169.254.209.141
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1647] Found configured address: fd00:6868:6868::b22
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1647] Found configured address: fd00:6868:6868:0:84eb:6f2e:cb94:d1a6
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1647] Found configured address: fd00:6868:6868:0:d03f:f867:2222:9487
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1650] Not considered: fe80::32fc:8bfe:8331:688a%18
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1647] Found configured address: 192.168.31.183
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1650] Not considered: fe80::7cae:467:baea:2e14%19
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1647] Found configured address: 192.168.70.1
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1650] Not considered: fe80::c2e1:9271:fd8e:6a4f%6
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1647] Found configured address: 192.168.159.1
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1650] Not considered: fe80::1ae1:652:a6f1:f86e%3
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1650] Not considered: 169.254.196.215
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1650] Not considered: fe80::9add:ad06:af9c:ff24%13
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1650] Not considered: 169.254.41.182
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1650] Not considered: ::1
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1650] Not considered: 127.0.0.1
-2024-08-12 19:45:41.508348 [INFO] [SocketCore.cc:1657] IPv4 configured=1, IPv6 configured=1
-2024-08-12 19:45:41.508348 [NOTICE] [Context.cc:310] Downloading 1 item(s)
-2024-08-12 19:45:41.509345 [DEBUG] [RequestGroupMan.cc:591] 1 RequestGroup(s) added.
-2024-08-12 19:45:41.509345 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:41.509345 [DEBUG] [FeedbackURISelector.cc:162] Selected from normCands
-2024-08-12 19:45:41.509345 [DEBUG] [FeedbackURISelector.cc:84] FeedbackURISelector selected http://down.mcylyr.cn/rl/ver/newver
-2024-08-12 19:45:41.509345 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:41.518876 [INFO] [AsyncNameResolverMan.cc:82] CUID#7 - Resolving hostname down.mcylyr.cn
-2024-08-12 19:45:41.518876 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:41.522900 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:41.523897 [INFO] [AbstractCommand.cc:816] CUID#7 - Name resolution complete: down.mcylyr.cn -> 2404:8c80:0:1001:128:50e1:c06b:a896, 2404:8c80:0:1001:11b:8a60:ced5:d0dd, 45.153.129.224
-2024-08-12 19:45:41.523897 [INFO] [HttpInitiateConnectionCommand.cc:123] CUID#7 - Connecting to 2404:8c80:0:1001:128:50e1:c06b:a896:80
-2024-08-12 19:45:41.523897 [INFO] [InitiateConnectionCommand.cc:143] Searching IPv4 address for backup connection attempt
-2024-08-12 19:45:41.523897 [INFO] [InitiateConnectionCommand.cc:155] Issue backup connection command CUID#8, addr=45.153.129.224
-2024-08-12 19:45:41.523897 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:41.875111 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
-2024-08-12 19:45:41.875111 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
-2024-08-12 19:45:41.875111 [INFO] [HttpConnection.cc:128] CUID#7 - Requesting:
-GET /rl/ver/newver HTTP/1.1
-User-Agent: aria2/1.37.0
-Accept: */*,application/metalink4+xml,application/metalink+xml
-Host: down.mcylyr.cn
-Want-Digest: SHA-512;q=1, SHA-256;q=1, SHA;q=0.1
-
-
-2024-08-12 19:45:42.218910 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:42.218910 [INFO] [HttpConnection.cc:163] CUID#7 - Response received:
-HTTP/1.1 301 Moved Permanently
-Date: Mon, 12 Aug 2024 11:45:42 GMT
-Server: Apache
-Location: https://down.mcylyr.cn/rl/ver/newver
-Content-Length: 308
-Connection: close
-Content-Type: text/html; charset=iso-8859-1
-
-
-2024-08-12 19:45:42.218910 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:42.218910 [NOTICE] [HttpResponse.cc:168] CUID#7 - Redirecting to https://down.mcylyr.cn/rl/ver/newver
-2024-08-12 19:45:42.218910 [DEBUG] [AbstractCommand.cc:451] CUID#7 - Pooling request URI=http://down.mcylyr.cn/rl/ver/newver
-2024-08-12 19:45:42.218910 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:42.218910 [DEBUG] [FileEntry.cc:225] Picked up from pool: http://down.mcylyr.cn/rl/ver/newver
-2024-08-12 19:45:42.218910 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:42.229103 [INFO] [AsyncNameResolverMan.cc:82] CUID#7 - Resolving hostname down.mcylyr.cn
-2024-08-12 19:45:42.229103 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:42.234111 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:42.234111 [INFO] [AbstractCommand.cc:816] CUID#7 - Name resolution complete: down.mcylyr.cn -> 2404:8c80:0:1001:11b:8a60:ced5:d0dd, 2404:8c80:0:1001:128:50e1:c06b:a896, 45.153.129.224
-2024-08-12 19:45:42.234111 [INFO] [HttpInitiateConnectionCommand.cc:123] CUID#7 - Connecting to 2404:8c80:0:1001:11b:8a60:ced5:d0dd:443
-2024-08-12 19:45:42.234111 [INFO] [InitiateConnectionCommand.cc:143] Searching IPv4 address for backup connection attempt
-2024-08-12 19:45:42.234111 [INFO] [InitiateConnectionCommand.cc:155] Issue backup connection command CUID#9, addr=45.153.129.224
-2024-08-12 19:45:42.234111 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:42.578152 [INFO] [BackupIPv4ConnectCommand.cc:85] CUID#8 - Backup connection canceled
-2024-08-12 19:45:42.578152 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
-2024-08-12 19:45:42.578152 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
-2024-08-12 19:45:42.578152 [DEBUG] [SocketCore.cc:927] Creating TLS session
-2024-08-12 19:45:42.580141 [DEBUG] [SocketCore.cc:947] TLS Handshaking
-2024-08-12 19:45:42.580141 [DEBUG] [WinTLSSession.cc:585] WinTLS: Starting/Resuming TLS Connect
-2024-08-12 19:45:42.580141 [DEBUG] [WinTLSSession.cc:604] WinTLS: Initializing handshake
-2024-08-12 19:45:42.580141 [DEBUG] [WinTLSSession.cc:630] WinTLS: Writing handshake
-2024-08-12 19:45:42.580141 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
-2024-08-12 19:45:42.647952 [INFO] [BackupIPv4ConnectCommand.cc:85] CUID#9 - Backup connection canceled
-2024-08-12 19:45:42.928458 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:42.928458 [DEBUG] [WinTLSSession.cc:585] WinTLS: Starting/Resuming TLS Connect
-2024-08-12 19:45:42.928458 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
-2024-08-12 19:45:42.930452 [DEBUG] [WinTLSSession.cc:758] WinTLS: Continuing with handshake
-2024-08-12 19:45:42.930452 [DEBUG] [WinTLSSession.cc:630] WinTLS: Writing handshake
-2024-08-12 19:45:42.930452 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
-2024-08-12 19:45:43.274712 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:43.274712 [DEBUG] [WinTLSSession.cc:585] WinTLS: Starting/Resuming TLS Connect
-2024-08-12 19:45:43.274712 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
-2024-08-12 19:45:43.275712 [INFO] [WinTLSSession.cc:788] WinTLS: connected with: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-2024-08-12 19:45:43.275712 [DEBUG] [SocketCore.cc:994] Securely connected to down.mcylyr.cn (2404:8c80:0:1001:11b:8a60:ced5:d0dd:443) with TLSv1.2
-2024-08-12 19:45:43.275712 [INFO] [HttpConnection.cc:128] CUID#7 - Requesting:
-GET /rl/ver/newver HTTP/1.1
-User-Agent: aria2/1.37.0
-Accept: */*,application/metalink4+xml,application/metalink+xml
-Host: down.mcylyr.cn
-Want-Digest: SHA-512;q=1, SHA-256;q=1, SHA;q=0.1
-
-
-2024-08-12 19:45:43.275712 [DEBUG] [WinTLSSession.cc:336] WinTLS: Write request: 193 buffered: 0
-2024-08-12 19:45:43.275712 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 0 bytes left
-2024-08-12 19:45:43.275712 [DEBUG] [WinTLSSession.cc:404] WinTLS: Write TLS record header: 13 body: 193 trailer: 16
-2024-08-12 19:45:43.275712 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 222 bytes left
-2024-08-12 19:45:43.275712 [DEBUG] [WinTLSSession.cc:428] WinTLS: Write result: 193
-2024-08-12 19:45:43.618773 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:43.618773 [DEBUG] [WinTLSSession.cc:435] WinTLS: Read request: 16384 buffered: 0
-2024-08-12 19:45:43.618773 [INFO] [HttpConnection.cc:163] CUID#7 - Response received:
-HTTP/1.1 200 OK
-Date: Mon, 12 Aug 2024 11:45:44 GMT
-Server: Apache
-Upgrade: h2
-Connection: Upgrade, close
-Last-Modified: Fri, 02 Aug 2024 04:44:32 GMT
-ETag: "5-61eabfbc72a59"
-Accept-Ranges: bytes
-Content-Length: 5
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
-
-
-2024-08-12 19:45:43.618773 [DEBUG] [RequestGroup.cc:1045] Finding PreDownloadHandler for path ./logs/newver.
-2024-08-12 19:45:43.618773 [DEBUG] [RequestGroup.cc:1060] No PreDownloadHandler found.
-2024-08-12 19:45:43.618773 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/newver.aria2 does not exist.
-2024-08-12 19:45:43.618773 [DEBUG] [DefaultPieceStorage.cc:637] Instantiating DirectDiskAdaptor
-2024-08-12 19:45:43.618773 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/newver.aria2 does not exist.
-2024-08-12 19:45:43.618773 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/newver.aria2 does not exist.
-2024-08-12 19:45:43.618773 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/newver.aria2 does not exist.
-2024-08-12 19:45:43.618773 [DEBUG] [DefaultPieceStorage.cc:168] usedPieces_.size()=1
-2024-08-12 19:45:43.618773 [DEBUG] [SegmentMan.cc:140] Attach segment#0 to CUID#7.
-2024-08-12 19:45:43.618773 [DEBUG] [SegmentMan.cc:146] Flushing cached data, size=0
-2024-08-12 19:45:43.618773 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=0, delta=0, clock=1
-2024-08-12 19:45:43.618773 [DEBUG] [SegmentMan.cc:163] index=0, length=5, segmentLength=1048576, writtenLength=0
-2024-08-12 19:45:43.618773 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=0, delta=0, clock=2
-2024-08-12 19:45:43.640835 [INFO] [DefaultBtProgressInfoFile.cc:207] Saving the segment file ./logs/newver.aria2
-2024-08-12 19:45:43.720778 [INFO] [DefaultBtProgressInfoFile.cc:219] The segment file was saved successfully.
-2024-08-12 19:45:43.723290 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:43.723290 [DEBUG] [Piece.cc:342] updateWrCache entry=00000237da863a40
-2024-08-12 19:45:43.723290 [DEBUG] [WrDiskCacheEntry.cc:94] WrDiskCacheEntry cache goff=0, len=5
-2024-08-12 19:45:43.723290 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=5, delta=5, clock=3
-2024-08-12 19:45:43.723290 [INFO] [DownloadCommand.cc:242] CUID#7 - The download for one segment completed successfully.
-2024-08-12 19:45:43.723290 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=5, delta=-5, clock=4
-2024-08-12 19:45:43.723290 [DEBUG] [AbstractSingleDiskAdaptor.cc:100] Cache flush goff=0, len=5
-2024-08-12 19:45:43.723290 [DEBUG] [WrDiskCache.cc:79] Removed cache entry size=0, clock=5
-2024-08-12 19:45:43.723290 [INFO] [DefaultPieceStorage.cc:483] The download was complete.
-2024-08-12 19:45:43.723290 [INFO] [DownloadEngine.cc:315] Pool socket for 2404:8c80:0:1001:11b:8a60:ced5:d0dd(443)
-2024-08-12 19:45:43.723290 [DEBUG] [RequestGroup.cc:983] GID#fe7d66f3a98bcda9 - Request queue check
-2024-08-12 19:45:43.723290 [DEBUG] [ServerStat.cc:107] ServerStat:down.mcylyr.cn: singleConnectionAvgSpeed_ old:0.00KB/s new:0.05KB/s last:0.05KB/s
-2024-08-12 19:45:43.821993 [NOTICE] [RequestGroup.cc:1214] Download complete: ./logs/newver
-2024-08-12 19:45:43.823001 [INFO] [DefaultBtProgressInfoFile.cc:417] The segment file ./logs/newver.aria2 exists.
-2024-08-12 19:45:43.823997 [DEBUG] [RequestGroup.cc:1067] Finding PostDownloadHandler for path ./logs/newver.
-2024-08-12 19:45:43.823997 [DEBUG] [RequestGroup.cc:1081] No PostDownloadHandler found.
-2024-08-12 19:45:43.823997 [DEBUG] [RequestGroup.cc:1173] GID#fe7d66f3a98bcda9 - Creating DownloadResult.
-2024-08-12 19:45:43.823997 [DEBUG] [DefaultPieceStorage.cc:745] Removed 0 have entries.
-2024-08-12 19:45:43.823997 [DEBUG] [RequestGroupMan.cc:481] 1 RequestGroup(s) deleted.
-2024-08-12 19:45:43.824500 [DEBUG] [WinTLSSession.cc:181] WinTLS: Closing connection
-2024-08-12 19:45:43.825500 [DEBUG] [WinTLSSession.cc:336] WinTLS: Write request: 31 buffered: 0
-2024-08-12 19:45:43.825500 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 0 bytes left
-2024-08-12 19:45:43.825500 [DEBUG] [WinTLSSession.cc:397] WinTLS: Failed to encrypt a message! Error: ‰∏ä‰∏ãÊñáÂ∑≤ËøáÊúüÔºå‰∏çËÉΩÂÜçÁî®‰∫Ü„ÄÇ
-(80090317)
-2024-08-12 19:45:43.825500 [DEBUG] [WinTLSSession.cc:225] WinTLS: Closed Connection
-2024-08-12 19:45:43.922813 [INFO] [Context.cc:179] <<--- --- --- ---
-2024-08-12 19:45:43.922813 [INFO] [Context.cc:180]   --- --- --- ---
-2024-08-12 19:45:43.922813 [INFO] [Context.cc:181]   --- --- --- --->>
-2024-08-12 19:45:43.922813 [INFO] [Context.cc:182] aria2 1.37.0
-2024-08-12 19:45:43.922813 [INFO] [Context.cc:183] mingw-w64 8.0.0 (alpha) / gcc 10-win32 20220113
-  built by  x86_64-pc-linux-gnu
-  targeting x86_64-w64-mingw32
-  on        Nov 15 2023 11:17:49
-2024-08-12 19:45:43.922813 [INFO] [Context.cc:184] Windows 6.2 (x86_64) (6.2)
-2024-08-12 19:45:43.922813 [INFO] [Context.cc:185] zlib/1.3 expat/2.5.0 sqlite3/3.43.1 GMP/6.3.0 c-ares/1.19.1 libssh2/1.11.0
-2024-08-12 19:45:43.922813 [INFO] [Context.cc:186] Logging started.
-2024-08-12 19:45:43.922813 [INFO] [SocketCore.cc:1586] Checking configured addresses
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1650] Not considered: fe80::420d:53c4:550c:ff58%10
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1650] Not considered: 169.254.228.110
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1650] Not considered: fe80::8008:76f1:c226:46b3%8
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1650] Not considered: 169.254.209.141
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1647] Found configured address: fd00:6868:6868::b22
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1647] Found configured address: fd00:6868:6868:0:84eb:6f2e:cb94:d1a6
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1647] Found configured address: fd00:6868:6868:0:d03f:f867:2222:9487
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1650] Not considered: fe80::32fc:8bfe:8331:688a%18
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1647] Found configured address: 192.168.31.183
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1650] Not considered: fe80::7cae:467:baea:2e14%19
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1647] Found configured address: 192.168.70.1
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1650] Not considered: fe80::c2e1:9271:fd8e:6a4f%6
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1647] Found configured address: 192.168.159.1
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1650] Not considered: fe80::1ae1:652:a6f1:f86e%3
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1650] Not considered: 169.254.196.215
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1650] Not considered: fe80::9add:ad06:af9c:ff24%13
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1650] Not considered: 169.254.41.182
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1650] Not considered: ::1
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1650] Not considered: 127.0.0.1
-2024-08-12 19:45:43.929325 [INFO] [SocketCore.cc:1657] IPv4 configured=1, IPv6 configured=1
-2024-08-12 19:45:43.929325 [NOTICE] [Context.cc:310] Downloading 1 item(s)
-2024-08-12 19:45:43.930322 [DEBUG] [RequestGroupMan.cc:591] 1 RequestGroup(s) added.
-2024-08-12 19:45:43.931318 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:43.931318 [DEBUG] [FeedbackURISelector.cc:162] Selected from normCands
-2024-08-12 19:45:43.931318 [DEBUG] [FeedbackURISelector.cc:84] FeedbackURISelector selected http://down.mcylyr.cn/rl/ver/oldver
-2024-08-12 19:45:43.931318 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:43.940319 [INFO] [AsyncNameResolverMan.cc:82] CUID#7 - Resolving hostname down.mcylyr.cn
-2024-08-12 19:45:43.941315 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:43.945328 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:43.945328 [INFO] [AbstractCommand.cc:816] CUID#7 - Name resolution complete: down.mcylyr.cn -> 2404:8c80:0:1001:128:50e1:c06b:a896, 2404:8c80:0:1001:11b:8a60:ced5:d0dd, 45.153.129.224
-2024-08-12 19:45:43.945328 [INFO] [HttpInitiateConnectionCommand.cc:123] CUID#7 - Connecting to 2404:8c80:0:1001:128:50e1:c06b:a896:80
-2024-08-12 19:45:43.945328 [INFO] [InitiateConnectionCommand.cc:143] Searching IPv4 address for backup connection attempt
-2024-08-12 19:45:43.945328 [INFO] [InitiateConnectionCommand.cc:155] Issue backup connection command CUID#8, addr=45.153.129.224
-2024-08-12 19:45:43.946324 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:44.264097 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
-2024-08-12 19:45:44.264604 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
-2024-08-12 19:45:44.264604 [INFO] [HttpConnection.cc:128] CUID#7 - Requesting:
-GET /rl/ver/oldver HTTP/1.1
-User-Agent: aria2/1.37.0
-Accept: */*,application/metalink4+xml,application/metalink+xml
-Host: down.mcylyr.cn
-Want-Digest: SHA-512;q=1, SHA-256;q=1, SHA;q=0.1
-
-
-2024-08-12 19:45:44.577357 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:44.577357 [INFO] [HttpConnection.cc:163] CUID#7 - Response received:
-HTTP/1.1 301 Moved Permanently
-Date: Mon, 12 Aug 2024 11:45:45 GMT
-Server: Apache
-Location: https://down.mcylyr.cn/rl/ver/oldver
-Content-Length: 308
-Connection: close
-Content-Type: text/html; charset=iso-8859-1
-
-
-2024-08-12 19:45:44.577357 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:44.577357 [NOTICE] [HttpResponse.cc:168] CUID#7 - Redirecting to https://down.mcylyr.cn/rl/ver/oldver
-2024-08-12 19:45:44.578361 [DEBUG] [AbstractCommand.cc:451] CUID#7 - Pooling request URI=http://down.mcylyr.cn/rl/ver/oldver
-2024-08-12 19:45:44.578361 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:44.578361 [DEBUG] [FileEntry.cc:225] Picked up from pool: http://down.mcylyr.cn/rl/ver/oldver
-2024-08-12 19:45:44.578361 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:44.587381 [INFO] [AsyncNameResolverMan.cc:82] CUID#7 - Resolving hostname down.mcylyr.cn
-2024-08-12 19:45:44.587381 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:44.591888 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:44.591888 [INFO] [AbstractCommand.cc:816] CUID#7 - Name resolution complete: down.mcylyr.cn -> 2404:8c80:0:1001:11b:8a60:ced5:d0dd, 2404:8c80:0:1001:128:50e1:c06b:a896, 45.153.129.224
-2024-08-12 19:45:44.591888 [INFO] [HttpInitiateConnectionCommand.cc:123] CUID#7 - Connecting to 2404:8c80:0:1001:11b:8a60:ced5:d0dd:443
-2024-08-12 19:45:44.591888 [INFO] [InitiateConnectionCommand.cc:143] Searching IPv4 address for backup connection attempt
-2024-08-12 19:45:44.591888 [INFO] [InitiateConnectionCommand.cc:155] Issue backup connection command CUID#9, addr=45.153.129.224
-2024-08-12 19:45:44.591888 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:44.941767 [INFO] [BackupIPv4ConnectCommand.cc:85] CUID#8 - Backup connection canceled
-2024-08-12 19:45:44.942287 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
-2024-08-12 19:45:44.942287 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
-2024-08-12 19:45:44.942287 [DEBUG] [SocketCore.cc:927] Creating TLS session
-2024-08-12 19:45:44.943286 [DEBUG] [SocketCore.cc:947] TLS Handshaking
-2024-08-12 19:45:44.943286 [DEBUG] [WinTLSSession.cc:585] WinTLS: Starting/Resuming TLS Connect
-2024-08-12 19:45:44.943286 [DEBUG] [WinTLSSession.cc:604] WinTLS: Initializing handshake
-2024-08-12 19:45:44.943286 [DEBUG] [WinTLSSession.cc:630] WinTLS: Writing handshake
-2024-08-12 19:45:44.943286 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
-2024-08-12 19:45:45.018100 [INFO] [BackupIPv4ConnectCommand.cc:85] CUID#9 - Backup connection canceled
-2024-08-12 19:45:45.296913 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:45.296913 [DEBUG] [WinTLSSession.cc:585] WinTLS: Starting/Resuming TLS Connect
-2024-08-12 19:45:45.296913 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
-2024-08-12 19:45:45.298906 [DEBUG] [WinTLSSession.cc:758] WinTLS: Continuing with handshake
-2024-08-12 19:45:45.298906 [DEBUG] [WinTLSSession.cc:630] WinTLS: Writing handshake
-2024-08-12 19:45:45.298906 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
-2024-08-12 19:45:45.647321 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:45.647321 [DEBUG] [WinTLSSession.cc:585] WinTLS: Starting/Resuming TLS Connect
-2024-08-12 19:45:45.647321 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
-2024-08-12 19:45:45.649311 [INFO] [WinTLSSession.cc:788] WinTLS: connected with: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-2024-08-12 19:45:45.649311 [DEBUG] [SocketCore.cc:994] Securely connected to down.mcylyr.cn (2404:8c80:0:1001:11b:8a60:ced5:d0dd:443) with TLSv1.2
-2024-08-12 19:45:45.649311 [INFO] [HttpConnection.cc:128] CUID#7 - Requesting:
-GET /rl/ver/oldver HTTP/1.1
-User-Agent: aria2/1.37.0
-Accept: */*,application/metalink4+xml,application/metalink+xml
-Host: down.mcylyr.cn
-Want-Digest: SHA-512;q=1, SHA-256;q=1, SHA;q=0.1
-
-
-2024-08-12 19:45:45.649311 [DEBUG] [WinTLSSession.cc:336] WinTLS: Write request: 193 buffered: 0
-2024-08-12 19:45:45.649311 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 0 bytes left
-2024-08-12 19:45:45.649311 [DEBUG] [WinTLSSession.cc:404] WinTLS: Write TLS record header: 13 body: 193 trailer: 16
-2024-08-12 19:45:45.649311 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 222 bytes left
-2024-08-12 19:45:45.649311 [DEBUG] [WinTLSSession.cc:428] WinTLS: Write result: 193
-2024-08-12 19:45:45.999734 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:45.999734 [DEBUG] [WinTLSSession.cc:435] WinTLS: Read request: 16384 buffered: 0
-2024-08-12 19:45:45.999734 [DEBUG] [WinTLSSession.cc:497] WinTLS: Connection abruptly closed!
-2024-08-12 19:45:45.999734 [DEBUG] [WinTLSSession.cc:181] WinTLS: Closing connection
-2024-08-12 19:45:46.000730 [DEBUG] [WinTLSSession.cc:336] WinTLS: Write request: 31 buffered: 0
-2024-08-12 19:45:46.000730 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 0 bytes left
-2024-08-12 19:45:46.000730 [DEBUG] [WinTLSSession.cc:397] WinTLS: Failed to encrypt a message! Error: ‰∏ä‰∏ãÊñáÂ∑≤ËøáÊúüÔºå‰∏çËÉΩÂÜçÁî®‰∫Ü„ÄÇ
-(80090317)
-2024-08-12 19:45:46.000730 [DEBUG] [WinTLSSession.cc:225] WinTLS: Closed Connection
-2024-08-12 19:45:46.000730 [DEBUG] [WinTLSSession.cc:556] WinTLS: Connection gracefully closed!
-2024-08-12 19:45:46.000730 [DEBUG] [WinTLSSession.cc:176] WinTLS: Cannot close connection
-2024-08-12 19:45:46.000730 [INFO] [HttpConnection.cc:163] CUID#7 - Response received:
-HTTP/1.1 200 OK
-Date: Mon, 12 Aug 2024 11:45:46 GMT
-Server: Apache
-Upgrade: h2
-Connection: Upgrade, close
-Last-Modified: Fri, 02 Aug 2024 04:44:32 GMT
-ETag: "5-61eabfbc891ba"
-Accept-Ranges: bytes
-Content-Length: 5
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
-
-
-2024-08-12 19:45:46.000730 [DEBUG] [RequestGroup.cc:1045] Finding PreDownloadHandler for path ./logs/oldver.
-2024-08-12 19:45:46.000730 [DEBUG] [RequestGroup.cc:1060] No PreDownloadHandler found.
-2024-08-12 19:45:46.000730 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/oldver.aria2 does not exist.
-2024-08-12 19:45:46.000730 [DEBUG] [DefaultPieceStorage.cc:637] Instantiating DirectDiskAdaptor
-2024-08-12 19:45:46.000730 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/oldver.aria2 does not exist.
-2024-08-12 19:45:46.000730 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/oldver.aria2 does not exist.
-2024-08-12 19:45:46.000730 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/oldver.aria2 does not exist.
-2024-08-12 19:45:46.000730 [DEBUG] [DefaultPieceStorage.cc:168] usedPieces_.size()=1
-2024-08-12 19:45:46.000730 [DEBUG] [SegmentMan.cc:140] Attach segment#0 to CUID#7.
-2024-08-12 19:45:46.000730 [DEBUG] [SegmentMan.cc:146] Flushing cached data, size=0
-2024-08-12 19:45:46.000730 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=0, delta=0, clock=1
-2024-08-12 19:45:46.000730 [DEBUG] [SegmentMan.cc:163] index=0, length=5, segmentLength=1048576, writtenLength=0
-2024-08-12 19:45:46.000730 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=0, delta=0, clock=2
-2024-08-12 19:45:46.028898 [INFO] [DefaultBtProgressInfoFile.cc:207] Saving the segment file ./logs/oldver.aria2
-2024-08-12 19:45:46.109456 [INFO] [DefaultBtProgressInfoFile.cc:219] The segment file was saved successfully.
-2024-08-12 19:45:46.110448 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:46.111450 [DEBUG] [Piece.cc:342] updateWrCache entry=000002bee7a74580
-2024-08-12 19:45:46.111450 [DEBUG] [WrDiskCacheEntry.cc:94] WrDiskCacheEntry cache goff=0, len=5
-2024-08-12 19:45:46.111450 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=5, delta=5, clock=3
-2024-08-12 19:45:46.111450 [INFO] [DownloadCommand.cc:242] CUID#7 - The download for one segment completed successfully.
-2024-08-12 19:45:46.111450 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=5, delta=-5, clock=4
-2024-08-12 19:45:46.111450 [DEBUG] [AbstractSingleDiskAdaptor.cc:100] Cache flush goff=0, len=5
-2024-08-12 19:45:46.111450 [DEBUG] [WrDiskCache.cc:79] Removed cache entry size=0, clock=5
-2024-08-12 19:45:46.111450 [INFO] [DefaultPieceStorage.cc:483] The download was complete.
-2024-08-12 19:45:46.111450 [INFO] [DownloadEngine.cc:315] Pool socket for 2404:8c80:0:1001:11b:8a60:ced5:d0dd(443)
-2024-08-12 19:45:46.111450 [DEBUG] [RequestGroup.cc:983] GID#b88416bcadd21bb3 - Request queue check
-2024-08-12 19:45:46.111450 [DEBUG] [ServerStat.cc:107] ServerStat:down.mcylyr.cn: singleConnectionAvgSpeed_ old:0.00KB/s new:0.04KB/s last:0.04KB/s
-2024-08-12 19:45:46.209638 [NOTICE] [RequestGroup.cc:1214] Download complete: ./logs/oldver
-2024-08-12 19:45:46.212137 [INFO] [DefaultBtProgressInfoFile.cc:417] The segment file ./logs/oldver.aria2 exists.
-2024-08-12 19:45:46.212137 [DEBUG] [RequestGroup.cc:1067] Finding PostDownloadHandler for path ./logs/oldver.
-2024-08-12 19:45:46.212137 [DEBUG] [RequestGroup.cc:1081] No PostDownloadHandler found.
-2024-08-12 19:45:46.212137 [DEBUG] [RequestGroup.cc:1173] GID#b88416bcadd21bb3 - Creating DownloadResult.
-2024-08-12 19:45:46.212137 [DEBUG] [DefaultPieceStorage.cc:745] Removed 0 have entries.
-2024-08-12 19:45:46.212137 [DEBUG] [RequestGroupMan.cc:481] 1 RequestGroup(s) deleted.
-2024-08-12 19:45:46.214141 [DEBUG] [WinTLSSession.cc:176] WinTLS: Cannot close connection
- [÷‹“ª 2024/08/12 - 19:45:55.72] ≥ı ºªØ
-2024-08-12 19:45:59.156790 [INFO] [Context.cc:179] <<--- --- --- ---
-2024-08-12 19:45:59.156790 [INFO] [Context.cc:180]   --- --- --- ---
-2024-08-12 19:45:59.156790 [INFO] [Context.cc:181]   --- --- --- --->>
-2024-08-12 19:45:59.156790 [INFO] [Context.cc:182] aria2 1.37.0
-2024-08-12 19:45:59.156790 [INFO] [Context.cc:183] mingw-w64 8.0.0 (alpha) / gcc 10-win32 20220113
-  built by  x86_64-pc-linux-gnu
-  targeting x86_64-w64-mingw32
-  on        Nov 15 2023 11:17:49
-2024-08-12 19:45:59.156790 [INFO] [Context.cc:184] Windows 6.2 (x86_64) (6.2)
-2024-08-12 19:45:59.156790 [INFO] [Context.cc:185] zlib/1.3 expat/2.5.0 sqlite3/3.43.1 GMP/6.3.0 c-ares/1.19.1 libssh2/1.11.0
-2024-08-12 19:45:59.156790 [INFO] [Context.cc:186] Logging started.
-2024-08-12 19:45:59.156790 [INFO] [SocketCore.cc:1586] Checking configured addresses
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1650] Not considered: fe80::420d:53c4:550c:ff58%10
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1650] Not considered: 169.254.228.110
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1650] Not considered: fe80::8008:76f1:c226:46b3%8
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1650] Not considered: 169.254.209.141
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1647] Found configured address: fd00:6868:6868::b22
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1647] Found configured address: fd00:6868:6868:0:84eb:6f2e:cb94:d1a6
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1647] Found configured address: fd00:6868:6868:0:d03f:f867:2222:9487
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1650] Not considered: fe80::32fc:8bfe:8331:688a%18
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1647] Found configured address: 192.168.31.183
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1650] Not considered: fe80::7cae:467:baea:2e14%19
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1647] Found configured address: 192.168.70.1
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1650] Not considered: fe80::c2e1:9271:fd8e:6a4f%6
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1647] Found configured address: 192.168.159.1
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1650] Not considered: fe80::1ae1:652:a6f1:f86e%3
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1650] Not considered: 169.254.196.215
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1650] Not considered: fe80::9add:ad06:af9c:ff24%13
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1650] Not considered: 169.254.41.182
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1650] Not considered: ::1
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1650] Not considered: 127.0.0.1
-2024-08-12 19:45:59.163307 [INFO] [SocketCore.cc:1657] IPv4 configured=1, IPv6 configured=1
-2024-08-12 19:45:59.163307 [NOTICE] [Context.cc:310] Downloading 1 item(s)
-2024-08-12 19:45:59.164305 [DEBUG] [RequestGroupMan.cc:591] 1 RequestGroup(s) added.
-2024-08-12 19:45:59.164817 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:59.164817 [DEBUG] [FeedbackURISelector.cc:162] Selected from normCands
-2024-08-12 19:45:59.164817 [DEBUG] [FeedbackURISelector.cc:84] FeedbackURISelector selected http://down.mcylyr.cn/rl/ad
-2024-08-12 19:45:59.164817 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:59.173996 [INFO] [AsyncNameResolverMan.cc:82] CUID#7 - Resolving hostname down.mcylyr.cn
-2024-08-12 19:45:59.205400 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:59.205400 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:59.205400 [INFO] [AbstractCommand.cc:816] CUID#7 - Name resolution complete: down.mcylyr.cn -> 2404:8c80:0:1001:128:50e1:c06b:a896, 2404:8c80:0:1001:11b:8a60:ced5:d0dd, 45.153.129.224
-2024-08-12 19:45:59.205400 [INFO] [HttpInitiateConnectionCommand.cc:123] CUID#7 - Connecting to 2404:8c80:0:1001:128:50e1:c06b:a896:80
-2024-08-12 19:45:59.206401 [INFO] [InitiateConnectionCommand.cc:143] Searching IPv4 address for backup connection attempt
-2024-08-12 19:45:59.206401 [INFO] [InitiateConnectionCommand.cc:155] Issue backup connection command CUID#8, addr=45.153.129.224
-2024-08-12 19:45:59.206401 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:59.523363 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
-2024-08-12 19:45:59.539634 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
-2024-08-12 19:45:59.539634 [INFO] [HttpConnection.cc:128] CUID#7 - Requesting:
+2024-08-17 15:22:19.239592 [INFO] [Context.cc:184] Windows 6.2 (x86_64) (6.2)
+2024-08-17 15:22:19.239592 [INFO] [Context.cc:185] zlib/1.3 expat/2.5.0 sqlite3/3.43.1 GMP/6.3.0 c-ares/1.19.1 libssh2/1.11.0
+2024-08-17 15:22:19.239592 [INFO] [Context.cc:186] Logging started.
+2024-08-17 15:22:19.239592 [INFO] [SocketCore.cc:1586] Checking configured addresses
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1650] Not considered: fe80::dd1f:565a:401f:c39d%10
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1650] Not considered: 169.254.143.66
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1650] Not considered: fe80::4525:7477:c565:31a7%8
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1650] Not considered: 169.254.246.8
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1647] Found configured address: fd00:6868:6868::7a9
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1647] Found configured address: fd00:6868:6868:0:84eb:6f2e:cb94:d1a6
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1647] Found configured address: fd00:6868:6868:0:59ce:2894:2790:6dfc
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1650] Not considered: fe80::32fc:8bfe:8331:688a%18
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1647] Found configured address: 192.168.31.182
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1650] Not considered: fe80::7cae:467:baea:2e14%19
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1647] Found configured address: 192.168.70.1
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1650] Not considered: fe80::c2e1:9271:fd8e:6a4f%6
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1647] Found configured address: 192.168.159.1
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1650] Not considered: fe80::1ae1:652:a6f1:f86e%3
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1650] Not considered: 169.254.196.215
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1650] Not considered: fe80::9add:ad06:af9c:ff24%13
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1650] Not considered: 169.254.41.182
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1650] Not considered: ::1
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1650] Not considered: 127.0.0.1
+2024-08-17 15:22:19.246304 [INFO] [SocketCore.cc:1657] IPv4 configured=1, IPv6 configured=1
+2024-08-17 15:22:19.246304 [NOTICE] [Context.cc:310] Downloading 1 item(s)
+2024-08-17 15:22:19.247483 [DEBUG] [RequestGroupMan.cc:591] 1 RequestGroup(s) added.
+2024-08-17 15:22:19.248482 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
+2024-08-17 15:22:19.248482 [DEBUG] [FeedbackURISelector.cc:162] Selected from normCands
+2024-08-17 15:22:19.248482 [DEBUG] [FeedbackURISelector.cc:84] FeedbackURISelector selected http://down.mcylyr.cn/rl/ad
+2024-08-17 15:22:19.248482 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
+2024-08-17 15:22:19.258534 [INFO] [AsyncNameResolverMan.cc:82] CUID#7 - Resolving hostname down.mcylyr.cn
+2024-08-17 15:22:19.259530 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
+2024-08-17 15:22:19.260526 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
+2024-08-17 15:22:19.260526 [INFO] [AbstractCommand.cc:816] CUID#7 - Name resolution complete: down.mcylyr.cn -> 2404:8c80:0:1001:128:50e1:c06b:a896, 2404:8c80:0:1001:11b:8a60:ced5:d0dd, 45.153.129.224
+2024-08-17 15:22:19.260526 [INFO] [HttpInitiateConnectionCommand.cc:123] CUID#7 - Connecting to 2404:8c80:0:1001:128:50e1:c06b:a896:80
+2024-08-17 15:22:19.262029 [INFO] [InitiateConnectionCommand.cc:143] Searching IPv4 address for backup connection attempt
+2024-08-17 15:22:19.262029 [INFO] [InitiateConnectionCommand.cc:155] Issue backup connection command CUID#8, addr=45.153.129.224
+2024-08-17 15:22:19.262029 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
+2024-08-17 15:22:19.609840 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
+2024-08-17 15:22:19.609840 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
+2024-08-17 15:22:19.609840 [INFO] [HttpConnection.cc:128] CUID#7 - Requesting:
 GET /rl/ad HTTP/1.1
 User-Agent: aria2/1.37.0
 Accept: */*,application/metalink4+xml,application/metalink+xml
@@ -611,10 +55,10 @@ Host: down.mcylyr.cn
 Want-Digest: SHA-512;q=1, SHA-256;q=1, SHA;q=0.1
 
 
-2024-08-12 19:45:59.856276 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:59.857272 [INFO] [HttpConnection.cc:163] CUID#7 - Response received:
+2024-08-17 15:22:19.951137 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
+2024-08-17 15:22:19.952129 [INFO] [HttpConnection.cc:163] CUID#7 - Response received:
 HTTP/1.1 301 Moved Permanently
-Date: Mon, 12 Aug 2024 11:46:00 GMT
+Date: Sat, 17 Aug 2024 07:22:19 GMT
 Server: Apache
 Location: https://down.mcylyr.cn/rl/ad
 Content-Length: 300
@@ -622,42 +66,47 @@ Connection: close
 Content-Type: text/html; charset=iso-8859-1
 
 
-2024-08-12 19:45:59.857272 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:45:59.857272 [NOTICE] [HttpResponse.cc:168] CUID#7 - Redirecting to https://down.mcylyr.cn/rl/ad
-2024-08-12 19:45:59.857272 [DEBUG] [AbstractCommand.cc:451] CUID#7 - Pooling request URI=http://down.mcylyr.cn/rl/ad
-2024-08-12 19:45:59.857272 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:59.857272 [DEBUG] [FileEntry.cc:225] Picked up from pool: http://down.mcylyr.cn/rl/ad
-2024-08-12 19:45:59.857272 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:59.866334 [INFO] [AsyncNameResolverMan.cc:82] CUID#7 - Resolving hostname down.mcylyr.cn
-2024-08-12 19:45:59.866334 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:59.870330 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:45:59.870330 [INFO] [AbstractCommand.cc:816] CUID#7 - Name resolution complete: down.mcylyr.cn -> 2404:8c80:0:1001:11b:8a60:ced5:d0dd, 2404:8c80:0:1001:128:50e1:c06b:a896, 45.153.129.224
-2024-08-12 19:45:59.870330 [INFO] [HttpInitiateConnectionCommand.cc:123] CUID#7 - Connecting to 2404:8c80:0:1001:11b:8a60:ced5:d0dd:443
-2024-08-12 19:45:59.870330 [INFO] [InitiateConnectionCommand.cc:143] Searching IPv4 address for backup connection attempt
-2024-08-12 19:45:59.870330 [INFO] [InitiateConnectionCommand.cc:155] Issue backup connection command CUID#9, addr=45.153.129.224
-2024-08-12 19:45:59.870330 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
-2024-08-12 19:46:00.214452 [INFO] [BackupIPv4ConnectCommand.cc:85] CUID#8 - Backup connection canceled
-2024-08-12 19:46:00.214452 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
-2024-08-12 19:46:00.214452 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
-2024-08-12 19:46:00.214452 [DEBUG] [SocketCore.cc:927] Creating TLS session
-2024-08-12 19:46:00.215456 [DEBUG] [SocketCore.cc:947] TLS Handshaking
-2024-08-12 19:46:00.215456 [DEBUG] [WinTLSSession.cc:585] WinTLS: Starting/Resuming TLS Connect
-2024-08-12 19:46:00.215456 [DEBUG] [WinTLSSession.cc:604] WinTLS: Initializing handshake
-2024-08-12 19:46:00.216455 [DEBUG] [WinTLSSession.cc:630] WinTLS: Writing handshake
-2024-08-12 19:46:00.216455 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
-2024-08-12 19:46:00.285235 [INFO] [BackupIPv4ConnectCommand.cc:85] CUID#9 - Backup connection canceled
-2024-08-12 19:46:00.559724 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:46:00.559724 [DEBUG] [WinTLSSession.cc:585] WinTLS: Starting/Resuming TLS Connect
-2024-08-12 19:46:00.559724 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
-2024-08-12 19:46:00.562223 [DEBUG] [WinTLSSession.cc:758] WinTLS: Continuing with handshake
-2024-08-12 19:46:00.562223 [DEBUG] [WinTLSSession.cc:630] WinTLS: Writing handshake
-2024-08-12 19:46:00.562223 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
-2024-08-12 19:46:00.905921 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:46:00.905921 [DEBUG] [WinTLSSession.cc:585] WinTLS: Starting/Resuming TLS Connect
-2024-08-12 19:46:00.905921 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
-2024-08-12 19:46:00.906925 [INFO] [WinTLSSession.cc:788] WinTLS: connected with: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-2024-08-12 19:46:00.906925 [DEBUG] [SocketCore.cc:994] Securely connected to down.mcylyr.cn (2404:8c80:0:1001:11b:8a60:ced5:d0dd:443) with TLSv1.2
-2024-08-12 19:46:00.906925 [INFO] [HttpConnection.cc:128] CUID#7 - Requesting:
+2024-08-17 15:22:19.952129 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
+2024-08-17 15:22:19.952129 [NOTICE] [HttpResponse.cc:168] CUID#7 - Redirecting to https://down.mcylyr.cn/rl/ad
+2024-08-17 15:22:19.952129 [DEBUG] [AbstractCommand.cc:451] CUID#7 - Pooling request URI=http://down.mcylyr.cn/rl/ad
+2024-08-17 15:22:19.952642 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
+2024-08-17 15:22:19.952642 [DEBUG] [FileEntry.cc:225] Picked up from pool: http://down.mcylyr.cn/rl/ad
+2024-08-17 15:22:19.952642 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
+2024-08-17 15:22:19.961469 [INFO] [AsyncNameResolverMan.cc:82] CUID#7 - Resolving hostname down.mcylyr.cn
+2024-08-17 15:22:19.961469 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
+2024-08-17 15:22:19.963980 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
+2024-08-17 15:22:19.963980 [INFO] [AbstractCommand.cc:816] CUID#7 - Name resolution complete: down.mcylyr.cn -> 2404:8c80:0:1001:11b:8a60:ced5:d0dd, 2404:8c80:0:1001:128:50e1:c06b:a896, 45.153.129.224
+2024-08-17 15:22:19.963980 [INFO] [HttpInitiateConnectionCommand.cc:123] CUID#7 - Connecting to 2404:8c80:0:1001:11b:8a60:ced5:d0dd:443
+2024-08-17 15:22:19.963980 [INFO] [InitiateConnectionCommand.cc:143] Searching IPv4 address for backup connection attempt
+2024-08-17 15:22:19.963980 [INFO] [InitiateConnectionCommand.cc:155] Issue backup connection command CUID#9, addr=45.153.129.224
+2024-08-17 15:22:19.964972 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:0, hup:0, err:0
+2024-08-17 15:22:20.310925 [INFO] [BackupIPv4ConnectCommand.cc:85] CUID#8 - Backup connection canceled
+2024-08-17 15:22:20.316964 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
+2024-08-17 15:22:20.316964 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:0, write:1, hup:0, err:0
+2024-08-17 15:22:20.316964 [DEBUG] [SocketCore.cc:927] Creating TLS session
+2024-08-17 15:22:20.317962 [DEBUG] [SocketCore.cc:947] TLS Handshaking
+2024-08-17 15:22:20.317962 [DEBUG] [WinTLSSession.cc:585] WinTLS: Starting/Resuming TLS Connect
+2024-08-17 15:22:20.317962 [DEBUG] [WinTLSSession.cc:604] WinTLS: Initializing handshake
+2024-08-17 15:22:20.317962 [DEBUG] [WinTLSSession.cc:630] WinTLS: Writing handshake
+2024-08-17 15:22:20.318961 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
+2024-08-17 15:22:20.385033 [INFO] [BackupIPv4ConnectCommand.cc:85] CUID#9 - Backup connection canceled
+2024-08-17 15:22:20.665821 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
+2024-08-17 15:22:20.665821 [DEBUG] [WinTLSSession.cc:585] WinTLS: Starting/Resuming TLS Connect
+2024-08-17 15:22:20.665821 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
+2024-08-17 15:22:20.666828 [DEBUG] [WinTLSSession.cc:758] WinTLS: Continuing with handshake
+2024-08-17 15:22:20.666828 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
+2024-08-17 15:22:20.666828 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
+2024-08-17 15:22:20.666828 [DEBUG] [WinTLSSession.cc:585] WinTLS: Starting/Resuming TLS Connect
+2024-08-17 15:22:20.666828 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
+2024-08-17 15:22:20.678450 [DEBUG] [WinTLSSession.cc:758] WinTLS: Continuing with handshake
+2024-08-17 15:22:20.678450 [DEBUG] [WinTLSSession.cc:630] WinTLS: Writing handshake
+2024-08-17 15:22:20.678450 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
+2024-08-17 15:22:21.023678 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
+2024-08-17 15:22:21.023678 [DEBUG] [WinTLSSession.cc:585] WinTLS: Starting/Resuming TLS Connect
+2024-08-17 15:22:21.023678 [DEBUG] [WinTLSSession.cc:662] WinTLS: Reading handshake...
+2024-08-17 15:22:21.025186 [INFO] [WinTLSSession.cc:788] WinTLS: connected with: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+2024-08-17 15:22:21.026206 [DEBUG] [SocketCore.cc:994] Securely connected to down.mcylyr.cn (2404:8c80:0:1001:11b:8a60:ced5:d0dd:443) with TLSv1.2
+2024-08-17 15:22:21.026206 [INFO] [HttpConnection.cc:128] CUID#7 - Requesting:
 GET /rl/ad HTTP/1.1
 User-Agent: aria2/1.37.0
 Accept: */*,application/metalink4+xml,application/metalink+xml
@@ -665,25 +114,25 @@ Host: down.mcylyr.cn
 Want-Digest: SHA-512;q=1, SHA-256;q=1, SHA;q=0.1
 
 
-2024-08-12 19:46:00.906925 [DEBUG] [WinTLSSession.cc:336] WinTLS: Write request: 185 buffered: 0
-2024-08-12 19:46:00.906925 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 0 bytes left
-2024-08-12 19:46:00.906925 [DEBUG] [WinTLSSession.cc:404] WinTLS: Write TLS record header: 13 body: 185 trailer: 16
-2024-08-12 19:46:00.906925 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 214 bytes left
-2024-08-12 19:46:00.907922 [DEBUG] [WinTLSSession.cc:428] WinTLS: Write result: 185
-2024-08-12 19:46:01.254365 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:46:01.254365 [DEBUG] [WinTLSSession.cc:435] WinTLS: Read request: 16384 buffered: 0
-2024-08-12 19:46:01.254365 [DEBUG] [WinTLSSession.cc:497] WinTLS: Connection abruptly closed!
-2024-08-12 19:46:01.254365 [DEBUG] [WinTLSSession.cc:181] WinTLS: Closing connection
-2024-08-12 19:46:01.254365 [DEBUG] [WinTLSSession.cc:336] WinTLS: Write request: 31 buffered: 0
-2024-08-12 19:46:01.255379 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 0 bytes left
-2024-08-12 19:46:01.255379 [DEBUG] [WinTLSSession.cc:397] WinTLS: Failed to encrypt a message! Error: ‰∏ä‰∏ãÊñáÂ∑≤ËøáÊúüÔºå‰∏çËÉΩÂÜçÁî®‰∫Ü„ÄÇ
+2024-08-17 15:22:21.026206 [DEBUG] [WinTLSSession.cc:336] WinTLS: Write request: 185 buffered: 0
+2024-08-17 15:22:21.026206 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 0 bytes left
+2024-08-17 15:22:21.026206 [DEBUG] [WinTLSSession.cc:404] WinTLS: Write TLS record header: 13 body: 185 trailer: 16
+2024-08-17 15:22:21.026206 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 214 bytes left
+2024-08-17 15:22:21.026206 [DEBUG] [WinTLSSession.cc:428] WinTLS: Write result: 185
+2024-08-17 15:22:21.372658 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
+2024-08-17 15:22:21.372658 [DEBUG] [WinTLSSession.cc:435] WinTLS: Read request: 16384 buffered: 0
+2024-08-17 15:22:21.372658 [DEBUG] [WinTLSSession.cc:497] WinTLS: Connection abruptly closed!
+2024-08-17 15:22:21.372658 [DEBUG] [WinTLSSession.cc:181] WinTLS: Closing connection
+2024-08-17 15:22:21.372658 [DEBUG] [WinTLSSession.cc:336] WinTLS: Write request: 31 buffered: 0
+2024-08-17 15:22:21.372658 [DEBUG] [WinTLSSession.cc:279] WinTLS: TLS record 0 bytes left
+2024-08-17 15:22:21.372658 [DEBUG] [WinTLSSession.cc:397] WinTLS: Failed to encrypt a message! Error: ‰∏ä‰∏ãÊñáÂ∑≤ËøáÊúüÔºå‰∏çËÉΩÂÜçÁî®‰∫Ü„ÄÇ
 (80090317)
-2024-08-12 19:46:01.255379 [DEBUG] [WinTLSSession.cc:225] WinTLS: Closed Connection
-2024-08-12 19:46:01.255379 [DEBUG] [WinTLSSession.cc:556] WinTLS: Connection gracefully closed!
-2024-08-12 19:46:01.255379 [DEBUG] [WinTLSSession.cc:176] WinTLS: Cannot close connection
-2024-08-12 19:46:01.255379 [INFO] [HttpConnection.cc:163] CUID#7 - Response received:
+2024-08-17 15:22:21.372658 [DEBUG] [WinTLSSession.cc:225] WinTLS: Closed Connection
+2024-08-17 15:22:21.372658 [DEBUG] [WinTLSSession.cc:556] WinTLS: Connection gracefully closed!
+2024-08-17 15:22:21.372658 [DEBUG] [WinTLSSession.cc:176] WinTLS: Cannot close connection
+2024-08-17 15:22:21.372658 [INFO] [HttpConnection.cc:163] CUID#7 - Response received:
 HTTP/1.1 200 OK
-Date: Mon, 12 Aug 2024 11:46:01 GMT
+Date: Sat, 17 Aug 2024 07:22:21 GMT
 Server: Apache
 Upgrade: h2
 Connection: Upgrade, close
@@ -696,41 +145,39 @@ Access-Control-Allow-Origin: *
 Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
 
 
-2024-08-12 19:46:01.255379 [DEBUG] [RequestGroup.cc:1045] Finding PreDownloadHandler for path ./logs/ad.
-2024-08-12 19:46:01.255379 [DEBUG] [RequestGroup.cc:1060] No PreDownloadHandler found.
-2024-08-12 19:46:01.255379 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/ad.aria2 does not exist.
-2024-08-12 19:46:01.255379 [DEBUG] [DefaultPieceStorage.cc:637] Instantiating DirectDiskAdaptor
-2024-08-12 19:46:01.255379 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/ad.aria2 does not exist.
-2024-08-12 19:46:01.255379 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/ad.aria2 does not exist.
-2024-08-12 19:46:01.255379 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/ad.aria2 does not exist.
-2024-08-12 19:46:01.255379 [DEBUG] [DefaultPieceStorage.cc:168] usedPieces_.size()=1
-2024-08-12 19:46:01.255379 [DEBUG] [SegmentMan.cc:140] Attach segment#0 to CUID#7.
-2024-08-12 19:46:01.255379 [DEBUG] [SegmentMan.cc:146] Flushing cached data, size=0
-2024-08-12 19:46:01.255379 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=0, delta=0, clock=1
-2024-08-12 19:46:01.255379 [DEBUG] [SegmentMan.cc:163] index=0, length=82, segmentLength=1048576, writtenLength=0
-2024-08-12 19:46:01.256375 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=0, delta=0, clock=2
-2024-08-12 19:46:01.290105 [INFO] [DefaultBtProgressInfoFile.cc:207] Saving the segment file ./logs/ad.aria2
-2024-08-12 19:46:01.360890 [INFO] [DefaultBtProgressInfoFile.cc:219] The segment file was saved successfully.
-2024-08-12 19:46:01.362392 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
-2024-08-12 19:46:01.362392 [DEBUG] [Piece.cc:342] updateWrCache entry=000001e097f93f70
-2024-08-12 19:46:01.362392 [DEBUG] [WrDiskCacheEntry.cc:94] WrDiskCacheEntry cache goff=0, len=82
-2024-08-12 19:46:01.362392 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=82, delta=82, clock=3
-2024-08-12 19:46:01.362392 [INFO] [DownloadCommand.cc:242] CUID#7 - The download for one segment completed successfully.
-2024-08-12 19:46:01.362392 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=82, delta=-82, clock=4
-2024-08-12 19:46:01.362392 [DEBUG] [AbstractSingleDiskAdaptor.cc:100] Cache flush goff=0, len=82
-2024-08-12 19:46:01.362392 [DEBUG] [WrDiskCache.cc:79] Removed cache entry size=0, clock=5
-2024-08-12 19:46:01.362392 [INFO] [DefaultPieceStorage.cc:483] The download was complete.
-2024-08-12 19:46:01.362392 [INFO] [DownloadEngine.cc:315] Pool socket for 2404:8c80:0:1001:11b:8a60:ced5:d0dd(443)
-2024-08-12 19:46:01.362392 [DEBUG] [RequestGroup.cc:983] GID#6d07aeee55c04359 - Request queue check
-2024-08-12 19:46:01.362392 [DEBUG] [ServerStat.cc:107] ServerStat:down.mcylyr.cn: singleConnectionAvgSpeed_ old:0.00KB/s new:0.73KB/s last:0.73KB/s
-2024-08-12 19:46:01.501184 [NOTICE] [RequestGroup.cc:1214] Download complete: ./logs/ad
-2024-08-12 19:46:01.502685 [INFO] [DefaultBtProgressInfoFile.cc:417] The segment file ./logs/ad.aria2 exists.
-2024-08-12 19:46:01.502685 [DEBUG] [RequestGroup.cc:1067] Finding PostDownloadHandler for path ./logs/ad.
-2024-08-12 19:46:01.502685 [DEBUG] [RequestGroup.cc:1081] No PostDownloadHandler found.
-2024-08-12 19:46:01.502685 [DEBUG] [RequestGroup.cc:1173] GID#6d07aeee55c04359 - Creating DownloadResult.
-2024-08-12 19:46:01.502685 [DEBUG] [DefaultPieceStorage.cc:745] Removed 0 have entries.
-2024-08-12 19:46:01.502685 [DEBUG] [RequestGroupMan.cc:481] 1 RequestGroup(s) deleted.
-2024-08-12 19:46:01.504193 [DEBUG] [WinTLSSession.cc:176] WinTLS: Cannot close connection
- [÷‹“ª 2024/08/12 - 19:46:01.56] ªÒ»°÷˜“≥π´∏Ê”ÎΩ¯»Î÷˜“≥≥…π¶ 
- [÷‹“ª 2024/08/12 - 19:46:40.35] UAC≈–∂œ¬ﬂº≠
- [÷‹“ª 2024/08/12 - 19:46:41.17] UACÕ®π˝
+2024-08-17 15:22:21.372658 [DEBUG] [RequestGroup.cc:1045] Finding PreDownloadHandler for path ./logs/ad.
+2024-08-17 15:22:21.372658 [DEBUG] [RequestGroup.cc:1060] No PreDownloadHandler found.
+2024-08-17 15:22:21.373661 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/ad.aria2 does not exist.
+2024-08-17 15:22:21.373661 [DEBUG] [DefaultPieceStorage.cc:637] Instantiating DirectDiskAdaptor
+2024-08-17 15:22:21.373661 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/ad.aria2 does not exist.
+2024-08-17 15:22:21.373661 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/ad.aria2 does not exist.
+2024-08-17 15:22:21.373661 [INFO] [DefaultBtProgressInfoFile.cc:421] The segment file ./logs/ad.aria2 does not exist.
+2024-08-17 15:22:21.373661 [DEBUG] [DefaultPieceStorage.cc:168] usedPieces_.size()=1
+2024-08-17 15:22:21.373661 [DEBUG] [SegmentMan.cc:140] Attach segment#0 to CUID#7.
+2024-08-17 15:22:21.373661 [DEBUG] [SegmentMan.cc:146] Flushing cached data, size=0
+2024-08-17 15:22:21.373661 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=0, delta=0, clock=1
+2024-08-17 15:22:21.373661 [DEBUG] [SegmentMan.cc:163] index=0, length=82, segmentLength=1048576, writtenLength=0
+2024-08-17 15:22:21.373661 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=0, delta=0, clock=2
+2024-08-17 15:22:21.417776 [INFO] [DefaultBtProgressInfoFile.cc:207] Saving the segment file ./logs/ad.aria2
+2024-08-17 15:22:21.498653 [INFO] [DefaultBtProgressInfoFile.cc:219] The segment file was saved successfully.
+2024-08-17 15:22:21.499654 [DEBUG] [AbstractCommand.cc:181] CUID#7 - socket: read:1, write:0, hup:0, err:0
+2024-08-17 15:22:21.500651 [DEBUG] [Piece.cc:342] updateWrCache entry=00000221ed8ab880
+2024-08-17 15:22:21.500651 [DEBUG] [WrDiskCacheEntry.cc:94] WrDiskCacheEntry cache goff=0, len=82
+2024-08-17 15:22:21.500651 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=82, delta=82, clock=3
+2024-08-17 15:22:21.500651 [INFO] [DownloadCommand.cc:242] CUID#7 - The download for one segment completed successfully.
+2024-08-17 15:22:21.500651 [DEBUG] [WrDiskCache.cc:95] Update cache entry size=82, delta=-82, clock=4
+2024-08-17 15:22:21.500651 [DEBUG] [AbstractSingleDiskAdaptor.cc:100] Cache flush goff=0, len=82
+2024-08-17 15:22:21.500651 [DEBUG] [WrDiskCache.cc:79] Removed cache entry size=0, clock=5
+2024-08-17 15:22:21.500651 [INFO] [DefaultPieceStorage.cc:483] The download was complete.
+2024-08-17 15:22:21.500651 [INFO] [DownloadEngine.cc:315] Pool socket for 2404:8c80:0:1001:11b:8a60:ced5:d0dd(443)
+2024-08-17 15:22:21.500651 [DEBUG] [RequestGroup.cc:983] GID#e5152e05e7776792 - Request queue check
+2024-08-17 15:22:21.500651 [DEBUG] [ServerStat.cc:107] ServerStat:down.mcylyr.cn: singleConnectionAvgSpeed_ old:0.00KB/s new:0.63KB/s last:0.63KB/s
+2024-08-17 15:22:21.599573 [NOTICE] [RequestGroup.cc:1214] Download complete: ./logs/ad
+2024-08-17 15:22:21.599573 [INFO] [DefaultBtProgressInfoFile.cc:417] The segment file ./logs/ad.aria2 exists.
+2024-08-17 15:22:21.600569 [DEBUG] [RequestGroup.cc:1067] Finding PostDownloadHandler for path ./logs/ad.
+2024-08-17 15:22:21.600569 [DEBUG] [RequestGroup.cc:1081] No PostDownloadHandler found.
+2024-08-17 15:22:21.600569 [DEBUG] [RequestGroup.cc:1173] GID#e5152e05e7776792 - Creating DownloadResult.
+2024-08-17 15:22:21.600569 [DEBUG] [DefaultPieceStorage.cc:745] Removed 0 have entries.
+2024-08-17 15:22:21.600569 [DEBUG] [RequestGroupMan.cc:481] 1 RequestGroup(s) deleted.
+2024-08-17 15:22:21.601571 [DEBUG] [WinTLSSession.cc:176] WinTLS: Cannot close connection
+ [2024/08/17 ÷‹¡˘ - 15:22:21.67] ªÒ»°÷˜“≥π´∏Ê”ÎΩ¯»Î÷˜“≥≥…π¶

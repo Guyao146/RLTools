@@ -32,15 +32,15 @@
 ::
 ::978f952a14a936cc963da21a135fa983
 @echo off
-title ÐÂ°æ±¾¸üÐÂ
+title ï¿½Â°æ±¾ï¿½ï¿½ï¿½ï¿½
 color 0e
-set ver=3.0.0
+set ver=3.0.4
 set f12=7z.exe
 set f13=7z.dll
 set f15=aria2c.exe
 md logs
-aria2c http://down.mcylyr.cn/rl/newver -d \logs\newer -l .\logs\softlogs
-aria2c http://down.mcylyr.cn/rl/oldver -d \logs\older -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/newver -d .\logs -l .\logs\softlogs --allow-overwrite=true
+aria2c http://down.mcylyr.cn/rl/oldver -d .\logs -l .\logs\softlogs --allow-overwrite=true
 CLS
 cd /d %~dp0
 for /f "tokens=1* delims= " %%i in (logs\newver) do (set softnewver=%%i)
@@ -50,17 +50,17 @@ for /f "tokens=1* delims= " %%i in (logs\oldver) do (set softoldver=%%i)
 if exist "%f15%" (goto new1) else (goto leimuerror)
 
 :leimuerror
-title Ó¦ÓÃËð»µ
+title Ó¦ï¿½ï¿½ï¿½ï¿½
 CLS
 echo.
 echo.
-echo   ¼ì²âµ½Èí¼þ²»ÍêÕû£¬ÊÇ·ñÇ°Íù¹ÙÍøÖØÐÂÏÂÔØÍêÕû°ü
+echo   ï¿½ï¿½âµ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 echo.
-echo   1.ÊÇ£¬Ìø×ªµ½¹ÙÍøÏÂÔØ
+echo   1.ï¿½Ç£ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 echo.
-echo   2.·ñ£¬ÍË³ö
+echo   2.ï¿½ï¿½ï¿½Ë³ï¿½
 echo.
-set /p xz=ÇëÊäÈëÐòºÅºó»Ø³µ :
+set /p xz=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½Ø³ï¿½ :
 if %xz%==1 start http://rl.mcylyr.cn
 if %xz%==2 exit
 
@@ -70,7 +70,7 @@ if exist "%f12%" (goto update) else (goto downloadmust)
 if exist "%f13%" (goto update) else (goto downloadmust)
 :downloadmust
 echo.
-echo ÕýÔÚÏÂÔØÈí¼þ±ØÐëÎÄ¼þ
+echo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
 echo.
 cd /d %~dp0
 aria2c http://down.mcylyr.cn/rl/packet/7z.exe -l .\logs\softlogs
@@ -88,34 +88,34 @@ goto updatenew
 
 :updatenew
 CLS
-title ÐÂ°æ±¾¸üÐÂ
+title ï¿½Â°æ±¾ï¿½ï¿½ï¿½ï¿½
 echo.
-echo µ±Ç°°æ±¾ %ver%
+echo ï¿½ï¿½Ç°ï¿½æ±¾ %ver%
 echo.
 echo.
 echo.
-echo ÓÃ²»×Å¸üÐÂ,°´ÈÎÒâ¼ü·µ»Ø¹¤¾ß
+echo ï¿½Ã²ï¿½ï¿½Å¸ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½
 pause
 goto starttools
 
 :start
-aria2c http://down.mcylyr.cn/rl/newverinfo -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/newverinfo -l .\logs\softlogs --allow-overwrite=true
 CLS
 echo.
 echo.
-echo ¼ì²âµ½Èí¼þÐÂ°æ±¾£¬ÕýÔÚ×Ô¶¯¸üÐÂ°æ±¾
+echo ï¿½ï¿½âµ½ï¿½ï¿½ï¿½ï¿½ï¿½Â°æ±¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Â°æ±¾
 echo.
 type "%~dp0"newverinfo
 echo.
 echo.
-aria2c http://down.mcylyr.cn/rl/tools.7z -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/tool/tools.7z -l .\logs\softlogs
 7z x tools.7z -aoa -y
 cd "%~dp0"
 del tools.7z
 echo.
 del newverinfo
 rd logs
-set /p xz= ¸üÐÂÍê³É£¬ÇëÊäÈëyes½øÈëÐÂ°æ¹¤¾ß
+set /p xz= ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½yesï¿½ï¿½ï¿½ï¿½ï¿½Â°æ¹¤ï¿½ï¿½
 if %xz%==yes goto starttools
 
 :starttools
@@ -123,22 +123,22 @@ if %xz%==yes goto starttools
 exit
 
 :back
-aria2c http://down.mcylyr.cn/rl/newverinfo -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/newverinfo -l .\logs\softlogs --allow-overwrite=true
 CLS
 echo.
 echo.
-echo ¼ì²âµ½Èí¼þÐèÒª³·°ü£¬ÕýÔÚ×Ô¶¯»Ø³·
-echo. [%date% - %time%] ³·°üÖÐ>>logs\softlogs
+echo ï¿½ï¿½âµ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½Ø³ï¿½
+echo. [%date% - %time%] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½>>logs\softlogs
 echo.
 type "%~dp0"newverinfo
 echo.
 echo.
-aria2c http://down.mcylyr.cn/rl/tools.7z -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/tool/tools.7z -l .\logs\softlogs
 7z x tools.7z -aoa -y
 cd "%~dp0"
 del tools.7z
 echo.
 del newverinfo
-echo. [%date% - %time%] ³·°ü³É¹¦>>logs\softlogs
-set /p xz= Íê³É£¬ÇëÊäÈëyes½øÈë¹¤¾ß
+echo. [%date% - %time%] ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½>>logs\softlogs
+set /p xz= ï¿½ï¿½É£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½yesï¿½ï¿½ï¿½ë¹¤ï¿½ï¿½
 if %xz%==yes goto starttools

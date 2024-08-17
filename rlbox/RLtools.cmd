@@ -33,10 +33,10 @@
 ::978f952a14a936cc963da21a135fa983
 
 :restart
-chcp 20936
+chcp 936
 @echo off
 color 0e
-set ver=3.0.0
+set ver=3.0.4
 set uamd=2021.12.20
 set auth=顾瑶
 set appname=火箭联盟国际服小工具
@@ -80,14 +80,14 @@ title 应用损坏
 CLS
 echo.
 echo.
-echo   检测到软件不完整，是否前往官网重新下载完整包
+echo   检测到软件不完整，是否前往官网重新下载完整包?
 echo.
 echo   1.是，跳转到官网下载
 echo.
 echo   2.否，退出
 echo.
 echo.
-echo   请自行排查以下问题
+echo   请自行排查以下问问题
 echo.
 echo   需要将压缩包内所有文件完整解压至同一文件夹下
 echo.
@@ -123,10 +123,10 @@ echo. [%date% - %time%] UAC通过>>logs\softlogs
 goto new1
  
 :uacfalse
-echo. [%date% - %time%] UAC获取管理员失败>>logs\softlogs
+echo. [%date% - %time%] UAC获取管理员失败>logs\softlogs
 cd /d %~dp0
 cd bin\Special
-RL工具箱提示您.exe logo.ico RL国际服小工具提示您 工具箱获取管理员权限失败，请右键使用管理员权限运行 2
+RL工具箱提示您.exe logo.ico RL国际服小工具提示您 工具箱获取管理员权限失败，请右键使用管理员权限运行
 cd /d %~dp0
 exit
 
@@ -143,20 +143,19 @@ if exist "bin\Special\RL工具箱提示您.exe" (goto new4) else (goto downloadmust)
 cd /d %~dp0
 if exist "bin\Special\logo.ico" (goto usertrue) else (goto downloadmust)
 :downloadmust
-echo. 下载运行库>>logs\softlogs
+echo. 下载运行库>logs\softlogs
 echo.
 echo 正在下载软件依赖
 echo.
 cd /d %~dp0
-aria2c http://down.mcylyr.cn/rl/packet/ReadLog.exe -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/packet/ReadLog.exe -d .\bin -l .\logs\softlogs
 aria2c http://down.mcylyr.cn/rl/packet/7z.exe -l .\logs\softlogs
 aria2c http://down.mcylyr.cn/rl/packet/7z.dll -l .\logs\softlogs
-aria2c http://down.mcylyr.cn/rl/packet/RLtoolstips.exe -d \bin\Special -l .\logs\softlogs
-cd bin\Special
+aria2c http://down.mcylyr.cn/rl/packet/RLtoolstips.exe -d .\bin\Special -l .\logs\softlogs
+aria2c http://down.mcylyr.cn/rl/packet/logo.ico -d .\bin\Special -l .\logs\softlogs
+cd .\bin\Special
 rename RLtoolstips.exe RL工具箱提示您.exe
-cd /d %~dp0
-aria2c http://down.mcylyr.cn/rl/packet/logo.ico -d \bin\Special -l .\logs\softlogs
-echo. [%date% - %time%] 运行库下载成功>>logs\softlogs
+echo. [%date% - %time%] 运行库下载成功>logs\softlogs
 goto leimu
 
 :usererror
@@ -185,8 +184,8 @@ cd /d %~dp0
 cd bin\Special
 RL工具箱提示您.exe logo.ico RL国际服小工具提示您 程序正在显示用户协议，可能会稍有卡顿，同意后即可开始使用 2
 title 用户协议
-echo. [%date% - %time%] 用户协议显示成功>>logs\softlogs
 cd /d %~dp0
+echo. [%date% - %time%] 用户协议显示成功>>logs\softlogs
 echo.
 echo.
 echo   协议已输出到logs文件夹内的uam文件中，可重复查看
@@ -208,8 +207,8 @@ echo. [%date% - %time%] 新版本与公告下载完成>>logs\softlogs
 CLS
 ipconfig /flushdns
 aria2c http://down.mcylyr.cn/rl/info -d .\logs -l .\logs\softlogs --allow-overwrite=true
-aria2c http://down.mcylyr.cn/rl/ver/newver -d .\logs -l .\logs\softlogs --allow-overwrite=true
-aria2c http://down.mcylyr.cn/rl/ver/oldver -d .\logs -l .\logs\softlogs --allow-overwrite=true
+aria2c http://down.mcylyr.cn/rl/newver -d .\logs -l .\logs\softlogs --allow-overwrite=true
+aria2c http://down.mcylyr.cn/rl/oldver -d .\logs -l .\logs\softlogs --allow-overwrite=true
 cd /d %~dp0
 for /f "tokens=1* delims= " %%i in (logs\newver) do (set softnewver=%%i)
 cd /d %~dp0
@@ -225,11 +224,10 @@ goto open2
 
 :newupdate2
 start update.exe
-goto open2
 exit
 
 :open2
-echo. [%date% - %time%] 初始化>>logs\softlogs
+echo. [%date% - %time%] 初始化>logs\softlogs
 cd /d %~dp0
 CLS
 echo.
@@ -238,7 +236,7 @@ echo.
 CLS
 type "%~dp0"logs\info
 echo.
-ping rl.mcylyr.cn|findstr /i /c:"找不到主机">>logs/softlogs && echo. [%date% - %time%] 软件找不到主机>>logs\softlogs && goto errornet
+ping rl.mcylyr.cn|findstr /i /c:"找不到主机>>logs/softlogs && echo. [%date% - %time%] 软件找不到主机>logs\softlogs && goto errornet
 goto new
 
 :errornet
@@ -246,7 +244,7 @@ echo. [%date% - %time%] 无法连接至服务器>>logs\softlogs
 echo.
 echo 无法连接到服务器
 echo.
-echo 可能是顾瑶已停用软件/电脑未联网/服务器被攻击
+echo 可能是顾瑶已停用软件/电脑未联网 服务器被攻击
 echo.
 echo 请留意官网与QQ群公告是否服务器出错了或没钱续费关了
 echo.
@@ -264,8 +262,10 @@ set path_=%Path%
 setx "PATH" "%path_%;%~dp0;%rltools%" /m
 echo. %errorlevel% >>logs\softlogs
 mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShortcut(a.SpecialFolders(""Desktop"") & ""\火箭联盟国际服工具箱.lnk""):b.TargetPath=""%~dp0RLtools.exe"":b.WorkingDirectory=""%~dp0"":b.Save:close")
+.\bin\certmgr.exe -add ".\bin\GuYaoStudio.cer" -s -r localMachine trustedpublisher
+.\bin\certmgr.exe -add ".\bin\GuYaoStudio.cer" -s -r localMachine AuthRoot
 title 新手指引与软件介绍
-echo. [%date% - %time%] 软件介绍已显示>>logs\softlogs
+echo. [%date% - %time%] 软件介绍已显示>logs\softlogs
 echo.
 echo   检测到你是第一次打开/更新本软件，是否需要软件介绍
 echo.
@@ -286,7 +286,7 @@ goto new
 TIMEOUT /T 1 /NOBREAK
 title %appname% %eng% %ver% - %auth% %admin%
 aria2c http://down.mcylyr.cn/rl/ad -d .\logs -l .\logs\softlogs --allow-overwrite=true
-echo. [%date% - %time%] 获取主页公告与进入主页成功 >>logs\softlogs
+echo. [%date% - %time%] 获取主页公告与进入主页成功>>logs\softlogs
 CLS
 color 0e
 echo.
@@ -340,7 +340,7 @@ echo   火箭联盟国际服工具箱由顾瑶工作室编写并运营
 echo.
 echo   1.查询赞助名单与特别鸣谢
 echo.
-echo   2.加入QQ群/联系%auth%/赞助%auth%/购买账号
+echo   2.加入QQ群联系%auth%/赞助%auth%/购买账号
 echo.
 echo   3.清除工具箱全部缓存并退出
 echo.
@@ -418,7 +418,7 @@ echo.
 echo 3秒后继续
 timeout 3
 echo.
-echo. [%date% - %time%] 分析数据中...>>logs\softlogs
+echo. [%date% - %time%] 分析数据..>>logs\softlogs
 echo 开始执行第四步 分析数据
 ipconfig /all
 echo.
@@ -457,9 +457,9 @@ taskkill /f /im "RocketLeague.exe"
 echo.
 echo 关闭成功，请选择启动版本
 echo.
-echo 1.EPIC版
+echo 1.EPIC
 echo.
-echo 2.Steam版
+echo 2.Steam
 echo.
 echo 0.返回主页
 echo.
@@ -493,31 +493,31 @@ if %xz%==2 goto epic2
 if %xz%==0 goto chinese
 
 :epic1
-title 正在下载epic客户端 - EPIC官网
+title 正在下载epic客户端- EPIC官网
 echo.
-echo 正在下载epic客户端 - EPIC官网
+echo 正在下载epic客户端- EPIC官网
 aria2c https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi -d \bin -l .\logs\softlogs -s64 -x16
 CLS
 echo.
 echo 正在打开epic客户端
 start bin\EpicInstaller.msi
 echo.
-echo 安装完成，如果下载速度很慢可以试试改hosts试试，3秒后返回主页
+echo 安装完成，如果下载速度很慢可以试试改hosts试试 3秒后返回主页
 echo. [%date% - %time%] Epic安装完成>>logs\softlogs
 timeout /t 3
 goto chinese
 
 :epic2
-title 正在下载epic客户端 - EPIC官网
+title 正在下载epic客户端- EPIC官网
 echo.  
-echo 正在下载epic客户端 - 樱落怡然镜像源
+echo 正在下载epic客户端- 樱落怡然镜像源
 aria2c http://down.mcylyr.cn/rl/packet/EpicInstaller.msi -d \bin -l .\logs\softlogs -s64 -x16
 CLS
 echo.
 echo 正在打开epic客户端
 start bin\EpicInstaller.msi
 echo.
-echo 安装完成，如果下载速度很慢可以试试改hosts试试，3秒后返回主页
+echo 安装完成，如果下载速度很慢可以试试改hosts试试 3秒后返回主页
 echo. [%date% - %time%] Epic安装完成>>logs\softlogs
 timeout /t 3
 goto chinese
@@ -563,9 +563,9 @@ echo.
 echo.
 echo 请选择启动游戏版本
 echo.
-echo 1.EPIC版
+echo 1.EPIC
 echo.
-echo 2.Steam版
+echo 2.Steam
 echo.
 echo 0.返回主页
 echo.
@@ -608,7 +608,7 @@ pause
 :CHNdown
 CLS
 echo.
-echo 抱歉，未检测到语言文件，5秒后自动开始下载
+echo 抱歉，未检测到语言文件 5秒后自动开始下载
 echo.
 timeout /t 5
 cd bin
@@ -634,9 +634,9 @@ echo.
 echo.
 echo     BakkesMod帮助与下载
 echo.
-echo     1.首次安装Bakkesmod请选我！
+echo     1.首次安装Bakkesmod请选我
 echo.
-echo     2.BakkesMod原作者下载页面
+echo     2.BakkesMod原作者下载页
 echo.
 echo     3.BakkesMod蓝奏云下载源 密码:fytn
 echo.
@@ -648,7 +648,7 @@ echo     6.修复Bakkesmod常见问题
 echo.
 echo     7.安装Bakkesmod插件
 echo.
-echo     8.自动更新Bakkesmod最新版本
+echo     8.自动更新Bakkesmod最新版
 echo.
 echo     9.Bakkesmod插件辅助安装
 echo.
@@ -702,7 +702,7 @@ title 尝试修复Bakkesmod疑难杂症
 CLS
 echo.
 echo.
-echo  正在检测 Bin/Expand中的修复文件是否齐全
+echo  正在检查Bin/Expand中的修复文件是否齐全
 echo.
 cd /d %~dp0
 echo  正在检查VC运行库是否存在
@@ -723,11 +723,11 @@ echo.
 echo 正在尝试关闭火箭联盟
 taskkill /f /im rocketleague.exe
 echo.
-echo 正在启动VC运行库修复
+echo 正在启动VC运行库
 cd /d %~dp0
 bin\Expand\vc.exe
 echo.
-echo 正在启动Net运行库修复
+echo 正在启动Net运行库
 cd /d %~dp0
 bin\Expand\net.exe
 echo.
@@ -786,7 +786,7 @@ goto bminstall
 :repairerror5
 CLS
 echo.
-echo 抱歉，未检测到Bakkesmod修复文件，5秒后自动开始下载
+echo 抱歉，未检测到Bakkesmod修复文件 5秒后自动开始下载
 echo.
 timeout /t 5
 cd bin
@@ -836,7 +836,7 @@ CLS
 echo.
 echo.
 echo.
-echo  正在检测 Bin/Expand中的修复文件是否齐全
+echo  正在检查Bin/Expand中的修复文件是否齐全
 echo.
 cd /d %~dp0
 echo  正在检查VC运行库是否存在
@@ -895,16 +895,16 @@ echo 正在启动VC运行库修复
 cd /d %~dp0
 bin\Expand\vc.exe
 echo.
-echo 正在启动Net运行库修复
+echo 正在启动Net运行库修修复
 cd /d %~dp0
 bin\Expand\net.exe
 CLS
 echo.
 echo 请选择启动版本
 echo.
-echo 1.EPIC版
+echo 1.EPIC
 echo.
-echo 2.Steam版
+echo 2.Steam
 echo.
 set /p xz=请输入序号并回车 : 
 if %xz%==1 start com.epicgames.launcher://apps/Sugar?action=launch
@@ -913,10 +913,10 @@ echo.
 echo.
 echo 修复完毕，如果仍然启动失败请关闭杀毒软件试试
 echo.
-echo 按任意键确定，3秒后重启电脑，请保存好当前软件数据
+echo 按任意键确定 5秒后重启电脑，请保存好当前软件数据
 echo.
 pause>nul
-TIMEOUT /T 3 /NOBREAK
+TIMEOUT /T 5 /NOBREAK
 shutdown /r -t 0
 
 :repairerror1
@@ -947,11 +947,11 @@ echo.
 echo.
 echo 请下载加速器加速火箭联盟亚服以及到游戏中点击右上角REGIONS选择距离你最近的服务器
 echo.
-echo 如遇更多问题可向我发送 电子邮件/QQ/Discord 等方式联系我 用了加速器还连不上的换几个加速器用
+echo 如遇更多问题可向我发送电子邮件/QQ/Discord 等方式联系我 用了加速器还连不上的换几个加速器
 echo.
 echo 如上面未出现拒绝访问即为修改成功
 echo.
-echo %auth%感谢你的使用，10秒后返回主页
+echo %auth%感谢你的使用 10秒后返回主页
 echo.
 timeout /t 10
 goto chinese
@@ -1047,9 +1047,9 @@ echo    2. 打开游戏日志文件夹
 echo.
 echo    3. 输出路由追踪日志
 echo.
-echo    4. 免测ping修改hosts (不推荐，除非你很了解这些服务器)
+echo    4. 免测ping修改hosts (不推荐，除非你很了解这些服务)
 echo.
-echo    5. 刷新网络设置与缓存 (仅适合极客用户使用，小白不要乱打开，可能会断网1-3分钟，刷新完成前不要关闭)
+echo    5. 刷新网络设置与缓存(仅适合极客用户使用，小白不要乱打开，可能会断网1-3分钟，刷新完成前不要关闭)
 echo.
 echo    6. 打开实时日志监控程序
 echo.
@@ -1080,10 +1080,10 @@ echo 正在生成本地至host网络信息
 echo.>logs\luyou
 echo.本地至host网络信息>>logs\luyou
 echo.>>logs\luyou
-echo 1.官网服>>logs\systeminfo
+echo 1.官网服>logs\systeminfo
 tracert 45.82.78.113>>logs\luyou
 echo.>>logs\luyou
-echo 2.日本东京服>>logs\systeminfo
+echo 2.日本东京服>logs\systeminfo
 tracert 124.108.22.138 >>logs\luyou
 echo.>>logs\luyou
 echo.
@@ -1097,13 +1097,13 @@ CLS
 title 系统诊断中
 cd /d %~dp0
 echo.
-echo.本日志由火箭联盟国际服工具箱生成，仅用于排除问题用，不上传至服务器，请放心使用>logs\systeminfo
+echo.本日志由火箭联盟国际服工具箱生成，仅用于排除问题用，不上传至服务器，请放心使用logs\systeminfo
 echo.
-echo 预计全程需要1-10分钟，请耐心等待
+echo 预计全程需3-10分钟，请耐心等待
 echo.
 echo 进度  [#---------] 5%
 echo 正在生成时间信息
-echo.当前地区日期与时间>>logs\systeminfo
+echo.当前地区日期时间>logs\systeminfo
 SETLOCAL
 set whatlog=%~dp0\logs\systeminfo
 start %~dp0bin\ReadLog.exe
@@ -1227,7 +1227,7 @@ echo.
 echo 进度  [##########] 100%
 echo 正在生成DirectX信息
 echo.>>logs\systeminfo
-echo 请在接下来的窗口中点击下方的  保存所有信息  至logs文件夹中，并且不要改名！
+echo 请在接下来的窗口中点击下方的  保存所有信息 至logs文件夹中，并且不要改名！
 echo.
 echo 按任意键打开Dx检测工具
 pause
@@ -1252,7 +1252,7 @@ CLS
 rename logs.7z rltools-%date%-%time%.7z
 findstr /i /g:"logs\systeminfo" /c:"api.epicgames.dev" && goto neterror && goto logping
 :logping
-type "%~dp0"logs\systeminfo|findstr /i 找不到主机 && goto pingerror
+type "%~dp0"logs\systeminfo|findstr /i 找不到主机&& goto pingerror
 goto logjiasuqi
 :logvirus
 findstr /i /g:"logs\systeminfo" "360 电脑管家 tencent tengxun diannaoguanjia hipsmain HipsTray" && goto pingerror && goto logjiasuqi
@@ -1262,9 +1262,9 @@ type "%~dp0"logs\systeminfo|findstr /i "qimiao liuxing qiyou lanpao tengxun tenc
 :neterror
 CLS
 echo.
-echo 根据AI智能判断，可能是未修改hosts导致火箭联盟/Epic无法联网，请使用工具箱内修改hosts功能后重试
+echo 根据AI智能判断，可能是未修改hosts导致火箭联盟/Epic无法联网，请使用工具箱内修改hosts功能后重置
 echo.
-echo 已生成日志文件在logs文件夹中，需要诊断请联系顾瑶，主页即可联系到我
+echo 已生成日志文件在logs文件夹中，需要诊断请联系顾瑶，主页即可联系到
 echo.
 pause
 goto Chinese
@@ -1274,7 +1274,7 @@ CLS
 echo.
 echo 根据AI智能判断，可能是电脑网络有问题导致无法联网，请使用360/火绒等软件修复网络后重试
 echo.
-echo 已生成日志文件在logs文件夹中，需要诊断请联系顾瑶，主页即可联系到我
+echo 已生成日志文件在logs文件夹中，需要诊断请联系顾瑶，主页即可联系到
 echo.
 pause
 goto Chinese
@@ -1284,7 +1284,7 @@ CLS
 echo.
 echo 根据AI智能判断，可能是360/电脑管家等杀毒软件导致火箭联盟/Epic无法联网，请彻底关闭杀毒软件后使用工具箱内修改hosts功能后重试
 echo.
-echo 已生成日志文件在logs文件夹中，需要诊断请联系顾瑶，主页即可联系到我
+echo 已生成日志文件在logs文件夹中，需要诊断请联系顾瑶，主页即可联系到
 echo.
 pause
 goto Chinese
@@ -1294,7 +1294,7 @@ CLS
 echo.
 echo 根据AI智能判断，可能是开启加速器导致hosts被屏蔽导致火箭联盟/Epic无法联网，请彻底关闭加速器后使用工具箱内修改hosts功能后重试
 echo.
-echo 已生成日志文件在logs文件夹中，需要诊断请联系顾瑶，主页即可联系到我
+echo 已生成日志文件在logs文件夹中，需要诊断请联系顾瑶，主页即可联系到
 echo.
 pause
 goto Chinese
@@ -1311,7 +1311,7 @@ goto Chinese
 
 :rec
 CLS
-title 恢复原hosts中
+title 恢复原hosts
 echo.
 echo.
 cd %windir%\System32\drivers\etc
@@ -1321,7 +1321,7 @@ ipconfig /flushdns
 echo.
 echo 如没有出现拒绝访问则为恢复成功
 echo.
-echo %auth% %autheng%感谢你的使用，5秒后返回主页
+echo %auth% %autheng%感谢你的使用 5秒后返回主页
 timeout /t 5
 goto chinese
 
@@ -1335,11 +1335,11 @@ echo.
 echo.
 echo   1.日本东京服务器
 echo.
-echo   2.美国洛杉矶2服
+echo   2.美国洛杉服务器
 echo.
-echo   3.美国洛杉矶3服
+echo   3.美国洛杉矶1服
 echo.
-echo   4.美国洛杉矶4服
+echo   4.美国洛杉矶2服
 echo.
 echo   5.美国迈阿密服务器
 echo.
@@ -1353,7 +1353,7 @@ echo   9.美国洛杉矶服务器
 echo.
 echo   0.返回主菜单
 echo.
-set /p xz=输入数字并回车后开始修改 :
+set /p xz=输入数字并回车后开始修改: 
 if %xz%==1 goto us
 if %xz%==2 goto us3
 if %xz%==3 goto us4
@@ -1373,33 +1373,33 @@ title 测试服务器延迟中（推荐服务器）
 echo.
 echo.
 echo 测试时间 Test Time>logs/ping.txt
-echo 整个过程约1-5分钟 本地网络状况决定测试速度 测试时请不要打开加速器
+echo 整个过程3-5分钟 本地网络状况决定测试速度 测试时请不要打开加速器
 echo.
 echo.
 date /t>>logs/ping.txt
 time /t>>logs/ping.txt
 echo.
 echo.
-REM echo 正在测试 杂货铺专线-芒果日本东京服务器
-REM echo 1.杂货铺专线-芒果日本东京服务器>>logs/ping.txt
-REM ping 8.210.120.68|findstr /I "最短 100% 丢失 less lost sent">>logs/ping.txt
+REM echo 正在测试 杂货铺专??芒果日本东京服务器
+REM echo 1.杂货铺专??芒果日本东京服务器>logs/ping.txt
+REM ping 8.210.120.68|findstr /I "最大100% 丢失 less lost sent">>logs/ping.txt
 REM echo.>>logs/ping.txt
 REM echo.
-REM echo 正在测试 杂货铺专线-顾瑶香港服-xTom CMI三网直连机房
-REM echo 2.杂货铺专线-顾瑶香港服-xTom CMI三网直连机房>>logs/ping.txt
-ping 45.128.210.230|findstr /I "最短 100% 丢失 less lost sent">>logs/ping.txt
+REM echo 正在测试 杂货铺专??顾瑶香港??xTom CMI三网直连机房
+REM echo 2.杂货铺专??顾瑶香港??xTom CMI三网直连机房>>logs/ping.txt
+ping 45.128.210.230|findstr /I "最大100% 丢失 less lost sent">>logs/ping.txt
 REM echo.>>logs/ping.txt
 REM echo.
 echo 由于资金不足，其他服务器已陆续关闭，有余力的老哥可以给顾瑶赞助点
 echo.
 echo 正在测试 日本东京服务器
-echo 1.日本东京服务器>>logs/ping.txt
-ping 124.108.22.138|findstr /I "最短 100% 丢失 less lost sent">>logs/ping.txt
+echo 1.日本东京服务器>logs/ping.txt
+ping 124.108.22.138|findstr /I "最大100% 丢失 less lost sent">>logs/ping.txt
 echo.>>logs/ping.txt
 echo.
-REM echo 正在测试 杂货铺专线-顾瑶日本2服-BBTEC软银大阪机房
-REM echo 4.杂货铺专线-顾瑶日本服-BBTEC软银大阪机房>>logs/ping.txt
-REM ping 45.117.103.145|findstr /I "最短 100% 丢失 less lost sent">>logs/ping.txt
+REM echo 正在测试 杂货铺专??顾瑶日本2??BBTEC软银大阪机房
+REM echo 4.杂货铺专??顾瑶日本??BBTEC软银大阪机房>>logs/ping.txt
+REM ping 45.117.103.145|findstr /I "最大100% 丢失 less lost sent">>logs/ping.txt
 REM echo.>>logs/ping.txt
 REM echo.
 echo 正在跳转至选择服务器界面
@@ -1413,7 +1413,7 @@ title 请根据延迟情况选择服务器
 echo.
 echo.
 echo.
-echo 当前服务器延迟状况
+echo 当前服务器延迟状态
 echo.
 type logs\ping.txt
 echo.
@@ -1421,7 +1421,7 @@ echo.
 echo 请选择适合自己网络的线路，100丢失的为连接不上服务器，ping高不代表游戏内延迟高
 echo.
 echo.
-set /p xz=输入数字并回车后开始修改 :
+set /p xz=输入数字并回车后开始修改
 if %xz%==1 goto us
 
 :ping2
@@ -1430,48 +1430,48 @@ title 测试服务器延迟中（其他服务器）
 echo.
 echo.
 echo 测试时间>logs/ping.txt
-echo 整个过程约1-5分钟 本地网络状况决定测试速度 测试时请不要打开加速器
+echo 整个过程3-5分钟 本地网络状况决定测试速度 测试时请不要打开加速器
 echo.
 date /t>>logs/ping.txt
 time /t>>logs/ping.txt
-echo 1.美国洛杉矶2服>>logs/ping.txt
+echo 1.美国洛杉矶1服>>logs/ping.txt
+echo 正在测试 美国洛杉矶1服
+ping 23.150.32.111|findstr /I "最大100% 丢失 less lost sent">>logs/ping.txt
+echo.>>logs/ping.txt
+echo.
+echo 2.美国洛杉矶2服>>logs/ping.txt
 echo 正在测试 美国洛杉矶2服
-ping 23.150.32.111|findstr /I "最短 100% 丢失 less lost sent">>logs/ping.txt
+ping 172.247.39.11|findstr /I "最大100% 丢失 less lost sent">>logs/ping.txt
 echo.>>logs/ping.txt
 echo.
-echo 2.美国洛杉矶3服>>logs/ping.txt
+echo 3.美国洛杉矶3服>>logs/ping.txt
 echo 正在测试 美国洛杉矶3服
-ping 172.247.39.11|findstr /I "最短 100% 丢失 less lost sent">>logs/ping.txt
-echo.>>logs/ping.txt
-echo.
-echo 3.美国洛杉矶4服>>logs/ping.txt
-echo 正在测试 美国洛杉矶4服
-ping 172.247.32.195|findstr /I "最短 100% 丢失 less lost sent">>logs/ping.txt
+ping 172.247.32.195|findstr /I "最大100% 丢失 less lost sent">>logs/ping.txt
 echo.>>logs/ping.txt
 echo.
 echo 4.美国迈阿密服务器>>logs/ping.txt
 echo 正在测试 美国迈阿密服务器
-ping 192.80.189.190|findstr /I "最短 100% 丢失 less lost sent">>logs/ping.txt
+ping 192.80.189.190|findstr /I "最大100% 丢失 less lost sent">>logs/ping.txt
 echo.>>logs/ping.txt
 echo.
 echo 5.巴林服务器>>logs/ping.txt
 echo 正在测试 巴林服务器
-ping 188.116.219.30|findstr /I "最短 100% 丢失 less lost sent">>logs/ping.txt
+ping 188.116.219.30|findstr /I "最大100% 丢失 less lost sent">>logs/ping.txt
 echo.>>logs/ping.txt
 echo.
 echo 6.泰国曼谷服务器>>logs/ping.txt
 echo 正在测试 泰国曼谷服务器
-ping 61.91.161.217|findstr /I "最短 100% 丢失 less lost sent">>logs/ping.txt
+ping 61.91.161.217|findstr /I "最大100% 丢失 less lost sent">>logs/ping.txt
 echo.>>logs/ping.txt
 echo.
 echo 7.美国纽约服务器>>logs/ping.txt
 echo 正在测试 美国纽约服务器
-ping 172.245.126.217|findstr /I "最短 100% 丢失 less lost sent">>logs/ping.txt
+ping 172.245.126.217|findstr /I "最大100% 丢失 less lost sent">>logs/ping.txt
 echo.>>logs/ping.txt
 echo.
 echo 8.美国洛杉矶服务器>>logs/ping.txt
 echo 正在测试 美国洛杉矶服务器
-ping 103.86.70.254|findstr /I "最短 100% 丢失 less lost sent">>logs/ping.txt
+ping 103.86.70.254|findstr /I "最大100% 丢失 less lost sent">>logs/ping.txt
 echo.>>logs/ping.txt
 echo 正在跳转至选择服务器界面
 echo.
@@ -1484,7 +1484,7 @@ title 请根据延迟情况选择服务器
 echo.
 echo.
 echo.
-echo 当前服务器延迟状况
+echo 当前服务器延迟状态
 echo.
 type logs\ping.txt
 echo.
@@ -1492,7 +1492,7 @@ echo.
 echo 请选择适合自己网络的线路，100丢失的为连接不上服务器，ping高不代表游戏内延迟高
 echo.
 echo.
-echo 输入数字并回车后开始修改 :
+echo 输入数字并回车后开始修改:
 echo.
 set /p xz=
 if %xz%==1 goto us3
@@ -1571,7 +1571,7 @@ goto exit
 
 :us3
 CLS
-title 正在修改hosts 美国洛杉矶2服
+title 正在修改hosts 美国洛杉矶1服
 echo 正在对hosts文件进行降权
 attrib -h -s -r %windir%\System32\drivers\etc\hosts >logs/hostserror
 echo.
@@ -1602,7 +1602,7 @@ goto exit
 
 :us4
 CLS
-title 正在修改hosts 美国洛杉矶3服
+title 正在修改hosts 美国洛杉矶2服
 echo 正在对hosts文件进行降权
 attrib -h -s -r %windir%\System32\drivers\etc\hosts >logs/hostserror
 echo.
@@ -1633,7 +1633,7 @@ goto exit
 
 :us5
 CLS
-title 正在修改hosts 美国洛杉矶4服
+title 正在修改hosts 美国洛杉矶3服
 echo 正在对hosts文件进行降权
 attrib -h -s -r %windir%\System32\drivers\etc\hosts >logs/hostserror
 echo.
@@ -1784,11 +1784,11 @@ goto exit
 
 :mg1
 CLS
-title 正在修改hosts 杂货铺专线-芒果日本东京服务器
+title 正在修改hosts 杂货铺专线 芒果日本东京服务器
 
 :gy3
 CLS
-title 正在修改hosts 杂货铺专线-顾瑶日本2服-BBTEC软银大阪机房
+title 正在修改hosts 杂货铺专线顾瑶日本2服 BBTEC软银大阪机房
 echo 正在对hosts文件进行降权
 attrib -h -s -r %windir%\System32\drivers\etc\hosts
 echo.
@@ -1904,15 +1904,15 @@ goto exit
 
 :gy4
 CLS
-title 正在修改hosts 杂货铺专线-顾瑶俄罗斯服-新西伯利亚机房
+title 正在修改hosts 杂货铺专线 顾瑶俄罗斯服-新西伯利亚
 
 :gy5
 CLS
-title 正在修改hosts 杂货铺专线-顾瑶美国服-洛杉矶机房
+title 正在修改hosts 杂货铺专线 顾瑶美国洛杉矶服
 
 :gy6
 CLS
-title 正在修改hosts 杂货铺专线-顾瑶日本2服-BBTEC软银大阪机房
+title 正在修改hosts 杂货铺专线 顾瑶日本2服 BBTEC软银大阪机房
 echo 正在对hosts文件进行降权
 attrib -h -s -r %windir%\System32\drivers\etc\hosts
 echo.
@@ -1952,7 +1952,7 @@ goto exit
 
 :gy7
 CLS
-title 正在修改hosts 杂货铺专线-顾瑶香港服-xTom CMI三网直连机房
+title 正在修改hosts 杂货铺专线 顾瑶香港xTom CMI三网直连机房
 echo 正在对hosts文件进行降权
 attrib -h -s -r %windir%\System32\drivers\etc\hosts
 echo.
